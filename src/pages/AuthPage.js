@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom';
+import RegisterForm from '../components/RegisterForm/RegisterForm'
+import LoginForm from '../components/LoginForm/LoginForm'
 
 const AuthPage = () => {
   const { id } = useParams();
   return (
     <div>
-      {id === 'login' && <p>login</p>}
-      {id === 'register' && <p>register</p>}
+      {id === 'login' && <LoginForm />}
+      {id === 'register' && <RegisterForm /> }
     </div>
   );
 };
