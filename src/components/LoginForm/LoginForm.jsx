@@ -7,18 +7,18 @@ import css from './LoginForm.module.css';
 // import eyeOpen from '../../images/eye-open.svg'
 
 function LoginPage() {
-//   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-//   const togglePasswordVisibility = () => {
-//     setShowPassword(!showPassword);
-//   };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
 
   return (
     <div className={css.content}>
       <div className={css.menu}>
-        <Link href="team-project-TaskPro-Frontend/auth/register" underline="none">Registration</Link>
-        <Link href="team-project-TaskPro-Frontend/auth/login" underline="none">Login</Link>
+        <Link href="register" underline="none">Registration</Link>
+        <Link href="login" underline="none">Login</Link>
       </div>
       <div className={css.inputs}>
         <input
@@ -26,7 +26,7 @@ function LoginPage() {
             placeholder="Email"
         />
         <div className={css.passwordinput}>
-          {/* <input type={showPassword ? 'text' : 'password'} placeholder="Password" /> */}
+          <input type={showPassword ? 'text' : 'password'} placeholder="Password" />
           {/* <span className={`${css.togglepassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
             {showPassword ? (
               <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373'/>

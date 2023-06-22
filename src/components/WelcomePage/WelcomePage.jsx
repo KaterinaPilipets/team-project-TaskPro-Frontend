@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet  } from 'react-router-dom';
-import { Suspense } from 'react';
+import { NavLink } from 'react-router-dom';
 import css from './WelcomePage.module.css';
 // import logo from '../../images/logo.png';
 // import icon from '../../images/icon.svg';
@@ -43,16 +42,14 @@ function WelcomePage() {
       </div>
       <div className={css.registration}>
         <div>
-          <NavLink className={css.registerBtn} to="auth/register">Registration</NavLink >
+          {/* <NavLink className={css.registerBtn} href="/auth/register">Registration</NavLink > */}
           {/* <Button href='/auth/registration' variant="contained" className={classes.customButton}>Registration</Button>*/}
-          {/* <CustomButton href='team-project-TaskPro-Frontend/auth/register' variant="contained">Registration</CustomButton> */}
-          {/* href='team-project-TaskPro-Frontend/auth/register' */}
+          <CustomButton href='team-project-TaskPro-Frontend/auth/register' variant="contained">Registration</CustomButton>
         </div>
         <div>
-          <NavLink className={css.loginBtn} to="auth/login">Log In</NavLink >
+          {/* <NavLink className={css.loginBtn} to="/auth/login">Log In</NavLink > */}
           {/* <Button href='/auth/login' variant="text" style={{ color: "black", textTransform: 'none' }}>Log In</Button> */}
-          {/* <Link className={css.style} href="team-project-TaskPro-Frontend/auth/login" underline="none" color={{ color: '#161616' }}>Log In</Link> */}
-          {/* href="team-project-TaskPro-Frontend/auth/login" */}
+          <Link className={css.style} href="team-project-TaskPro-Frontend/auth/login" underline="none" color={{ color: '#161616' }}>Log In</Link>
         </div>
       </div>
     </div>
