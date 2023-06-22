@@ -17,14 +17,14 @@ export const App = () => {
       {/* {isRefreshing ? (
         <p>Loading...</p>
       ) : ( */}
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path="/" element={<WelcomePage />}></Route>
-          <Route path="welcome" element={<WelcomePage />} />
-          <Route path="auth/:id" element={<AuthPage />} />
-          <Route path="home" element={<HomePage />} />
-        </Routes>
-      </Suspense>
+      {/* <Suspense fallback={<p>Loading...</p>}> */}
+      <Routes>
+        <Route path="/" element={<WelcomePage />}></Route>
+        <Route path="welcome" element={<WelcomePage />} />
+        <Route path="auth/:id" element={<AuthPage />} />
+        <Route path="home" element={<HomePage />} />
+      </Routes>
+      {/* </Suspense> */}
       {/* )}  */}
     </>
   );
