@@ -163,16 +163,6 @@
       "mobile": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687407715/TaskProImages/mobile/mob8_ntidsc.png",
       "icon": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687407713/TaskProImages/iconimages/icon15_akhsmn.png"
     }
-  },
-  {
-    "id": "16Xoaj1CtPEohW",
-    "bgname": "empty-icon",
-    "alt": "two grey triangles and a circle",
-    "URL": {
-      "desktop": "",
-      "tablet": "",
-      "mobile": "",
-      "icon": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687407713/TaskProImages/iconimages/iconblock_taqjlq.png"
-    }
   }
+
 ]
