@@ -42,6 +42,7 @@ right: 14px;
 margin-left: auto;
 cursor: pointer;
 
+/* <span> */
 /* font-weight: bold;
 font-size: 18px;
 color: tomato; */
