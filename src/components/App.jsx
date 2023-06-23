@@ -1,5 +1,5 @@
 // import { Suspense, lazy, useEffect } from 'react';
-import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,14 +15,17 @@ export const App = () => {
   //  }, [dispatch]);
   return (
     <>
-      {/* <Suspense fallback={<p>Loading...</p>}> */}
-      <Routes>
-        <Route path="/" element={<WelcomePage />}></Route>
-        <Route path="welcome" element={<WelcomePage />} />
-        <Route path="auth/:id" element={<AuthPage />} />
-        <Route path="home" element={<HomePage />} />
-      </Routes>
-      {/* </Suspense> */}
+      <Suspense fallback={<p>Loading...</p>}>
+        {/* <Container> */}
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          {/* <Route  path="/" element={  <PrivateRoute redirectTo="/welcome" component={<HomePage />} /> } /> */}
+          <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/auth/:id" element={<AuthPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+        {/* </Container> */}
+      </Suspense>
     </>
   );
 };
