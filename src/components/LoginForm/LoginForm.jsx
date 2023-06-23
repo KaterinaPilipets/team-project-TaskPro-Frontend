@@ -16,6 +16,9 @@ function LoginPage() {
   //   setShowPassword(!showPassword);
   // };
 
+  // const togglePasswordVisibility = () => {
+  //   setShowPassword(!showPassword);
+  // };
 
   const handleSubmit = (event) => {
 
