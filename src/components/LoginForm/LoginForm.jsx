@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { Link } from '@mui/material';
 import css from './LoginForm.module.css';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
   const navigate = useNavigate()
-  const [showPassword ] = useState(false);
+  // const [showPassword ] = useState(false);
 
   // const togglePasswordVisibility = () => {
   //   setShowPassword(!showPassword);
@@ -47,7 +47,8 @@ function LoginPage() {
               placeholder="Email"
           />
           <div className={css.passwordinput}>
-            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+            <input name='password' type='password' placeholder="Password" />
+            {/* type={showPassword ? 'text' : 'password'} */}
             {/* <span className={`${css.togglepassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
               {showPassword ? (
                 <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373'/>
