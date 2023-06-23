@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import icon from '../../sprite.svg';
 
 // import PropTypes from "prop-types";
 
@@ -32,7 +33,7 @@ export const Modal = ({ onClose, children }) => {
       <StyledModal>
         <button type="button" onClick={onClose}>
           <svg width="18" height="18">
-            <use href="../../sprite.svg#icon-close"></use>
+            <use xlinkHref={`${url}#icon-close`} />
           </svg>
         </button>
         {children}
