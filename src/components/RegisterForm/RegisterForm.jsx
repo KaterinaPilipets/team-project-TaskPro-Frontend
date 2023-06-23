@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 function RegistrationPage() {
   const navigate = useNavigate()
 
-  const [showPassword ] = useState(false);
+  // const [showPassword ] = useState(false);
 
   // const togglePasswordVisibility = () => {
   //   setShowPassword(!showPassword);
@@ -44,7 +44,8 @@ function RegistrationPage() {
           <input name='name' type="text" placeholder="Name" />
           <input name='email' type="email" placeholder="Email" />
           <div className={css.passwordinput}>
-          <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+          <input name='password' type='password' placeholder="Password" />
+          {/* type={showPassword ? 'text' : 'password'} */}
           {/* <span className={`${css.togglepassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
               {showPassword ? (
                 <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373'/>
