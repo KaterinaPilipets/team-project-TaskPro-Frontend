@@ -42,11 +42,12 @@ function LoginPage() {
         </div>
         <div className={css.inputs}>
           <input
+              name='email'
               type="email"
               placeholder="Email"
           />
           <div className={css.passwordinput}>
-            <input type={showPassword ? 'text' : 'password'} placeholder="Password" />
+            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
             {/* <span className={`${css.togglepassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
               {showPassword ? (
                 <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373'/>
