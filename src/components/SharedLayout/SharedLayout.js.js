@@ -5,8 +5,8 @@ import { Container } from "../App.styled";
 export const SharedLayout = () => {
   return (
     <Container>
-      <Header />
-      <SideBar />
+      <div>Header</div>
+      <div>Sidebar</div>
       <Outlet />
     </Container>
   );
