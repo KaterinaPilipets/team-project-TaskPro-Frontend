@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { Link } from '@mui/material';
 import css from './LoginForm.module.css';
@@ -16,6 +16,9 @@ function LoginPage() {
   //   setShowPassword(!showPassword);
   // };
 
+  // const togglePasswordVisibility = () => {
+  //   setShowPassword(!showPassword);
+  // };
 
   const handleSubmit = (event) => {
 
