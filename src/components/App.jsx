@@ -21,7 +21,7 @@ export const App = () => {
           <Route path="/" element={<WelcomePage />} />
           {/* <Route  path="/" element={  <PrivateRoute redirectTo="/welcome" component={<HomePage />} /> } /> */}
           <Route path="/welcome" element={<WelcomePage />} />
-          <Route path="/auth/:id" element={<AuthPage />} />
+          <Route path="auth/:id" element={<AuthPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
         {/* </Container> */}
