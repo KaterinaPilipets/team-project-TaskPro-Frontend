@@ -1,7 +1,11 @@
+// import { SharedLayout } from 'components/SharedLayout/SharedLayout.js';
+
 const HomePage = () => {
   return (
     <div>
-      <p>HomePage </p>
+      {/* <SharedLayout> */}
+      <p>board </p>
+      {/* </SharedLayout> */}
     </div>
   );
 };
