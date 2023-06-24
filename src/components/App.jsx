@@ -1,6 +1,7 @@
 // import { Suspense, lazy, useEffect } from 'react';
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+// import { SharedLayout } from './SharedLayout/SharedLayout.js';
 // import { useDispatch, useSelector } from 'react-redux';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
@@ -29,3 +30,18 @@ export const App = () => {
     </>
   );
 };
+
+// todo routes with SharedLayout МОГУ ОШИБАТСЯ
+{
+  /* <Suspense fallback={<p>Loading...</p>}>
+<Routes>
+  <Route path="/welcome" element={<WelcomePage />} />
+  <Route path="/auth/:id" element={<AuthPage />} />
+  <Route path="/home" element={SharedLayout}>
+    <Route index element={<HomePage />}>
+      <Route path=":boardName" element={SreensPage} />
+    </Route>
+  </Route>
+</Routes>
+</Suspense> */
+}
