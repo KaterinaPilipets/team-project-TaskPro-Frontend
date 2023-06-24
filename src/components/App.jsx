@@ -8,12 +8,13 @@ const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage'));
 const HomePage = lazy(() => import('../pages/HomePage'));
 export const App = () => {
-  // const dispatch = useDispatch();
-  //  const isRefreshing = useSelector(authSelector.getIsRefreshing);
+// const dispatch = useDispatch();
+// const isRefreshing = useSelector(authSelector.getIsRefreshing);
 
-  //  useEffect(() => {
-  //    dispatch(authOperation.refreshCurrentUser());
-  //  }, [dispatch]);
+//    useEffect(() => {
+//      dispatch(authOperation.refreshCurrentUser());
+//    }, [dispatch]);
+
   return (
     <>
       <Suspense fallback={<p>Loading...</p>}>
