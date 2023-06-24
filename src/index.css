@@ -66,6 +66,7 @@ body {
 
   --themeText: rgba(255, 255, 255, 0.8);
   --themeBgColor: #151515;
+  --themeBorderColor: #BEDBB0;
   --themeSelectText: rgba(255, 255, 255, 0.5);
   --themeSelectTextAccent: #BEDBB0;
 
@@ -74,6 +75,7 @@ body {
   /** Sidebar */
   --logoColor: #FFFFFF;
   --logoBgColor: #1F1F1F;
+  --logoIconFill: #FFFFFF;
 
   --sidebarBgColor: #121212;
 
@@ -136,16 +138,17 @@ body {
   --filtersLineColor: rgba(255, 255, 255, 0.1);
   --filtersTextColor: rgba(255, 255, 255, 0.5);
   --filtersSelectTextColor: #FFFFFF;
-  --filtersBgColor: #151515;
 
 
   /* * Calendar */
   --calendarBgColor: #1F1F1F;
+  --calendarBorderColor: #BEDBB0;
   --calendarLineColor: rgba(255, 255, 255, 0.2);
   --calendarDayColor: rgba(255, 255, 255, 0.5);
-  --calendarDayLastColor: rgba(255, 255, 255, 0.2);
   --calendarArrowColor: rgba(255, 255, 255, 0.8);
+
   --calendarNumberColor: #FFFFFF;
+  --calendarNumberLastColor: rgba(255, 255, 255, 0.2);
   --calendarNumberAccentColor: #1F1F1F;
   --calendarNumberAccentBgColor: #BEDBB0;
 
@@ -157,20 +160,21 @@ body {
 
 
   /* * Pop up Edit Profile */
-  --ProfileBgColor: #151515;
+  --profileBgColor: #151515;
 
-  --ProfileInputBgColor: #1F1F1F;
-  --ProfileInputTextColor: rgba(255, 255, 255, 0.3);
-  --ProfileInputTextFocus: #FFFFFF;
-  --ProfileInputBorderColor: rgb(190, 219, 176, 0.5);
-  --ProfileInputBorderFocus: #BEDBB0;
+  --profileInputBgColor: #1F1F1F;
+  --profileInputTextColor: rgba(255, 255, 255, 0.3);
+  --profileInputTextFocus: #FFFFFF;
+  --profileInputBorderColor: rgb(190, 219, 176, 0.5);
+  --profileInputBorderFocus: #BEDBB0;
 
-  --ProfileButtonBgColor: #BEDBB0;
+  --profileButtonBgColor: #BEDBB0;
 
-  --ProfileIconBgColor: #BEDBB0;
-  --ProfileIconFill: #161616;
+  --profileIconBgColor: #BEDBB0;
+  --profileIconFill: #161616;
 
-  --ProfileUserBgColor: ##1F1F1F;
+  --profileUserIconBgColor: #1F1F1F;
+  --profileUserIconFill: #151515;
 
 
   /* * Pop up Add card and Edit card*/
