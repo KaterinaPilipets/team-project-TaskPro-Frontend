@@ -1,12 +1,11 @@
 import axios from "axios";
-const instance = axios.create({
-    baseURL: 'https://api.escuelajs.co/api/v1'
-})
+
+axios.defaults.baseURL = 'https://task-pro-backend-j82b.onrender.com';
 
 export const singUp = async (body) => {
-    return await instance.post('/users', body)
+    return await axios.post('/users/register', body)
 }
 
 export const logIn = async (body) => {
-    return await instance.post('/auth/login', body)
+    return await axios.post('/users/login', body)
 }

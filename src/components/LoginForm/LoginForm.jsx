@@ -1,36 +1,28 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Link } from '@mui/material';
 import css from './LoginForm.module.css';
 import { logIn } from '../../services/auth-services';
-// import { useNavigate } from 'react-router-dom'
-// import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import eyeOpen from '../../images/eye-open.svg'
+import { useNavigate } from 'react-router-dom';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import sprite from '../../sourse/sprite.svg';
 
 function LoginPage() {
-  // const navigate = useNavigate()
-  // const [showPassword ] = useState(false);
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword ] = useState(false);
 
-  // const togglePasswordVisibility = () => {
-  //   setShowPassword(!showPassword);
-  // };
-
-  // const togglePasswordVisibility = () => {
-  //   setShowPassword(!showPassword);
-  // };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault()
     logIn({
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
-    }).then(console.log)
-
-    // logIn(newUser)
-    //   .then(() => {console.log('Все відправлено на Бекенд')
-    //   navigate('/home')})
-    //   .catch((error) => console.log(error))
+    }).then(() => {console.log('Успішно залогінено')
+    // Ось тут мені потрібно зберегти дані
+    navigate('/home')})
   }
 
   return (
@@ -41,21 +33,16 @@ function LoginPage() {
           <Link href="login" underline="none">Login</Link>
         </div>
         <div className={css.inputs}>
-          <input
-              name='email'
-              type="email"
-              placeholder="Email"
-          />
+          <input name='email' type="email" placeholder="Email" />
           <div className={css.passwordinput}>
-            <input name='password' type='password' placeholder="Password" />
-            {/* type={showPassword ? 'text' : 'password'} */}
-            {/* <span className={`${css.togglepassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
-              {showPassword ? (
-                <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373'/>
+            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+              <span className={`${css.togglePassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373' />
                 ) : (
-                  <img src={eyeOpen} alt="Eye" />
+                  <svg className={css.svg}><use xlinkHref={`${sprite}#icon-eye`} /></svg>
                 )}
-            </span> */}
+              </span>
           </div>
         </div>
         <button className={css.registerbtn}>Log In Now</button>
