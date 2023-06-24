@@ -37,7 +37,8 @@ function WelcomePage() {
           <p className={css.name}>TASK PRO</p>
         </div>
         <p className={css.text}>
-          Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!
+          Supercharge your productivity and take control of your tasks with Task
+          Pro - Don't wait, start achieving your goals now!
         </p>
       </div>
       <div className={css.registration}>
