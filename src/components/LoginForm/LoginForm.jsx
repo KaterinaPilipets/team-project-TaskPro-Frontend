@@ -3,13 +3,13 @@
 import { Link } from '@mui/material';
 import css from './LoginForm.module.css';
 import { logIn } from '../../services/auth-services';
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 // import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import eyeOpen from '../../images/eye-open.svg'
 
 function LoginPage() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   // const [showPassword ] = useState(false);
 
   // const togglePasswordVisibility = () => {
@@ -21,19 +21,16 @@ function LoginPage() {
   // };
 
   const handleSubmit = (event) => {
-
     event.preventDefault()
-    const newUser = {
-      // name: event.target.elements.name.value,
+    logIn({
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
-      avatar: 'https://res.cloudinary.com/dsqxw0541/image/upload/v1687407713/TaskProImages/iconimages/iconblock_taqjlq.png',
-    }
+    }).then(console.log)
 
-    logIn(newUser)
-      .then(() => {console.log('Все відправлено на Бекенд')
-      navigate('/home')})
-      .catch((error) => console.log(error))
+    // logIn(newUser)
+    //   .then(() => {console.log('Все відправлено на Бекенд')
+    //   navigate('/home')})
+    //   .catch((error) => console.log(error))
   }
 
   return (
