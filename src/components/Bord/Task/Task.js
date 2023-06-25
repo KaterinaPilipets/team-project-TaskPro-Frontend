@@ -1,16 +1,30 @@
-import { ListItem, TextHidden } from './Task.styled';
+import {
+  ListItem,
+  Span,
+  TextHidden,
+  Title,
+  SubTitle,
+  SubText,
+  Wrap,
+} from './Task.styled';
 export const Task = ({ task }) => {
   const { name, discription, priority, deadline } = task;
 
   return (
     <ListItem>
-      <p>{name}</p>
+      <Title>{name}</Title>
       <TextHidden>{discription}</TextHidden>
-
-      <p>Priority</p>
-      <p>{priority}</p>
-      <p>Deadline</p>
-      <p>{deadline}</p>
+      <Span />
+      <Wrap>
+        <div>
+          <SubTitle>Priority</SubTitle>
+          <SubText>{priority}</SubText>
+        </div>
+        <div>
+          <SubTitle>Deadline</SubTitle>
+          <SubText>{deadline}</SubText>
+        </div>
+      </Wrap>
     </ListItem>
   );
 };

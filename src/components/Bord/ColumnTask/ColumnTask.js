@@ -1,9 +1,10 @@
+import { Button } from 'components/Button';
 import { Task } from '../Task/Task';
-import { HeaderColumn, List } from './ColumnTask.Styled';
+import { Column, HeaderColumn, List } from './ColumnTask.Styled';
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
   //   console.log(tasksArray);
   return (
-    <>
+    <Column>
       <HeaderColumn>
         <p>{titleColumn}</p>
       </HeaderColumn>
@@ -14,7 +15,10 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
           return <Task key={task.id} task={task} />;
         })}
       </List>
-    </>
+      {/* <Wrap> */}
+      <Button>Add another card</Button>
+      {/* </Wrap> */}
+    </Column>
   );
 };
 
