@@ -7,7 +7,6 @@ const Logout = () => {
   return (
     <Box sx={{ pb: 3 }}>
       <Button
-        href="#text-buttons"
         variant="text"
         sx={{
           textTransform: 'none',
