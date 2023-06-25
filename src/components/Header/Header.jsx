@@ -1,18 +1,18 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
 import { useToggleModal } from '../../hooks';
 import { Modal } from 'components/Modal';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 import {
   BurgerBtn,
+  BurgerIcon,
   ContainerStyled,
   HeaderBtnWrap,
   UserAvatar,
   UserInfoBox,
+  UserName,
 } from './Header.styled';
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
-  const [theme, setTheme] = useState('dark');
+
   const avatar =
     'https://res.cloudinary.com/dsqxw0541/image/upload/v1687678852/TaskProImages/placeholders/user-dark_jkv8qb.png';
   const username = 'Iveta';
@@ -22,13 +22,13 @@ export const Header = () => {
     <>
       <ContainerStyled>
         <BurgerBtn>
-          <MenuIcon />
+          <BurgerIcon color="#fff" />
         </BurgerBtn>
         <HeaderBtnWrap>
           <p>Theme</p>
           {/* <ThemeSelect /> */}
           <UserInfoBox onClick={open}>
-            <p>{username}</p>
+            <UserName>{username}</UserName>
             <UserAvatar src={avatar} alt="User avatar" width={32} height={32} />
           </UserInfoBox>
         </HeaderBtnWrap>
