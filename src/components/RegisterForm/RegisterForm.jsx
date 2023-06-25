@@ -54,29 +54,29 @@ function RegistrationPage() {
 
   return (
     <div className={css.container}>
-    <form onSubmit={handleSubmit}>
-      <div className={css.content}>
-        <div className={css.menu}>
-          <Link href="register" underline="none">Registration</Link>
-          <Link href="login" underline="none">Login</Link>
-        </div>
-        <div className={css.inputs}>
-          <input name='name' type="text" placeholder="Name" />
-          <input name='email' type="email" placeholder="Email" />
-          <div className={css.passwordInput}>
-          <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
-            <span className={`${css.togglePassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
-              {showPassword ? (
-                <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373' />
-              ) : (
-                <svg className={css.svg}><use xlinkHref={`${sprite}#icon-eye`} /></svg>
-              )}
-            </span>
+      <form onSubmit={handleSubmit}>
+        <div className={css.content}>
+          <div className={css.menu}>
+            <Link href="register" underline="none">Registration</Link>
+            <Link href="login" underline="none">Login</Link>
           </div>
+          <div className={css.inputs}>
+            <input name='name' type="text" placeholder="Name" />
+            <input name='email' type="email" placeholder="Email" />
+            <div className={css.passwordInput}>
+            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+              <span className={`${css.togglePassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373' />
+                ) : (
+                  <svg className={css.svg}><use xlinkHref={`${sprite}#icon-eye`} /></svg>
+                )}
+              </span>
+            </div>
+          </div>
+          <button className={css.registerbtn} >Register Now</button>
         </div>
-        <button className={css.registerbtn} >Register Now</button>
-      </div>
-    </form>
+      </form>
     </div>
   );
 }
