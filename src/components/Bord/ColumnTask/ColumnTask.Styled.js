@@ -27,3 +27,4 @@ export const Column = styled.div`
   flex-direction: column;
   gap: 14px;
 `;
+
