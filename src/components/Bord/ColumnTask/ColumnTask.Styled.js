@@ -8,12 +8,22 @@ export const List = styled.ul`
   gap: 8px;
 `;
 export const HeaderColumn = styled.div`
-  border-left: 4px solid teal;
   border-radius: 8px;
-  width: 334px;
+  width: 100%;
   hight: 56px;
   padding: 14px 24px;
-  background-color: black;
-  color: gray;
-  margin-bottom: 14px;
+  background-color: var(--bgColor);
+  color: var(--titleColor);
+  font-weight: var(--fontWeight500);
+  // margin-bottom: 14px;
+`;
+// export const Wrap = styled.div`
+//   dysplay: block;
+//   margin-bottom: 36px;
+// `;
+export const Column = styled.div`
+  width: 334px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 `;

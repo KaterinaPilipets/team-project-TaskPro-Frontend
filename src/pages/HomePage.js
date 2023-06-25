@@ -23,6 +23,7 @@ const tasksArray = [
 ];
 
 const HomePage = () => {
+  document.body.setAttribute('data-theme', 'dark');
   return (
     <div>
       <p>board </p>

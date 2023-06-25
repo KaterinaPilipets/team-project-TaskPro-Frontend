@@ -1,5 +1,9 @@
 @import-normalize;
+
 /* bring in normalize.css styles */
+body {
+  font-family: var(--fontFamily);
+}
 
 :root {
   /** WelcomePage */
@@ -22,7 +26,7 @@
   --buttonColor: #161616;
 
   /** fontSize*/
-  --fontSize10: 8px;
+  --fontSize8: 8px;
   --fontSize10: 10px;
   --fontSize12: 12px;
   --fontSize14: 14px;
