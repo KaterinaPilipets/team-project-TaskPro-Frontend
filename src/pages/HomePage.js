@@ -2,7 +2,6 @@ import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
 
 // import { Modal } from 'components/Modal';
 
-import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 const tasksArray = [
   {
     id: '1',
@@ -27,7 +26,6 @@ const HomePage = () => {
     <div>
       <p>board </p>
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
-      <ThemeSelect />
 
       {/* <Modal>modal</Modal> */}
     </div>
