@@ -1,3 +1,4 @@
+
 import { useToggleModal } from '../../hooks';
 import { Modal } from 'components/Modal';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
@@ -25,8 +26,8 @@ export const Header = () => {
           <BurgerIcon color="#fff" />
         </BurgerBtn>
         <HeaderBtnWrap>
-          <p>Theme</p>
-          {/* <ThemeSelect /> */}
+          {/* <p>Theme</p> */}
+          <ThemeSelect />
           <UserInfoBox onClick={open}>
             <UserName>{username}</UserName>
             <UserAvatar src={avatar} alt="User avatar" width={32} height={32} />

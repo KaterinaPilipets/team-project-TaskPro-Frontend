@@ -1,4 +1,5 @@
-import { Button } from 'components/Button';
+// import { Button } from 'components/Button';
+import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 import { Task } from '../Task/Task';
 import { Column, HeaderColumn, List } from './ColumnTask.Styled';
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
@@ -16,7 +17,7 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
         })}
       </List>
       {/* <Wrap> */}
-      <Button>Add another card</Button>
+      <ButtonPrimary>Add another card</ButtonPrimary>
       {/* </Wrap> */}
     </Column>
   );

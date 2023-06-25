@@ -1,8 +1,7 @@
-// import { SharedLayout } from 'components/SharedLayout/SharedLayout.js';
-
 import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
 
-// import { Task } from 'components/Bord/Task/Task';
+// import { Modal } from 'components/Modal';
+
 const tasksArray = [
   {
     id: '1',
@@ -23,11 +22,12 @@ const tasksArray = [
 ];
 
 const HomePage = () => {
-  document.body.setAttribute('data-theme', 'dark');
   return (
     <div>
       <p>board </p>
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
+
+      {/* <Modal>modal</Modal> */}
     </div>
   );
 };

@@ -33,26 +33,59 @@ const BoardsList = () => {
             key={board.id}
             disablePadding
             sx={{
+              color: 'var(--sidebarSecondaryTextColor)',
+              '&:hover': {
+                color: 'var(--sidebarPrimaryTextColor)',
+              },
               '&:hover .buttons': {
                 display: 'flex',
               },
             }}
           >
-            <ListItemButton component={NavLink} to={board.id}>
-              <ListItemIcon sx={{ p: 0, mr: 1, minWidth: 18 }}>
-                <GridViewIcon />
+            <ListItemButton
+              component={NavLink}
+              to={board.id}
+              sx={{
+                py: 2.5,
+                px: {
+                  sx: 1.75,
+                  md: 3,
+                },
+              }}
+            >
+              <ListItemIcon
+                sx={{ p: 0, mr: 1, minWidth: 18, color: 'inherit' }}
+              >
+                <GridViewIcon sx={{ fontSize: 18 }} />
               </ListItemIcon>
               <ListItemText
                 primary={board.name}
-                primaryTypographyProps={{ noWrap: true }}
+                primaryTypographyProps={{
+                  noWrap: true,
+                  sx: {
+                    fontSize: 14,
+                    fontWeight: 500,
+                    lineHeight: 1.5,
+                    letterSpacing: '-0.02em',
+                  },
+                }}
+                sx={{ my: 0 }}
               />
 
               <Box className="buttons" sx={{ display: 'none' }}>
-                <IconButton sx={{ p: 0, mr: 1 }}>
-                  <CreateTwoToneIcon />
+                <IconButton
+                  sx={{
+                    p: 0,
+                    mr: 1,
+                    color: 'var(--sidebarSecondaryTextColor)',
+                  }}
+                >
+                  <CreateTwoToneIcon sx={{ fontSize: 16 }} />
                 </IconButton>
-                <IconButton sx={{ p: 0 }}>
-                  <DeleteTwoToneIcon />
+                <IconButton
+                  sx={{ p: 0, color: 'var(--sidebarSecondaryTextColor)' }}
+                >
+                  <DeleteTwoToneIcon sx={{ fontSize: 16 }} />
                 </IconButton>
               </Box>
             </ListItemButton>

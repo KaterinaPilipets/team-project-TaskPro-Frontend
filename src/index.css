@@ -10,7 +10,7 @@ body {
   --fontFamily: 'Poppins';
   --borderRadius8: 8px;
   --borderRadius6: 6px;
-  /* --transition: 0.5s; */
+  --transition: 0.5s;
   --darkColor: #161616;
   --lightColor: #FFFFFF;
   --welcomeBgColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
@@ -24,6 +24,13 @@ body {
   --inputBorderFocus: #BEDBB0;
   --buttonBgColor: #BEDBB0;
   --buttonColor: #161616;
+
+
+  /** Priority Colors*/
+  --lowPriorityColor: #8FA1D0;
+  --mediumPriorityColor: #E09CB5;
+  --highPriorityColor: #BEDBB0;
+
 
   /** fontSize*/
   --fontSize8: 8px;
@@ -101,6 +108,9 @@ body {
 
   --iconLogOutColor: #BEDBB0;
 
+  --sidebarPrimaryTextColor: #FFFFFF;
+  --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
+
 
   /** Board */
   --boardBgColor: #1F1F1F;
@@ -130,12 +140,6 @@ body {
   --buttonAddCardColor: #161616;
   --buttonAddCardIconBgColor: #161616;
   --buttonAddCardIconFill: #FFFFFF;
-
-
-  /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
-  --defaultPriorityColor: rgba(255, 255, 255, 0.3);
 
 
   /* *Filters */
@@ -232,7 +236,8 @@ body {
 }
 
 body {
-  background-color: var(--welcomeBgColor);
+  /* background-color: var(--welcomeBgColor); */
+  background-color: rgba(22, 22, 22, 0.3);
   margin: 0;
   width: 100%;
   height: 100%;
@@ -311,6 +316,8 @@ body[data-theme='dark'] {
 
   --iconLogOutColor: #BEDBB0;
 
+  --sidebarPrimaryTextColor: #FFFFFF;
+  --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
   --boardBgColor: #1F1F1F;
@@ -343,8 +350,6 @@ body[data-theme='dark'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(255, 255, 255, 0.3);
 
 
@@ -472,6 +477,9 @@ body[data-theme='light'] {
 
   --iconLogOutColor: #BEDBB0;
 
+  --sidebarPrimaryTextColor: #161616;
+  --sidebarSecondaryTextColor: rgba(22, 22, 22, 0.5);
+
   /** Header */
   --headerBgColor: #FCFCFC;
 
@@ -514,8 +522,6 @@ body[data-theme='light'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
 
@@ -644,6 +650,9 @@ body[data-theme='violet'] {
 
   --iconLogOutColor: #FFFFFF;
 
+  --sidebarPrimaryTextColor: #ffffff;
+  --sidebarSecondaryTextColor: rgba(225, 225, 225, 0.5);
+
   /** Header */
   --headerBgColor: #FFFFFF;
 
@@ -687,8 +696,6 @@ body[data-theme='violet'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
 
