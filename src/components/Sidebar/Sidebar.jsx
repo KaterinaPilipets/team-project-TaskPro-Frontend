@@ -15,14 +15,21 @@ const Sidebar = () => {
         height: '100%',
         flexDirection: 'column',
         maxWidth: 260,
+        background: 'var(--sidebarBgColor)',
       }}
     >
-      <LogoComponent />
-      <TitleBoard />
-      <AddBoard />
+      <Box sx={{ mx: { xs: 1.75, md: 3 } }}>
+        <LogoComponent />
+        <TitleBoard />
+        <AddBoard />
+      </Box>
+
       <BoardsList />
-      <HelperBlock />
-      <Logout />
+
+      <Box sx={{ mx: { xs: 1.75, md: 3 }, mt: 'auto' }}>
+        <HelperBlock />
+        <Logout />
+      </Box>
     </Box>
   );
 };

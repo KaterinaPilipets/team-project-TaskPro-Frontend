@@ -5,16 +5,19 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const Logout = () => {
   return (
-    <Box sx={{ pb: 3, px: 3 }}>
+    <Box sx={{ pb: 3 }}>
       <Button
-        href="#text-buttons"
         variant="text"
         sx={{
-          color: '#000',
+          textTransform: 'none',
+          color: '#ffffff',
           p: 0,
+          fontSize: { xs: 14, md: 16 },
+          fontWeight: 500,
+          lineHeight: 1.5,
         }}
       >
-        <ExitToAppIcon sx={{ mr: 1.75 }} />
+        <ExitToAppIcon sx={{ mr: 1.75, color: 'var(--iconLogOutColor)' }} />
         Log out
       </Button>
     </Box>
