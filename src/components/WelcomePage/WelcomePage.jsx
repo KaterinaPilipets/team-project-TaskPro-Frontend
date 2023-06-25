@@ -27,13 +27,14 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 function WelcomePage() {
   return (
-    <div className={css.content}>
-      <div className={css.logo}>
-        {/* <img className={css.size} src={logo} /> */}
-        <div className={css.logocontainer}>
+    <div className={css.container}>
+      <div>
+        <div className={css.centeredContainer}>
+          <div className={css.logo}/>
+        </div>
+        <div className={css.logoContainer}>
           <svg className={css.svg}><use xlinkHref={`${sprite}#icon-welcome`} /></svg>
-          {/* <img className={css.photo} src={icon} /> */}
-          <p className={css.name}>TASK PRO</p>
+          <p className={css.title}>TASK PRO</p>
         </div>
         <p className={css.text}>
           Supercharge your productivity and take control of your tasks with Task
@@ -42,8 +43,8 @@ function WelcomePage() {
       </div>
       <div className={css.registration}>
         <div>
-          {/* <NavLink className={css.registerBtn} href="/auth/register">Registration</NavLink > */}
-          {/* <Button href='/auth/registration' variant="contained" className={classes.customButton}>Registration</Button>*/}
+          {/* <NavLink className={css.registerBtn} to="/auth/register">Registration</NavLink > */}
+          {/* <Button href='auth/registration' variant="contained" className={css.customButton}>Registration</Button> */}
           <CustomButton href='auth/register' variant="contained">Registration</CustomButton>
         </div>
         <div>
