@@ -1,11 +1,8 @@
-// import { SharedLayout } from 'components/SharedLayout/SharedLayout.js';
-
 import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
 
-// import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
-import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
+// import { Modal } from 'components/Modal';
 
-// import { Task } from 'components/Bord/Task/Task';
+import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 const tasksArray = [
   {
     id: '1',
@@ -26,13 +23,13 @@ const tasksArray = [
 ];
 
 const HomePage = () => {
-  // document.body.setAttribute('data-theme', 'dark');
   return (
     <div>
       <p>board </p>
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
       <ThemeSelect />
-      {/* <ButtonPrimary>Add another card</ButtonPrimary> */}
+
+      {/* <Modal>modal</Modal> */}
     </div>
   );
 };
