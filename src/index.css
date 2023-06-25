@@ -10,7 +10,7 @@ body {
   --fontFamily: 'Poppins';
   --borderRadius8: 8px;
   --borderRadius6: 6px;
-  /* --transition: 0.5s; */
+  --transition: 0.5s;
   --darkColor: #161616;
   --lightColor: #FFFFFF;
   --welcomeBgColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
@@ -24,6 +24,13 @@ body {
   --inputBorderFocus: #BEDBB0;
   --buttonBgColor: #BEDBB0;
   --buttonColor: #161616;
+
+
+  /** Priority Colors*/
+  --lowPriorityColor: #8FA1D0;
+  --mediumPriorityColor: #E09CB5;
+  --highPriorityColor: #BEDBB0;
+
 
   /** fontSize*/
   --fontSize8: 8px;
@@ -132,12 +139,6 @@ body {
   --buttonAddCardIconFill: #FFFFFF;
 
 
-  /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
-  --defaultPriorityColor: rgba(255, 255, 255, 0.3);
-
-
   /* *Filters */
   --filtersBgColor: #151515;
   --filtersTitleColor: #FFFFFF;
@@ -232,7 +233,8 @@ body {
 }
 
 body {
-  background-color: var(--welcomeBgColor);
+  /* background-color: var(--welcomeBgColor); */
+  background-color: rgba(22, 22, 22, 0.3);
   margin: 0;
   width: 100%;
   height: 100%;
@@ -343,8 +345,6 @@ body[data-theme='dark'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(255, 255, 255, 0.3);
 
 
@@ -514,8 +514,6 @@ body[data-theme='light'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
 
@@ -687,8 +685,6 @@ body[data-theme='violet'] {
 
 
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
 

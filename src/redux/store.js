@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import {
   persistStore,
   FLUSH,
@@ -12,12 +13,11 @@ import boardReducer from './board/boardSlice';
 
 import themeReducer from './theme/theme-slice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     theme: themeReducer,
     board: boardReducer,
   },
-
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
