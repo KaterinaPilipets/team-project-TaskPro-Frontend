@@ -1,0 +1,11 @@
+[
+  {
+    "id": "7A2C8B4D1F",
+    "bgname": "welcome-image",
+    "URL": {
+      "desktop": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687674728/TaskProImages/welcomeimages/w-desktop_qc2ytd.png",
+      "tablet": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687674728/TaskProImages/welcomeimages/w-tablet_rsbfwa.png",
+      "mobile": "https://res.cloudinary.com/dsqxw0541/image/upload/v1687674728/TaskProImages/welcomeimages/w-mobile_xrqyoo.png"
+    }
+  }
+]
