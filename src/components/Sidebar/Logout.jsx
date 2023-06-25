@@ -10,7 +10,7 @@ const Logout = () => {
         variant="text"
         sx={{
           textTransform: 'none',
-          color: '#ffffff',
+          color: 'var(--sidebarPrimaryTextColor)',
           p: 0,
           fontSize: { xs: 14, md: 16 },
           fontWeight: 500,

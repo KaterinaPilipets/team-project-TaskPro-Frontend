@@ -33,9 +33,9 @@ const BoardsList = () => {
             key={board.id}
             disablePadding
             sx={{
-              color: 'rgba(255, 255, 255, 0.5)',
+              color: 'var(--sidebarSecondaryTextColor)',
               '&:hover': {
-                color: '#FFFFFF',
+                color: 'var(--sidebarPrimaryTextColor)',
               },
               '&:hover .buttons': {
                 display: 'flex',
@@ -77,12 +77,14 @@ const BoardsList = () => {
                   sx={{
                     p: 0,
                     mr: 1,
-                    color: 'rgba(255, 255, 255, 0.5)',
+                    color: 'var(--sidebarSecondaryTextColor)',
                   }}
                 >
                   <CreateTwoToneIcon sx={{ fontSize: 16 }} />
                 </IconButton>
-                <IconButton sx={{ p: 0, color: 'rgba(255, 255, 255, 0.5)' }}>
+                <IconButton
+                  sx={{ p: 0, color: 'var(--sidebarSecondaryTextColor)' }}
+                >
                   <DeleteTwoToneIcon sx={{ fontSize: 16 }} />
                 </IconButton>
               </Box>

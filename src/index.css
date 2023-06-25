@@ -108,6 +108,9 @@ body {
 
   --iconLogOutColor: #BEDBB0;
 
+  --sidebarPrimaryTextColor: #FFFFFF;
+  --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
+
 
   /** Board */
   --boardBgColor: #1F1F1F;
@@ -313,6 +316,8 @@ body[data-theme='dark'] {
 
   --iconLogOutColor: #BEDBB0;
 
+  --sidebarPrimaryTextColor: #FFFFFF;
+  --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
   --boardBgColor: #1F1F1F;
@@ -471,6 +476,9 @@ body[data-theme='light'] {
   --helpBgColor: #F6F6F7;
 
   --iconLogOutColor: #BEDBB0;
+
+  --sidebarPrimaryTextColor: #161616;
+  --sidebarSecondaryTextColor: rgba(22, 22, 22, 0.5);
 
   /** Header */
   --headerBgColor: #FCFCFC;
@@ -641,6 +649,9 @@ body[data-theme='violet'] {
   --helpBgColor: rgb(236, 237, 253, 0.5);
 
   --iconLogOutColor: #FFFFFF;
+
+  --sidebarPrimaryTextColor: #ffffff;
+  --sidebarSecondaryTextColor: rgba(225, 225, 225, 0.5);
 
   /** Header */
   --headerBgColor: #FFFFFF;
