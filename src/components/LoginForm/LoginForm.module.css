@@ -13,6 +13,26 @@ body {
     border-radius: 8px;
   }
 
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding-right: 30px; /* Додайте потрібний відступ для іконки */
+}
+
+.svg {
+  width: 16.5px;
+    /* height: 12px; */
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-45%);
+    /* fill: #737373; */
+}
+
 .menu {
     padding-top: 40px;
     display: flex;
@@ -64,7 +84,7 @@ margin-bottom: 10px;
     padding-right: 30px; /* Залиште простір для ока */
   }
   
-  .togglepassword {
+  .togglePassword {
     position: absolute;
     right: 60px;
     top: 19px;
@@ -73,7 +93,7 @@ margin-bottom: 10px;
   }
 
 .toggleIcon {
-    color: white;
+    color: #737373;
   }
 
 .inputs input {
