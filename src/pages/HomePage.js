@@ -1,7 +1,7 @@
 // import { SharedLayout } from 'components/SharedLayout/SharedLayout.js';
 
 import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
-// import { Div } from 'components/Div/Div';
+
 import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 
@@ -32,7 +32,7 @@ const HomePage = () => {
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
       <ThemeSelect />
       <ButtonPrimary>Add another card</ButtonPrimary>
-      {/* <Div /> */}
+
     </div>
   );
 };
