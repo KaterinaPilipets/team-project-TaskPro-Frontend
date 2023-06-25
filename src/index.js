@@ -7,16 +7,19 @@ import { store } from 'redux/store';
 // persistor
 // import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { baseTheme } from './theme/baseTheme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <BrowserRouter basename="/team-project-TaskPro-Frontend">
-        <App />
-      </BrowserRouter>
-      {/* </PersistGate> */}
-    </Provider>
+    <ThemeProvider theme={baseTheme}>
+      <Provider store={store}>
+        {/* <PersistGate loading={null} persistor={persistor}> */}
+        <BrowserRouter basename="/team-project-TaskPro-Frontend">
+          <App />
+        </BrowserRouter>
+        {/* </PersistGate> */}
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );

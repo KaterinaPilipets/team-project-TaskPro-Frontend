@@ -18,7 +18,7 @@ const AddBoard = () => {
       >
         <Typography
           sx={{
-            width: 72,
+            width: 76,
             color: 'var(--sidebarPrimaryTextColor)',
             fontSize: 14,
             fontWeight: 500,
