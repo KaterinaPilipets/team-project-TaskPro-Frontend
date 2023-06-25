@@ -6,9 +6,12 @@ import { useNavigate } from 'react-router-dom'
 import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { setUser, setToken } from '../../redux/auth/authSlice';
+import { useDispatch } from 'react-redux';
 
 function RegistrationPage() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
 
   const [showPassword, setShowPassword ] = useState(false);
 
@@ -16,21 +19,41 @@ function RegistrationPage() {
     setShowPassword(!showPassword);
   }
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   const newUser = {
+  //     name: event.target.elements.name.value,
+  //     email: event.target.elements.email.value,
+  //     password: event.target.elements.password.value,
+  //   }
+
+  //   singUp(newUser)
+  //     .then(() => {console.log('Все відправлено на Бекенд')
+  //     navigate('/home')})
+  //     .catch((error) => console.log(error))
+  // }
+
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const newUser = {
       name: event.target.elements.name.value,
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
-    }
+    };
 
     singUp(newUser)
-      .then(() => {console.log('Все відправлено на Бекенд')
-      navigate('/home')})
-      .catch((error) => console.log(error))
+      .then((response) => {
+        console.log('Все відправлено на Бекенд');
+        const { user, token } = response.data;
+        dispatch(setUser(user));
+        dispatch(setToken(token));
+        navigate('/home');
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
+    <div className={css.container}>
     <form onSubmit={handleSubmit}>
       <div className={css.content}>
         <div className={css.menu}>
@@ -54,6 +77,7 @@ function RegistrationPage() {
         <button className={css.registerbtn} >Register Now</button>
       </div>
     </form>
+    </div>
   );
 }
 
