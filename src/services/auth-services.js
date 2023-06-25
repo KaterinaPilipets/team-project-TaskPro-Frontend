@@ -9,3 +9,7 @@ export const singUp = async (body) => {
 export const logIn = async (body) => {
     return await axios.post('/api/auth/login', body)
 }
+
+export const logOut = async (body) => {
+    return await axios.post('/api/auth/logout', body)
+}

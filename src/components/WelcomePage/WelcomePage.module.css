@@ -1,15 +1,13 @@
-body {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
   background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-a {
-  text-decoration: none;
+  flex-direction: column;
 }
 
 .container {
@@ -49,7 +47,7 @@ a {
   height: 36px;
   margin-bottom: 48px;
   font-weight: 400;
-  /* font-size: 14px; */
+  font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.02em;
   color: #161616;  
