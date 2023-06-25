@@ -9,14 +9,14 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import boardReducer from './board/boardSlice';
+// import boardReducer from './board/boardSlice';
 
 import themeReducer from './theme/theme-slice';
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
-    board: boardReducer,
+    // board: boardReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -2,7 +2,7 @@
 
 import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
 
-import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
+// import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 
 // import { Task } from 'components/Bord/Task/Task';
@@ -26,14 +26,13 @@ const tasksArray = [
 ];
 
 const HomePage = () => {
-  document.body.setAttribute('data-theme', 'dark');
+  // document.body.setAttribute('data-theme', 'dark');
   return (
     <div>
       <p>board </p>
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
       <ThemeSelect />
-      <ButtonPrimary>Add another card</ButtonPrimary>
-
+      {/* <ButtonPrimary>Add another card</ButtonPrimary> */}
     </div>
   );
 };
