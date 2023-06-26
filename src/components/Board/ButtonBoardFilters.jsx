@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import ModalBoardFilters from './ModalBoardFilters.js';
+import ModalBoardFilters from './ModalBoardFilters.jsx';
 
 export const ButtonBoardFilters = () => {
   const [showModal, setShowModal] = useState(false);
