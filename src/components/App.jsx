@@ -1,19 +1,23 @@
 // import { Suspense, lazy, useEffect } from 'react';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout.js';
+import { useDispatch } from 'react-redux';
+import { setToken } from 'redux/auth/authSlice.js';
 // import { useDispatch, useSelector } from 'react-redux';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage'));
 const HomePage = lazy(() => import('../pages/HomePage'));
 export const App = () => {
-// const dispatch = useDispatch();
+const dispatch = useDispatch();
 // const isRefreshing = useSelector(authSelector.getIsRefreshing);
 
-//    useEffect(() => {
-//      dispatch(authOperation.refreshCurrentUser());
-//    }, [dispatch]);
+   useEffect(() => {
+    // const token = localStorage.getItem('token');
+    dispatch(setToken);
+    //  dispatch(authOperation.refreshCurrentUser());
+   }, [dispatch]);
 
   return (
     <>
