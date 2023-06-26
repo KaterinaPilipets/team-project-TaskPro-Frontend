@@ -25,16 +25,17 @@ export const SubText = styled.p`
 `;
 export const TextHidden = styled.p`
   font-size: var(--fontSize12);
-  height: 38px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // количество строк
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 `;
 export const Span = styled.span`
   display: block;
   height: 1px;
   width: 100%;
   background-color: var(--lineColor);
-  margin: 14px 0;
+  margin: 21px 0 14px 0;
 `;
 export const Wrap = styled.div`
   display: flex;

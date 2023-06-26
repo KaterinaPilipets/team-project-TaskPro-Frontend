@@ -3,8 +3,9 @@ import { fetchBoard, addTask, deleteTask } from '../../services/board-servises';
 const boardSlice = createSlice({
   name: 'board',
   initialState: {
-    titleBoard: '',
-    bgBoard: '',
+    title: '',
+    icon: '',
+    background: '',
     columns: [],
     tasks: [],
   },

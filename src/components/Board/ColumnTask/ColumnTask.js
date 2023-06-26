@@ -1,8 +1,10 @@
-// import { Button } from 'components/Button';
 import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 import { Task } from '../Task/Task';
-import { Column, HeaderColumn, List } from './ColumnTask.Styled';
+import { Column, HeaderColumn, List, Wrap } from './ColumnTask.Styled';
+import { useToggleModal } from '../../../hooks';
+import { Modal } from 'components/Modal';
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
+  const { open, close, isOpen } = useToggleModal();
   //   console.log(tasksArray);
   return (
     <Column>
@@ -16,9 +18,14 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
           return <Task key={task.id} task={task} />;
         })}
       </List>
-      {/* <Wrap> */}
-      <ButtonPrimary>Add another card</ButtonPrimary>
-      {/* </Wrap> */}
+      <Wrap>
+        <ButtonPrimary onClick={open}>Add another card</ButtonPrimary>
+      </Wrap>
+      {isOpen && (
+        <Modal onClose={close}>
+          <p>Add card</p>
+        </Modal>
+      )}
     </Column>
   );
 };

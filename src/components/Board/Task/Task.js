@@ -1,3 +1,4 @@
+import { SvgBtn } from 'components/EditPanel/EditPanel';
 import {
   ListItem,
   Span,
@@ -7,6 +8,23 @@ import {
   SubText,
   Wrap,
 } from './Task.styled';
+// import { useToggleModal } from '../../../hooks';
+// import { Modal } from 'components/Modal';
+// const { open, close, isOpen } = useToggleModal;
+// const EditPanelarray = [
+//   {
+//     name: 'icon-circle-box',
+//     fn: () => {},
+//   },
+//   {
+//     name: 'icon-pencil',
+//     fn: () => {},
+//   },
+//   {
+//     name: 'icon-trash',
+//     fn: () => {},
+//   },
+// ];
 export const Task = ({ task }) => {
   const { name, discription, priority, deadline } = task;
 
@@ -24,6 +42,9 @@ export const Task = ({ task }) => {
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
         </div>
+        <SvgBtn IdIcon={'icon-pencil'} />
+        {/* SvgBtn = ({(IdIcon, fn)}) */}
+        {/* <EditPanel iconsEdit={EditPanelarray} /> */}
       </Wrap>
     </ListItem>
   );
