@@ -8,6 +8,7 @@ import { breakpoints } from 'constants';
 
 export const Container = styled.div`
   margin-bottom: 24px;
+  min-height: 124px;
   overflow: auto;
 `;
 

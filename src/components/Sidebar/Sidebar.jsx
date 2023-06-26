@@ -1,28 +1,45 @@
 import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
+
 import Logout from './Logout';
 import LogoComponent from './LogoComponent';
 import TitleBoard from './TitleBoard';
 import AddBoard from './AddBoard';
 import BoardsList from './BoardsList';
 import HelperBlock from './HelperBlock';
-import { SidebarContainer, SidebarContent } from './Sidebar.styled';
+import {
+  StyledOverlay,
+  SidebarContainer,
+  SidebarContent,
+} from './Sidebar.styled';
 
 const Sidebar = () => {
+  const isOpen = useSelector(state => state.sidebar.isOpen);
+  const dispatch = useDispatch();
+
+  const handleToggleSidebar = () => {
+    dispatch(toggleSidebar());
+  };
+
   return (
-    <SidebarContainer>
-      <SidebarContent>
-        <LogoComponent />
-        <TitleBoard />
-        <AddBoard />
-      </SidebarContent>
+    <>
+      {isOpen && <StyledOverlay onClick={handleToggleSidebar} />}
+      <SidebarContainer className={isOpen ? 'open' : ''}>
+        <SidebarContent>
+          <LogoComponent />
+          <TitleBoard />
+          <AddBoard />
+        </SidebarContent>
 
-      <BoardsList />
+        <BoardsList />
 
-      <SidebarContent marginTop>
-        <HelperBlock />
-        <Logout />
-      </SidebarContent>
-    </SidebarContainer>
+        <SidebarContent marginTop>
+          <HelperBlock />
+          <Logout />
+        </SidebarContent>
+      </SidebarContainer>
+    </>
   );
 };
 
