@@ -12,25 +12,21 @@ import {
   EditIcon,
   DeleteIcon,
 } from './BoardsList.styled';
-
-const BOARDS = [
-  { id: '1', name: 'Project office', icon: '' },
-  { id: '2', name: 'Neon Light Project', icon: '' },
-  { id: '3', name: 'Neon Light Project ghjkkllfhbjjn', icon: '' },
-  { id: '4', name: 'Neon Light', icon: '' },
-  { id: '5', name: 'Light Project', icon: '' },
-  { id: '6', name: 'eonProject', icon: '' },
-  { id: '7', name: 'Neon Light Project', icon: '' },
-  { id: '8', name: 'Neon Light Project', icon: '' },
-  { id: '9', name: 'Neon Light Project', icon: '' },
-  { id: '10', name: 'Neon Light Project', icon: '' },
-];
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBoardsList } from 'services/boardslist-services';
 
 const BoardsList = () => {
+  const dispatch = useDispatch();
+  const boards = useSelector(state => state.boardsList.items);
+
+  React.useEffect(() => {
+    dispatch(fetchBoardsList());
+  }, []);
+
   return (
     <Container>
       <List>
-        {BOARDS.map(board => (
+        {boards.map(board => (
           <ListItem key={board.id}>
             <ListItemButton to={board.id}>
               <BoardIconContainer>
