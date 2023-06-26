@@ -1,4 +1,4 @@
-import { BoardFilters } from './BoardFilters';
+import { BoardFilters } from './ButtonBoardFilters';
 
 // title взять из редакса
 
