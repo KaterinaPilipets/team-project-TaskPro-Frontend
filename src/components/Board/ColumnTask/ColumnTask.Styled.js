@@ -17,14 +17,12 @@ export const HeaderColumn = styled.div`
   font-weight: var(--fontWeight500);
   // margin-bottom: 14px;
 `;
-// export const Wrap = styled.div`
-//   dysplay: block;
-//   margin-bottom: 36px;
-// `;
+export const Wrap = styled.div`
+  margin-bottom: 36px;
+`;
 export const Column = styled.div`
   width: 334px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 `;
-

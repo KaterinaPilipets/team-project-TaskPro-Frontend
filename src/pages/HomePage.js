@@ -1,7 +1,4 @@
-import { ColumnTask } from 'components/Bord/ColumnTask/ColumnTask';
-
-// import { Modal } from 'components/Modal';
-
+import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
 const tasksArray = [
   {
     id: '1',
@@ -26,8 +23,6 @@ const HomePage = () => {
     <div>
       <p>board </p>
       <ColumnTask tasksArray={tasksArray} titleColumn="titleColumn" />
-
-      {/* <Modal>modal</Modal> */}
     </div>
   );
 };
