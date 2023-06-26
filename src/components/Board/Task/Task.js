@@ -8,9 +8,10 @@ import {
   SubText,
   Wrap,
 } from './Task.styled';
-// import { useToggleModal } from '../../../hooks';
+
+import { useToggleModal } from '../../../hooks';
 // import { Modal } from 'components/Modal';
-// const { open, close, isOpen } = useToggleModal;
+const { open } = useToggleModal;
 // const EditPanelarray = [
 //   {
 //     name: 'icon-circle-box',
@@ -42,7 +43,7 @@ export const Task = ({ task }) => {
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
         </div>
-        <SvgBtn IdIcon={'icon-pencil'} />
+        <SvgBtn idIcon={'icon-pencil'} fn={open()} component={'bbbbggg'} />
         {/* SvgBtn = ({(IdIcon, fn)}) */}
         {/* <EditPanel iconsEdit={EditPanelarray} /> */}
       </Wrap>

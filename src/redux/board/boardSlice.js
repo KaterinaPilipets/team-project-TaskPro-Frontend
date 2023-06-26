@@ -4,7 +4,7 @@ const boardSlice = createSlice({
   name: 'board',
   initialState: {
     title: '',
-    icon: '',
+    // icon: '',
     background: '',
     columns: [],
     tasks: [],

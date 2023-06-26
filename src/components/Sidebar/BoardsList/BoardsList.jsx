@@ -21,7 +21,7 @@ const BoardsList = () => {
 
   React.useEffect(() => {
     dispatch(fetchBoardsList());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>
