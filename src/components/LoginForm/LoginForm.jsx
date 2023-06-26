@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from '@mui/material';
-import css from './LoginForm.module.css';
 import { logIn } from '../../services/auth-services';
 import { useNavigate } from 'react-router-dom';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import sprite from '../../sourse/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { setUser, setToken } from '../../redux/auth/authSlice';
+import { PasswordToggle, PasswordInputField, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, LoginBtn, StyledRegistrationLink, StyledLink } from "./LoginForm.styled"
 
 function LoginPage() {
   const navigate = useNavigate()
@@ -46,30 +44,30 @@ function LoginPage() {
   }
 
   return (
-    <div className={css.container}>
+    <Container>
       <form onSubmit={handleSubmit}>
-        <div className={css.content}>
-          <div className={css.menu}>
-            <Link href="register" underline="none">Registration</Link>
-            <Link href="login" underline="none">Login</Link>
-          </div>
-          <div className={css.inputs}>
+        <Content>
+          <Menu>
+            <StyledRegistrationLink href="register" underline="none">Registration</StyledRegistrationLink>
+            <StyledLink href="login" underline="none">Log In</StyledLink>
+          </Menu>
+          <Inputs>
             <input name='email' type="email" placeholder="Email" />
-            <div className={css.passwordinput}>
-              <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
-                <span className={`${css.togglePassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
-                  {showPassword ? (
-                    <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373' />
-                  ) : (
-                    <svg className={css.svg}><use xlinkHref={`${sprite}#icon-eye`} /></svg>
-                  )}
-                </span>
-            </div>
-          </div>
-          <button className={css.registerbtn}>Log In Now</button>
-        </div>
+            <PasswordInput>
+            <PasswordInputField name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+              <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <PasswordIcon icon={faEyeSlash} width='18px' />
+                ) : (
+                  <Svg><use xlinkHref={`${sprite}#icon-eye`} style={{ color:'#737373' }} /></Svg>
+                )}
+              </PasswordToggle>
+            </PasswordInput>
+          </Inputs>
+          <LoginBtn>Log In Now</LoginBtn>
+        </Content>
       </form>
-    </div>
+    </Container>
   );
 }
 
