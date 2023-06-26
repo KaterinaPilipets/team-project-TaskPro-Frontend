@@ -27,6 +27,22 @@ function LoginPage() {
   //   navigate('/home')})
   // }
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   logIn({
+  //     email: event.target.elements.email.value,
+  //     password: event.target.elements.password.value,
+  //   })
+  //     .then((response) => {
+  //       console.log('Успішно залогінено');
+  //       const { user, token } = response.data;
+  //       dispatch(setUser(user));
+  //       dispatch(setToken(token));
+  //       navigate('/home');
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     logIn({
@@ -38,6 +54,7 @@ function LoginPage() {
         const { user, token } = response.data;
         dispatch(setUser(user));
         dispatch(setToken(token));
+        // localStorage.setItem('token', token); // Зберегти токен у localStorage
         navigate('/home');
       })
       .catch((error) => console.log(error));
