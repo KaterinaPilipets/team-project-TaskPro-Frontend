@@ -33,3 +33,11 @@ export const Button = styled.button`
 export const HelpIcon = styled(HelpOutlineSharpIcon)`
   margin-right: 8px;
 `;
+export const HelpImgContainer = styled.div`
+  width: 54px;
+  height: 78px;
+`;
+
+export const HelpImage = styled.img`
+  width: 100%;
+`;
