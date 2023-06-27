@@ -12,7 +12,7 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-const SignupSchema = Yup.object().shape({
+const CommentSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
   comment: Yup.string().required('Comment is required'),
 });
@@ -42,7 +42,7 @@ const HelpModal = ({ isOpen, onClose }) => {
           email: '',
           comment: '',
         }}
-        validationSchema={SignupSchema}
+        validationSchema={CommentSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
