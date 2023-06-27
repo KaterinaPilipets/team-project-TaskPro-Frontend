@@ -14,7 +14,7 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
 
       <List>
         {tasksArray.map(task => {
-          console.log(task);
+          // console.log(task);
           return <Task key={task.id} task={task} />;
         })}
       </List>
