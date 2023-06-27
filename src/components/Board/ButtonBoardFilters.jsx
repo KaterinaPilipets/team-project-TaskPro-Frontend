@@ -21,21 +21,3 @@ export const ButtonBoardFilters = () => {
     </>
   );
 };
-
-// сделать модалку с фильтром через портал
-
-// export default function PortalExample() {
-//   const [showModal, setShowModal] = useState(false);
-//   return (
-//     <>
-//       <button onClick={() => setShowModal(true)}>
-//         Show modal using a portal
-//       </button>
-//       {showModal &&
-//         createPortal(
-//           <ModalContent onClose={() => setShowModal(false)} />,
-//           document.body
-//         )}
-//     </>
-//   );
-// }
