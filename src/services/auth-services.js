@@ -3,15 +3,12 @@ import axios from "axios";
 axios.defaults.baseURL = 'https://task-pro-backend-j82b.onrender.com';
 
 const setAuthHeader = token => { 
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
-    console.log(axios.defaults.headers.common.Authorization);
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }; 
    
 // Utility to remove JWT 
-const clearAuthHeader = () => { 
-    console.log(axios.defaults.headers.common.Authorization);
+const clearAuthHeader = () => {
     axios.defaults.headers.common.Authorization = '';
-    console.log(axios.defaults.headers.common.Authorization);
 };
 
 export const singUp = async (body) => {
@@ -30,9 +27,6 @@ export const logIn = async (body) => {
 }
 
 export const logOut = async () => {
-    // return await axios.post('/api/auth/logout', body)
     await axios.post('/api/auth/logout')
     clearAuthHeader()
-    // alert("Бугагага")
-    // return;
 }
