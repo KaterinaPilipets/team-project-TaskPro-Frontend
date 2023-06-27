@@ -3,7 +3,7 @@ import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout.js';
 import { useDispatch } from 'react-redux';
-import { setToken } from 'redux/auth/authSlice.js';
+// import { setToken } from 'redux/auth/authSlice.js';
 // import { useDispatch, useSelector } from 'react-redux';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
@@ -15,8 +15,8 @@ const dispatch = useDispatch();
 
    useEffect(() => {
     // const token = localStorage.getItem('token');
-    dispatch(setToken);
-    //  dispatch(authOperation.refreshCurrentUser());
+    // dispatch(setToken);
+    // dispatch(authOperation.refreshCurrentUser());
    }, [dispatch]);
 
   return (
@@ -46,7 +46,7 @@ const dispatch = useDispatch();
 // import { Routes, Route } from 'react-router-dom';
 // import { SharedLayout } from './SharedLayout/SharedLayout.js';
 // import { useDispatch } from 'react-redux';
-// import { setToken } from 'redux/auth/authSlice.js';
+// // import { setToken } from 'redux/auth/authSlice.js';
 // import PrivateRoute from './PrivateRouter.js';
 // // import { useDispatch, useSelector } from 'react-redux';
 
@@ -59,7 +59,7 @@ const dispatch = useDispatch();
 
 //    useEffect(() => {
 //     // const token = localStorage.getItem('token');
-//     dispatch(setToken);
+//     // dispatch(setToken);
 //     //  dispatch(authOperation.refreshCurrentUser());
 //    }, [dispatch]);
 
@@ -73,12 +73,12 @@ const dispatch = useDispatch();
 //           <Route
 //           path="/"
 //           element={
-//               <PrivateRoute redirectTo="/auth/:id" component={<SharedLayout />}>
+//               <Route redirectTo="/auth/:id" component={<AuthPage />}>
 //                 {/* <Route index element={<HomePage />} /> */}
-//                 <Route path="/home" element={<SharedLayout />}>
+//                 <Route path="/home" element={<PrivateRoute redirectTo="/welcome" component={<p>Hello User</p>} />}>
 //                   <Route index element={<HomePage />} />
 //                 </Route>
-//               </PrivateRoute>
+//               </Route>
 //             }
 //           />
 //         <Route path="/auth/:id" element={<AuthPage />} />

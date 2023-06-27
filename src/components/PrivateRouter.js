@@ -15,10 +15,11 @@
 
 import { Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { setToken } from '../redux/auth/authSlice';
+import { setToken } from '../redux/auth/authSelectors';
 
 const PrivateRouter = ({ element, redirectTo, ...rest }) => {
   const token = useSelector(setToken);
+  console.log(token)
 
   return (
     <Route
