@@ -20,14 +20,6 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   color: var(--sidebarSecondaryTextColor);
-
-  &:hover {
-    color: var(--sidebarPrimaryTextColor);
-  }
-
-  &:hover .buttons {
-    display: flex;
-  }
 `;
 
 export const ListItemButton = styled(NavLink)`
@@ -37,6 +29,15 @@ export const ListItemButton = styled(NavLink)`
   padding-bottom: 20px;
   padding-left: 14px;
   padding-right: 14px;
+
+  &:hover,
+  &.active {
+    color: var(--sidebarPrimaryTextColor);
+  }
+
+  &:hover .buttons {
+    display: flex;
+  }
 
   @media screen and (min-width: ${breakpoints.M}) {
     padding-left: 24px;
