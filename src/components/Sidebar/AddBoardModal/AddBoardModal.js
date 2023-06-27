@@ -13,7 +13,12 @@ import {
   StyledField,
   ButtonHelp,
   ErrorText,
+  Row,
+  BackgroundIcon,
+  RadioField,
+  RadioLabel,
 } from './AddBoardModal.styled';
+import backgrounds from 'sourse/bgs.json';
 
 const BoardSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
@@ -40,6 +45,7 @@ const AddBoardModal = ({ isOpen, onClose }) => {
       <Formik
         initialValues={{
           title: '',
+          background: null,
         }}
         validationSchema={BoardSchema}
         onSubmit={handleSubmit}
@@ -49,6 +55,24 @@ const AddBoardModal = ({ isOpen, onClose }) => {
             <StyledField name="title" placeholder="Title" />
             <ErrorText name="title" component="div" />
 
+            <p>Background</p>
+            <Row>
+              <label>
+                <RadioField name="background" type="radio" value={null} />
+                <RadioLabel className="radio-label">
+                  <BackgroundIcon alt={'no background'} src={''} />
+                </RadioLabel>
+              </label>
+
+              {backgrounds.map(({ id, bgname, URL }) => (
+                <label key={id}>
+                  <RadioField name="background" type="radio" value={id} />
+                  <RadioLabel className="radio-label">
+                    <BackgroundIcon alt={bgname} src={URL.icon} />
+                  </RadioLabel>
+                </label>
+              ))}
+            </Row>
             <ButtonHelp type="submit" disabled={isSubmitting}>
               Create
             </ButtonHelp>

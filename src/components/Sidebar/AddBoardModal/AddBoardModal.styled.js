@@ -46,3 +46,32 @@ export const ErrorText = styled(ErrorMessage)`
   font-size: 12px;
   color: var(--createBoardInputTextFocus);
 `;
+
+export const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(8 * 32px);
+`;
+
+export const BackgroundIcon = styled.img`
+  width: 28px;
+  height: 28px;
+`;
+
+export const RadioLabel = styled.div`
+  margin-right: 4px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+`;
+
+export const RadioField = styled(Field)`
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+
+  &:hover ~ .radio-label,
+  &:checked ~ .radio-label {
+    outline: 1px solid green;
+  }
+`;
