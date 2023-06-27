@@ -10,10 +10,10 @@ const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage'));
 const HomePage = lazy(() => import('../pages/HomePage'));
 export const App = () => {
-const dispatch = useDispatch();
-// const isRefreshing = useSelector(authSelector.getIsRefreshing);
+  const dispatch = useDispatch();
+  // const isRefreshing = useSelector(authSelector.getIsRefreshing);
 
-   useEffect(() => {
+  useEffect(() => {
     // const token = localStorage.getItem('token');
     // dispatch(setToken);
     // dispatch(authOperation.refreshCurrentUser());
@@ -30,6 +30,7 @@ const dispatch = useDispatch();
           {/* <Route  path="/" element={  <PrivateRoute redirectTo="/welcome" component={<HomePage />} /> } /> */}
           <Route path="/home" element={<SharedLayout />}>
             <Route index element={<HomePage />} />
+            {/* <Route path=":id" element={<HomePage />} /> */}
           </Route>
           <Route path="*" element={<WelcomePage />} />
         </Routes>
