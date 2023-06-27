@@ -14,3 +14,15 @@ export const fetchBoardsList = createAsyncThunk(
     }
   }
 );
+
+export const createBoard = createAsyncThunk(
+  'boardsList/createBoard',
+  async (boardData, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/api/boards', boardData);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
