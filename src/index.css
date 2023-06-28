@@ -286,6 +286,7 @@ body[data-theme='dark'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -459,6 +460,7 @@ body[data-theme='light'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -633,4 +635,6 @@ body[data-theme='violet'] {
   --createBoardInputBorderFocus: #5255BC;
 
   --createBoardButtonBgColor: #5255BC;
+  --helpModalButtonColor: #ffffff;
+
 }

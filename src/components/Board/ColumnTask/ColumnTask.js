@@ -17,6 +17,7 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
         {tasksArray.map(task => {
           // console.log(task);
           return <Task key={task._id} task={task} />;
+
         })}
       </List>
       <Wrap>

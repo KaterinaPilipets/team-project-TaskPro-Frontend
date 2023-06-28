@@ -27,12 +27,12 @@ const BoardsList = () => {
     <Container>
       <List>
         {boards.map(board => (
-          <ListItem key={board.id}>
-            <ListItemButton to={board.id}>
+          <ListItem key={board.id || board._id}>
+            <ListItemButton to={board.id || board._id}>
               <BoardIconContainer>
                 <BoardIcon />
               </BoardIconContainer>
-              <BoardTitle>{board.name}</BoardTitle>
+              <BoardTitle>{board.title}</BoardTitle>
 
               <ActionsContainer className="buttons">
                 <ActionButton marginRight>

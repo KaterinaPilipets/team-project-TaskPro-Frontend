@@ -86,6 +86,7 @@ import {
   REGISTER,
 } from 'redux-persist/es/constants';
 import themeReducer from './theme/theme-slice';
+// import setTheme from '../redux/auth/authSlice';
 import authReducer from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
 import { boardsListReducer } from './boards-list/boardsListSlice';
