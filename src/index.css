@@ -444,7 +444,7 @@ body[data-theme='light'] {
   --createBoardButtonBgColor: #BEDBB0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);;
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
@@ -619,7 +619,7 @@ body[data-theme='violet'] {
   --createBoardButtonBgColor: #5255BC;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
