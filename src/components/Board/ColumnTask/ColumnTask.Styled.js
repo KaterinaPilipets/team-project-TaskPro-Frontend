@@ -10,7 +10,7 @@ export const List = styled.ul`
 export const HeaderColumn = styled.div`
   border-radius: 8px;
   width: 100%;
-  hight: 56px;
+  height: 56px;
   padding: 14px 24px;
   background-color: var(--bgColor);
   color: var(--titleColor);

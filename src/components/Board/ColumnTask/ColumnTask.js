@@ -3,6 +3,7 @@ import { Task } from '../Task/Task';
 import { Column, HeaderColumn, List, Wrap } from './ColumnTask.Styled';
 import { useToggleModal } from '../../../hooks';
 import { Modal } from 'components/Modal';
+
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
   const { open, close, isOpen } = useToggleModal();
   //   console.log(tasksArray);
@@ -15,7 +16,8 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
       <List>
         {tasksArray.map(task => {
           // console.log(task);
-          return <Task key={task.id} task={task} />;
+          return <Task key={task._id} task={task} />;
+
         })}
       </List>
       <Wrap>

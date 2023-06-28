@@ -27,17 +27,20 @@ import { useToggleModal } from '../../../hooks';
 //   },
 // ];
 export const Task = ({ task }) => {
-  const { name, discription, priority, deadline } = task;
+
+  const { title, description, label, deadline } = task;
+
   const { open } = useToggleModal();
+
   return (
     <ListItem>
-      <Title>{name}</Title>
-      <TextHidden>{discription}</TextHidden>
+      <Title>{title}</Title>
+      <TextHidden>{description}</TextHidden>
       <Span />
       <Wrap>
         <div>
           <SubTitle>Priority</SubTitle>
-          <SubText>{priority}</SubText>
+          <SubText>{label}</SubText>
         </div>
         <div>
           <SubTitle>Deadline</SubTitle>
