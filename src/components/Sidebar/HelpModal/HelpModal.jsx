@@ -11,25 +11,25 @@ import {
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { sendEmail } from 'services/help-services';
 
 const CommentSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
-  comment: Yup.string().required('Comment is required'),
+  message: Yup.string().required('Comment is required'),
 });
 
 const HelpModal = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch();
+
   if (!isOpen) {
     return null;
   }
 
   const handleSubmit = async (value, { setSubmitting }) => {
-    // Отправка запроса на бэкенд
-    // Закрытие модального окна
     setSubmitting(true);
 
-    await new Promise(res => {
-      setTimeout(res, 2000);
-    }); // TODO add request
+    await dispatch(sendEmail(value));
 
     onClose();
   };
@@ -40,7 +40,7 @@ const HelpModal = ({ isOpen, onClose }) => {
       <Formik
         initialValues={{
           email: '',
-          comment: '',
+          message: '',
         }}
         validationSchema={CommentSchema}
         onSubmit={handleSubmit}
@@ -54,8 +54,8 @@ const HelpModal = ({ isOpen, onClose }) => {
             />
             <ErrorText name="email" component="div" />
 
-            <Textarea name="comment" as="textarea" placeholder="Comment" />
-            <ErrorText name="comment" component="div" />
+            <Textarea name="message" as="textarea" placeholder="Comment" />
+            <ErrorText name="message" component="div" />
 
             <ButtonHelp type="submit" disabled={isSubmitting}>
               Send
