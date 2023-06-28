@@ -17,12 +17,26 @@ import {
   BackgroundIcon,
   RadioField,
   RadioLabel,
+  IconContainer,
+  Svg,
 } from './AddBoardModal.styled';
 import backgrounds from 'sourse/bgs.json';
+import icon from 'sourse/sprite.svg';
 
 const BoardSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
 });
+
+const BOARD_ICONS = [
+  'icon-four-circles',
+  'icon-star',
+  'icon-yo-yo',
+  'icon-puzzle-piece',
+  'icon-box',
+  'icon-lightning-small',
+  'icon-three-circles',
+  'icon-circle-box',
+];
 
 const AddBoardModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -45,7 +59,8 @@ const AddBoardModal = ({ isOpen, onClose }) => {
       <Formik
         initialValues={{
           title: '',
-          background: null,
+          background: '',
+          icon: BOARD_ICONS[0],
         }}
         validationSchema={BoardSchema}
         onSubmit={handleSubmit}
@@ -55,11 +70,25 @@ const AddBoardModal = ({ isOpen, onClose }) => {
             <StyledField name="title" placeholder="Title" />
             <ErrorText name="title" component="div" />
 
+            <p>Icons</p>
+            <Row>
+              {BOARD_ICONS.map(id => (
+                <label key={id} title={id}>
+                  <RadioField name="icon" type="radio" value={id} />
+                  <IconContainer className="icon-label">
+                    <Svg>
+                      <use xlinkHref={`${icon}#${id}`} />
+                    </Svg>
+                  </IconContainer>
+                </label>
+              ))}
+            </Row>
+
             <p>Background</p>
             <Row>
               <label>
                 <RadioField name="background" type="radio" value={null} />
-                <RadioLabel className="radio-label">
+                <RadioLabel className="background-label">
                   <BackgroundIcon alt={'no background'} src={''} />
                 </RadioLabel>
               </label>
@@ -67,7 +96,7 @@ const AddBoardModal = ({ isOpen, onClose }) => {
               {backgrounds.map(({ id, bgname, URL }) => (
                 <label key={id}>
                   <RadioField name="background" type="radio" value={id} />
-                  <RadioLabel className="radio-label">
+                  <RadioLabel className="background-label">
                     <BackgroundIcon alt={bgname} src={URL.icon} />
                   </RadioLabel>
                 </label>

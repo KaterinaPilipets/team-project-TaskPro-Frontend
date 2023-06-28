@@ -70,8 +70,24 @@ export const RadioField = styled(Field)`
   opacity: 0;
   pointer-events: none;
 
-  &:hover ~ .radio-label,
-  &:checked ~ .radio-label {
+  &:hover ~ .background-label,
+  &:checked ~ .background-label {
     outline: 1px solid green;
   }
+
+  &:hover ~ .icon-label,
+  &:checked ~ .icon-label {
+    --color1: var(--createBoardButtonIconFill);
+  }
+`;
+
+export const IconContainer = styled.div`
+  --color1: var(--createBoardIconsFill);
+  margin-right: 8px;
+  cursor: pointer;
+`;
+
+export const Svg = styled.svg`
+  width: 18px;
+  height: 18px;
 `;
