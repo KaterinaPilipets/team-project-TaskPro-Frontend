@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { singUp } from '../../services/auth-services';
+// import { singUp } from '../../services/auth-services';
 import { useNavigate } from 'react-router-dom'
 import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { setUser, setToken } from '../../redux/auth/authSlice';
+import { register } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 import { PasswordToggle, PasswordInputField, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled"
 
@@ -40,15 +40,21 @@ function RegistrationPage() {
       password: event.target.elements.password.value,
     };
 
-    singUp(newUser)
-      .then((response) => {
-        console.log('Все відправлено на Бекенд');
-        const { user, token } = response.data;
-        dispatch(setUser(user));
-        dispatch(setToken(token));
-        navigate('/home');
-      })
-      .catch((error) => console.log(error));
+    // register(newUser)
+    if (newUser) {
+      dispatch(register(newUser));
+      navigate('/home');
+    } else {
+      console.log("Error")
+    }
+      // .then((response) => {
+      //   console.log('Все відправлено на Бекенд');
+      //   const { user, token } = response.data;
+      //   dispatch(setUser(user));
+      //   dispatch(setToken(token));
+      //   navigate('/home');
+      // })
+      // .catch((error) => console.log(error));
   }
 
   return (
