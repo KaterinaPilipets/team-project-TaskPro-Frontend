@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 export const List = styled.ul`
   width: 100%;
   display: flex;
@@ -17,12 +18,13 @@ export const HeaderColumn = styled.div`
   font-weight: var(--fontWeight500);
   // margin-bottom: 14px;
 `;
-export const Wrap = styled.div`
-  margin-bottom: 36px;
+export const ButtonPrimaryStyled = styled(ButtonPrimary)`
+  margin-top: auto;
 `;
 export const Column = styled.div`
   width: 334px;
   display: flex;
   flex-direction: column;
+
   gap: 14px;
 `;
