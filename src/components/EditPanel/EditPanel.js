@@ -1,11 +1,11 @@
 import icon from '../../sourse/sprite.svg';
 import { useToggleModal } from '../../hooks';
 import { Modal } from 'components/Modal';
-export const SvgBtn = ({ idIcon, fn, component }) => {
+export const SvgBtn = ({ idIcon, onClick, component }) => {
   const { close, isOpen } = useToggleModal();
   return (
     <>
-      <button type="button" onClick={fn}>
+      <button onClick={onClick}>
         <svg width="16" height="16">
           <use xlinkHref={`${icon}#${idIcon}`} />
         </svg>

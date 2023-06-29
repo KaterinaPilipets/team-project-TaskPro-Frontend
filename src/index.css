@@ -57,7 +57,7 @@
   --breakpointsXS: 320px;
   --breakpointsS: 375px;
   --breakpointsM: 786px;
-  --breakpointsL: 1280px;
+  --breakpointsL: 1440px;
 }
 
 #root {
@@ -116,6 +116,7 @@ button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 body[data-theme='dark'] {
@@ -286,6 +287,7 @@ body[data-theme='dark'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -443,7 +445,7 @@ body[data-theme='light'] {
   --createBoardButtonBgColor: #BEDBB0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);;
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
@@ -459,6 +461,7 @@ body[data-theme='light'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -617,7 +620,7 @@ body[data-theme='violet'] {
   --createBoardButtonBgColor: #5255BC;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
@@ -633,4 +636,6 @@ body[data-theme='violet'] {
   --createBoardInputBorderFocus: #5255BC;
 
   --createBoardButtonBgColor: #5255BC;
+  --helpModalButtonColor: #ffffff;
+
 }

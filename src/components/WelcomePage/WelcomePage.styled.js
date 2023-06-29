@@ -13,7 +13,7 @@ export const Container = styled.div `
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #BEDBB0 92.19%);
     background-repeat: no-repeat;
     background-size: cover;
     flex-direction: column;
