@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+  // useSelector
+} from 'react-redux';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { setTheme } from '../../redux/theme/theme-slice';
 import {
@@ -8,6 +12,9 @@ import {
   StyledItem,
   StyledTitle,
 } from './ThemeSelect.styled';
+// import { getTheme } from 'redux/auth/authSelectors';
+import { updateTheme } from 'redux/auth/authOperations';
+import { getTheme } from 'redux/auth/authSelectors';
 
 const themes = [
   { name: 'Light', value: 'light' },
@@ -16,18 +23,30 @@ const themes = [
 ];
 
 const ThemeSelect = () => {
-  const dispatch = useDispatch();
   const [selectedTheme, setSelectedTheme] = useState('dark');
   const [isThemeOpen, setIsThemeOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const theme = useSelector(getTheme);
+
+  useEffect(() => {
+    if (theme) {
+      document.body.setAttribute('data-theme', theme);
+    } else {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  }, [theme]);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', selectedTheme);
   }, [selectedTheme]);
 
   const toggleTheme = theme => {
-    dispatch(setTheme(theme));
     setSelectedTheme(theme);
     setIsThemeOpen(false);
+    dispatch(setTheme(theme));
+    dispatch(updateTheme(theme));
   };
 
   return (

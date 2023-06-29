@@ -13,7 +13,7 @@ export const Container = styled.div `
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+    background: var(--welcomeBgColor);
     background-repeat: no-repeat;
     background-size: cover;
     flex-direction: column;
@@ -27,15 +27,15 @@ export const CenteredContainer = styled.div `
 `
 export const CustomButton = styled(NavLink)`
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--fontWeight500);
   font-size: 14px;
   line-height: 21px;
   text-align: center;
   letter-spacing: -0.02em;
   padding: 14px 131px 14px 130px;
-  background: #161616;
+  background: var(--buttonColor);
   border-radius: 8px;
-  color: white;
+  color: var(--lightColor);
   cursor: pointer;
   text-transform: none;
   @media screen and (max-width: 768px) { 
@@ -44,11 +44,11 @@ export const CustomButton = styled(NavLink)`
 `
 export const LoginBtn = styled(NavLink)`
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: var(--fontWeight500);
+    font-size: var(--fontSize14);
     line-height: 21px;
     letter-spacing: -0.02em;
-    color: #161616;
+    color: var(--buttonColor);
     cursor: pointer;
 `
 export const Logo = styled.div`
@@ -79,11 +79,11 @@ export const Text = styled.p `
     width: 473px;
     height: 36px;
     margin-bottom: 48px;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: var(--fontWeight400);
+    font-size: var(--fontSize14);
     line-height: 18px;
     letter-spacing: -0.02em;
-    color: #161616; 
+    color: var(--buttonColor); 
     @media screen and (max-width: 768px) {
         width: 335px;
         height: 54px;
@@ -99,11 +99,11 @@ export const Svg = styled.svg `
     }
 `
 export const Title = styled.p `
-    font-weight: 600;
-    font-size: 40px;
+    font-weight: var(--fontWeight600);
+    font-size: var(--fontSize40);
     line-height: 60px;
     letter-spacing: -0.04em;
-    color: #161616;
+    color: var(--buttonColor);
     @media screen and (max-width: 768px) {
         font-size: 28px;
         line-height: 42px;

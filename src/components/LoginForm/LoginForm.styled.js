@@ -8,13 +8,13 @@ export const Container = styled.div `
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+    background: var(--welcomeBgColor);
     background-repeat: no-repeat;
     background-size: cover;
 `
 export const Content = styled.div `
     text-align: center;
-    background: #151515;
+    background: var(--bgColorAuth);
     border-radius: 8px;
 `
 export const Menu = styled.div`
@@ -26,22 +26,22 @@ export const StyledLink = styled(Link)`
   left: 160px;
   top: 40px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--fontWeight500);
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: var(--lightColor);
 `;
 
 export const StyledRegistrationLink = styled(Link)`
   margin-left: 40px;
   margin-right: 14px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--fontWeight500);
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--inputTextColor);
 
   @media screen and (max-width: 768px) {
     margin-left: 24px;
@@ -62,10 +62,10 @@ export const Inputs = styled.div`
     margin-bottom: 14px;
     left: 40px;
     top: 107px;
-    color: white;
-    background: #1F1F1F;
+    color: var(--lightColor);
+    background: var(--inputBgColor);
     opacity: 0.4;
-    border: 1px solid #BEDBB0;
+    border: 1px solid var(--buttonBgColor);
     padding-left: 18px;
     box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
     border-radius: 8px;
@@ -90,10 +90,10 @@ export const PasswordInputField = styled.input`
   margin-bottom: 14px;
   left: 40px;
   top: 107px;
-  color: white;
-  background: #1F1F1F;
+  color: var(--lightColor);
+  background: var(--inputBgColor);
   opacity: 0.4;
-  border: 1px solid #BEDBB0;
+  border: 1px solid var(--buttonBgColor);
   padding-left: 18px;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
@@ -104,14 +104,14 @@ export const PasswordToggle = styled.span`
     right: 60px;
     top: 19px;
     cursor: pointer;
-    color: #737373;
+    color: var(--passwordColor);
     @media screen and (max-width: 768px) {
         right: 42.75px
     }
 `;
 
 export const PasswordIcon = styled(FontAwesomeIcon)`
-    color: #737373;
+    color: var(--passwordColor);
 `;
 export const Svg = styled.svg`
     width: 16.5px;
@@ -119,20 +119,20 @@ export const Svg = styled.svg`
     top: 50%;
     right: 4px;
     transform: translateY(-45%);
-    color: #737373;
+    color: var(--passwordColor);
 `;
 export const LoginBtn = styled.button`
     font-style: normal;
-    font-weight: 500;
+    font-weight: var(--fontWeight500);
     font-size: 14px;
     line-height: 21px;
     text-align: center;
     letter-spacing: -0.02em;
     width: 344px;
     height: 49px;
-    background: #BEDBB0;
+    background: var(--buttonBgColor);
     border-radius: 8px;
-    color: #161616;
+    color: var(--buttonColor);
     margin-bottom: 40px;
     cursor: pointer;
     @media screen and (max-width: 768px) {

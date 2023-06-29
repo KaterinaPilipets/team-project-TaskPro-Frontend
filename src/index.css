@@ -19,10 +19,10 @@
   --transition: 0.25s;
   --darkColor: #161616;
   --lightColor: #FFFFFF;
-  --welcomeBgColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
+  --welcomeBgColor: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #BEDBB0 92.19%);
 
   /**Register, LogIn */
-  --bgColor: #151515;
+  --bgColorAuth: #151515;
   --inputBgColor: #1F1F1F;
   --inputTextColor: rgba(255, 255, 255, 0.3);
   --inputTextFocus: #FFFFFF;
@@ -30,6 +30,7 @@
   --inputBorderFocus: #BEDBB0;
   --buttonBgColor: #BEDBB0;
   --buttonColor: #161616;
+  --passwordColor: #737373;
 
 
   /** Priority Colors*/
@@ -57,7 +58,7 @@
   --breakpointsXS: 320px;
   --breakpointsS: 375px;
   --breakpointsM: 786px;
-  --breakpointsL: 1280px;
+  --breakpointsL: 1440px;
 }
 
 #root {
@@ -116,6 +117,7 @@ button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 body[data-theme='dark'] {
@@ -286,6 +288,7 @@ body[data-theme='dark'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -443,7 +446,7 @@ body[data-theme='light'] {
   --createBoardButtonBgColor: #BEDBB0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);;
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
@@ -459,6 +462,7 @@ body[data-theme='light'] {
   --createBoardInputBorderFocus: #BEDBB0;
 
   --createBoardButtonBgColor: #BEDBB0;
+  --helpModalButtonColor: #161616;
 }
 
 
@@ -617,7 +621,7 @@ body[data-theme='violet'] {
   --createBoardButtonBgColor: #5255BC;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
@@ -633,4 +637,6 @@ body[data-theme='violet'] {
   --createBoardInputBorderFocus: #5255BC;
 
   --createBoardButtonBgColor: #5255BC;
+  --helpModalButtonColor: #ffffff;
+
 }

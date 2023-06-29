@@ -74,7 +74,7 @@
 
 // export default store;
 
-import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {
@@ -86,14 +86,17 @@ import {
   REGISTER,
 } from 'redux-persist/es/constants';
 import themeReducer from './theme/theme-slice';
-import authReducer from './auth/authSlice';
+// import setTheme from '../redux/auth/authSlice';
+import { authReducer } from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
 import { boardsListReducer } from './boards-list/boardsListSlice';
 
 const persistConfig = {
   key: 'root',
+  // key: 'auth',
   storage,
   whitelist: ['auth'], // Specify the reducers to be persisted
+  // whitelist: ['token'],
 };
 
 const persistedReducer = persistReducer(
@@ -108,7 +111,8 @@ const persistedReducer = persistReducer(
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: getDefaultMiddleware({
+  middleware: getDefaultMiddleware => 
+  getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
