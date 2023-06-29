@@ -3,7 +3,7 @@ export const setToken = state => state.auth.token;
 
 export const setName = state => state.auth.user.name;
 
-export const setColorTheme = state => state.auth.user.theme;
+// export const setColorTheme = state => state.auth.user.theme;
 
 export const activeBoard = state => state.auth.user.activeBoard;
 

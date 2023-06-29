@@ -26,8 +26,8 @@
 //     <>
 //       <Suspense fallback={<p>Loading...</p>}>
 //         <Routes>
-//           {/* <Route path="/" element={<WelcomePage />} /> */}
-//           <Route path="/" element={<PublicRouter redirectTo="/welcome" component={<SharedLayout />} />} />
+//           <Route path="/" element={<WelcomePage />} />
+//           {/* <Route path="/" element={<PublicRouter redirectTo="/welcome" component={<SharedLayout />} />} /> */}
 //           <Route path="/welcome" element={<WelcomePage />} />
 //           {/* <WelcomePage /> */}
 //           <Route path="/auth/:id" element={<AuthPage />} />
@@ -71,7 +71,7 @@ export const App = () => {
     <Loader />
   ) : (
     <>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense>
         <Routes>
           <Route path="/" element={
               loggedUser ? (
