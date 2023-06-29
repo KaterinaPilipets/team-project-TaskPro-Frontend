@@ -40,21 +40,12 @@ function RegistrationPage() {
       password: event.target.elements.password.value,
     };
 
-    // register(newUser)
     if (newUser) {
       dispatch(register(newUser));
       navigate('/home');
     } else {
       console.log("Error")
     }
-      // .then((response) => {
-      //   console.log('Все відправлено на Бекенд');
-      //   const { user, token } = response.data;
-      //   dispatch(setUser(user));
-      //   dispatch(setToken(token));
-      //   navigate('/home');
-      // })
-      // .catch((error) => console.log(error));
   }
 
   return (

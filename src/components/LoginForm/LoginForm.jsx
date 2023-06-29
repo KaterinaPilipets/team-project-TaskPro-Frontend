@@ -7,6 +7,7 @@ import { login } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 // import { setUser, setToken } from '../../redux/auth/authSlice';
 import { PasswordToggle, PasswordInputField, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, LoginBtn, StyledRegistrationLink, StyledLink } from "./LoginForm.styled"
+import { setToken } from 'redux/auth/authSelectors';
 
 function LoginPage() {
   const navigate = useNavigate()
@@ -52,10 +53,11 @@ function LoginPage() {
     }
 
     if(currentUser) {
-      dispatch(login(currentUser));
+      dispatch(login(currentUser, setToken));
       navigate('/home');
     } else {
-      console.log("Error")
+      console.log("Error");
+      navigate('/auth/login');
     }
       // .then((response) => {
       //   console.log('Успішно залогінено');
@@ -66,22 +68,6 @@ function LoginPage() {
       //   navigate('/home');
       // })
       // .catch((error) => console.log(error));
-
-      // const handleSubmit = (event) => {
-      //   event.preventDefault();
-      //   const newUser = {
-      //     name: event.target.elements.name.value,
-      //     email: event.target.elements.email.value,
-      //     password: event.target.elements.password.value,
-      //   };
-    
-      //   // register(newUser)
-      //   if (newUser) {
-      //     dispatch(register(newUser));
-      //     navigate('/home');
-      //   } else {
-      //     console.log("Error")
-      //   }
   }
 
   return (
