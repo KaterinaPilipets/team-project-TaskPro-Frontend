@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login, logout, refreshUser, updateTheme } from './authOperations';
+import {
+  register,
+  login,
+  logout,
+  refreshUser,
+  updateTheme,
+} from './authOperations';
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { email: "", name: "", avatarURL: "", theme: "", activeBoard: "" },
-    token: "",
+    user: { email: '', name: '', avatarURL: '', theme: '', activeBoard: '' },
+    token: '',
     isLoggedIn: false,
     isRefreshing: false,
   },
@@ -30,12 +36,12 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, state => {
-        state.user.email = "";
-        state.user.name = "";
-        state.user.avatarURL = "";
-        state.user.theme = "";
-        state.user.activeBoard = "";
-        state.token = "";
+        state.user.email = '';
+        state.user.name = '';
+        state.user.avatarURL = '';
+        state.user.theme = '';
+        state.user.activeBoard = '';
+        state.token = '';
         state.isLoggedIn = false;
       })
       .addCase(refreshUser.pending, state => {
@@ -49,27 +55,16 @@ export const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-      }),
-    // setTheme(state, action) {
-    //   state.user.themeColor = action.payload;
-    // },
-
-      // setTheme(state, action) {
-      //   state.user.themeColor = action.payload;
-      // },
+      })
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;
         state.token = payload.token;
-      })
-
+      }),
 });
 
 // export const { setUser, setToken, clearToken } = authSlice.actions;
 
-
 export default authSlice.reducer;
-
-
 
 // import { createSlice } from '@reduxjs/toolkit';
 
@@ -96,4 +91,3 @@ export default authSlice.reducer;
 // export const { setUser, setToken, clearUser, clearToken } = authSlice.actions;
 
 // export default authSlice.reducer;
-
