@@ -23,7 +23,7 @@
 
 
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout } from './authOperations';
+import { register, login, logout, updateTheme } from './authOperations';
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -33,21 +33,21 @@ export const authSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(register.fulfilled, (state, {payload}) => {
-        state.user.email = payload.user.email;
-        state.user.name = payload.user.name;
-        state.user.avatarURL = payload.user.avatarURL;
-        state.user.theme = payload.user.theme;
-        state.user.activeBoard = payload.user.activeBoard;
+      .addCase(register.fulfilled, (state, { payload }) => {
+        state.user.email = payload.email;
+        state.user.name = payload.name;
+        state.user.avatarURL = payload.avatarURL;
+        state.user.theme = payload.theme;
+        state.user.activeBoard = payload.activeBoard;
         state.token = payload.token;
         // state.isLoggedIn = true;
       })
-      .addCase(login.fulfilled, (state, {payload}) => {
-        state.user.email = payload.user.email;
-        state.user.name = payload.user.name;
-        state.user.avatarURL = payload.user.avatarURL;
-        state.user.theme = payload.user.theme;
-        state.user.activeBoard = payload.user.activeBoard;
+      .addCase(login.fulfilled, (state, { payload }) => {
+        state.user.email = payload.email;
+        state.user.name = payload.name;
+        state.user.avatarURL = payload.avatarURL;
+        state.user.theme = payload.theme;
+        state.user.activeBoard = payload.activeBoard;
         state.token = payload.token;
         // state.isLoggedIn = true;
       })
@@ -60,9 +60,13 @@ export const authSlice = createSlice({
         state.token = "";
         // state.isLoggedIn = false;
       })
-    // setTheme(state, action) {
-    //   state.user.themeColor = action.payload;
-    // },
+      // setTheme(state, action) {
+      //   state.user.themeColor = action.payload;
+      // },
+      .addCase(updateTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload.theme;
+        state.token = payload.token;
+      })
 });
 
 // export const { setUser, setToken, clearToken } = authSlice.actions;
