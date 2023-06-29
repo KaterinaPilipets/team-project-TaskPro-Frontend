@@ -1,7 +1,4 @@
 import styled from '@emotion/styled';
-import CreateTwoToneIcon from '@mui/icons-material/CreateTwoTone';
-import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
-import GridViewIcon from '@mui/icons-material/GridView';
 import { NavLink } from 'react-router-dom';
 
 import { breakpoints } from 'constants';
@@ -19,6 +16,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  --color1: var(--sidebarSecondaryTextColor);
   color: var(--sidebarSecondaryTextColor);
 `;
 
@@ -29,9 +27,25 @@ export const ListItemButton = styled(NavLink)`
   padding-bottom: 20px;
   padding-left: 14px;
   padding-right: 14px;
+  position: relative;
 
+  &.active {
+    background: var(--blockEditBgColor);
+
+    &::after {
+      content: '';
+      height: 100%;
+      width: 4px;
+      right: 0;
+      background: #fff;
+      border-radius: 25px 0 0 25px;
+      position: absolute;
+      background: var(--blockEditBorderAccent);
+    }
+  }
   &:hover,
   &.active {
+    --color1: var(--sidebarPrimaryTextColor);
     color: var(--sidebarPrimaryTextColor);
   }
 
@@ -48,11 +62,9 @@ export const ListItemButton = styled(NavLink)`
 export const BoardIconContainer = styled.div`
   min-width: 18px;
   margin-right: 8px;
-`;
-
-export const BoardIcon = styled(GridViewIcon)`
-  width: 18px;
-  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const BoardTitle = styled.p`
@@ -71,17 +83,17 @@ export const ActionsContainer = styled.div`
 `;
 
 export const ActionButton = styled.button`
-  color: var(--sidebarSecondaryTextColor);
+  --color1: var(--sidebarSecondaryTextColor);
   padding: 0;
   ${({ marginRight }) => marginRight && 'margin-right: 8px;'};
 `;
 
-export const EditIcon = styled(CreateTwoToneIcon)`
+export const ActionButtonIcon = styled.svg`
   width: 16px;
   height: 16px;
 `;
 
-export const DeleteIcon = styled(DeleteTwoToneIcon)`
-  width: 16px;
-  height: 16px;
+export const Svg = styled.svg`
+  width: 18px;
+  height: 18px;
 `;

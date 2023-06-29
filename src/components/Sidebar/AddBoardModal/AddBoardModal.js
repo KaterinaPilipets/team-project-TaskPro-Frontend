@@ -10,8 +10,8 @@ import { createBoard } from 'services/boardslist-services';
 import {
   TitleHelp,
   StyledForm,
+  FormField,
   StyledField,
-  ButtonHelp,
   ErrorText,
   Row,
   BackgroundIcon,
@@ -19,6 +19,8 @@ import {
   RadioLabel,
   IconContainer,
   Svg,
+  BoardText,
+  SubmitButton,
 } from './AddBoardModal.styled';
 // import backgrounds from 'sourse/bgs.json';
 import { bgs } from 'sourse/bgs';
@@ -68,10 +70,11 @@ const AddBoardModal = ({ isOpen, onClose }) => {
       >
         {({ isSubmitting }) => (
           <StyledForm>
-            <StyledField name="title" placeholder="Title" />
-            <ErrorText name="title" component="div" />
-
-            <p>Icons</p>
+            <FormField>
+              <StyledField name="title" placeholder="Title" />
+              <ErrorText name="title" component="div" />
+            </FormField>
+            <BoardText>Icons</BoardText>
             <Row>
               {BOARD_ICONS.map(id => (
                 <label key={id} title={id}>
@@ -85,10 +88,10 @@ const AddBoardModal = ({ isOpen, onClose }) => {
               ))}
             </Row>
 
-            <p>Background</p>
+            <BoardText>Background</BoardText>
             <Row>
               <label>
-                <RadioField name="background" type="radio" value={null} />
+                <RadioField name="background" type="radio" value="" />
                 <RadioLabel className="background-label">
                   <BackgroundIcon alt={'no background'} src={''} />
                 </RadioLabel>
@@ -103,9 +106,8 @@ const AddBoardModal = ({ isOpen, onClose }) => {
                 </label>
               ))}
             </Row>
-            <ButtonHelp type="submit" disabled={isSubmitting}>
-              Create
-            </ButtonHelp>
+
+            <SubmitButton disabled={isSubmitting}>Create</SubmitButton>
           </StyledForm>
         )}
       </Formik>

@@ -5,15 +5,15 @@ import {
   ListItem,
   ListItemButton,
   BoardIconContainer,
-  BoardIcon,
   BoardTitle,
   ActionsContainer,
   ActionButton,
-  EditIcon,
-  DeleteIcon,
+  ActionButtonIcon,
+  Svg,
 } from './BoardsList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBoardsList } from 'services/boardslist-services';
+import icon from 'sourse/sprite.svg';
 
 const BoardsList = () => {
   const dispatch = useDispatch();
@@ -30,16 +30,22 @@ const BoardsList = () => {
           <ListItem key={board.id || board._id}>
             <ListItemButton to={board.id || board._id}>
               <BoardIconContainer>
-                <BoardIcon />
+                <Svg>
+                  <use xlinkHref={`${icon}#${board.icon}`} />
+                </Svg>
               </BoardIconContainer>
               <BoardTitle>{board.title}</BoardTitle>
 
               <ActionsContainer className="buttons">
                 <ActionButton marginRight>
-                  <EditIcon />
+                  <ActionButtonIcon>
+                    <use xlinkHref={`${icon}#icon-pencil`} />
+                  </ActionButtonIcon>
                 </ActionButton>
                 <ActionButton>
-                  <DeleteIcon />
+                  <ActionButtonIcon>
+                    <use xlinkHref={`${icon}#icon-trash`} />
+                  </ActionButtonIcon>
                 </ActionButton>
               </ActionsContainer>
             </ListItemButton>
