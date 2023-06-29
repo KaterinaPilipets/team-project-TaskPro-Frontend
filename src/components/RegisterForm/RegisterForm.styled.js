@@ -14,7 +14,7 @@ export const Container = styled.div `
 `
 export const Content = styled.div `
     text-align: center;
-    background: var(--bgColor);
+    background: var(--bgColorAuth);
     border-radius: 8px;
 `
 export const Menu = styled.div`

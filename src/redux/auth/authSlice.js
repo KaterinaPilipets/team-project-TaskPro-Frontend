@@ -18,22 +18,26 @@ export const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
-        state.user.email = payload.email;
-        state.user.name = payload.name;
-        state.user.avatarURL = payload.avatarURL;
-        state.user.theme = payload.theme;
-        state.user.activeBoard = payload.activeBoard;
+        // state.user.email = payload.email;
+        // state.user.name = payload.name;
+        // state.user.avatarURL = payload.avatarURL;
+        // state.user.theme = payload.theme;
+        // state.user.activeBoard = payload.activeBoard;
+        state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
-        state.user.email = payload.email;
-        state.user.name = payload.name;
-        state.user.avatarURL = payload.avatarURL;
-        state.user.theme = payload.theme;
-        state.user.activeBoard = payload.activeBoard;
+        // state.user.email = payload.email;
+        // state.user.name = payload.name;
+        // state.user.avatarURL = payload.avatarURL;
+        // state.user.theme = payload.theme;
+        // state.user.activeBoard = payload.activeBoard;
+        state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(logout.fulfilled, state => {
         state.user.email = '';
@@ -43,13 +47,13 @@ export const authSlice = createSlice({
         state.user.activeBoard = '';
         state.token = '';
         state.isLoggedIn = false;
+        state.isRefreshing = false;
       })
-      .addCase(refreshUser.pending, state => {
+      .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
-
-      .addCase(refreshUser.fulfilled, (action, state) => {
-        state.user = action.payload;
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -58,13 +62,13 @@ export const authSlice = createSlice({
       })
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;
-        state.token = payload.token;
+        // state.token = payload.token;
       }),
 });
 
 // export const { setUser, setToken, clearToken } = authSlice.actions;
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;
 
 // import { createSlice } from '@reduxjs/toolkit';
 

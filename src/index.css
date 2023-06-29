@@ -22,7 +22,7 @@
   --welcomeBgColor: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #BEDBB0 92.19%);
 
   /**Register, LogIn */
-  --bgColor: #151515;
+  --bgColorAuth: #151515;
   --inputBgColor: #1F1F1F;
   --inputTextColor: rgba(255, 255, 255, 0.3);
   --inputTextFocus: #FFFFFF;
