@@ -20,7 +20,8 @@ import {
   IconContainer,
   Svg,
 } from './AddBoardModal.styled';
-import backgrounds from 'sourse/bgs.json';
+// import backgrounds from 'sourse/bgs.json';
+import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
 
 const BoardSchema = Yup.object().shape({
@@ -93,7 +94,7 @@ const AddBoardModal = ({ isOpen, onClose }) => {
                 </RadioLabel>
               </label>
 
-              {backgrounds.map(({ id, bgname, URL }) => (
+              {bgs.map(({ id, bgname, URL }) => (
                 <label key={id}>
                   <RadioField name="background" type="radio" value={id} />
                   <RadioLabel className="background-label">
