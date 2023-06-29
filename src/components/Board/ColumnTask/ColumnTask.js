@@ -7,7 +7,8 @@ import {
   List,
 } from './ColumnTask.Styled';
 import { useToggleModal } from '../../../hooks';
-import { Modal } from 'components/Modal';
+
+import CardModal from 'components/CardModal';
 
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
   const { open, close, isOpen } = useToggleModal();
@@ -25,11 +26,7 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-      {isOpen && (
-        <Modal onClose={close}>
-          <p>Add card</p>
-        </Modal>
-      )}
+      {isOpen && <CardModal isOpen={isOpen} onClose={close} />}
     </Column>
   );
 };
