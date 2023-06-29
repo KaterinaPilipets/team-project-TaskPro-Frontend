@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
+import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
 
 export const TitleHelp = styled.p`
   color: var(--createBoardInputTextFocus);
@@ -10,13 +11,27 @@ export const TitleHelp = styled.p`
   margin-bottom: 24px;
 `;
 
+export const BoardText = styled.p`
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--createBoardInputTextFocus);
+`;
+
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+`;
+
+export const FormField = styled.div`
+  margin-bottom: 24px;
 `;
 
 export const StyledField = styled(Field)`
+  width: 100%;
   padding: 14px 18px;
   background: inherit;
   border-radius: 8px;
@@ -26,6 +41,8 @@ export const StyledField = styled(Field)`
 
   &::placeholder {
     color: var(--createBoardInputTextColor);
+    font-size: 14px;
+    font-weight: 400;
   }
 
   &:hover {
@@ -33,24 +50,21 @@ export const StyledField = styled(Field)`
   }
 `;
 
-export const ButtonHelp = styled.button`
-  display: inline-block;
-  border-radius: 8px;
-  background: var(--createBoardButtonBgColor);
-  color: var(--helpModalButtonColor);
-  padding: 14px 0;
-  margin-top: 10px;
+export const SubmitButton = styled(ButtonPrimary)`
+  padding: 10px 0 11px 0;
 `;
 
 export const ErrorText = styled(ErrorMessage)`
-  font-size: 12px;
-  color: var(--createBoardInputTextFocus);
+  font-size: 14px;
+  color: #da0e0e;
+  margin-top: 12px;
 `;
 
 export const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: calc(8 * 32px);
+  margin-bottom: 24px;
 `;
 
 export const BackgroundIcon = styled.img`
@@ -72,7 +86,7 @@ export const RadioField = styled(Field)`
 
   &:hover ~ .background-label,
   &:checked ~ .background-label {
-    outline: 1px solid green;
+    outline: 1px solid var(--createBoardInputBorderFocus);
   }
 
   &:hover ~ .icon-label,
