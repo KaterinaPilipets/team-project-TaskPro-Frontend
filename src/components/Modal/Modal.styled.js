@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { breakpoints } from 'constants';
 
 export const StyledOverlay = styled.div`
   position: fixed;
@@ -26,17 +27,17 @@ export const StyledModal = styled.div`
     min-width: 50%;
   }
 
-  @media (min-width: 375px) {
-    width: 335px;
-  }
+@media (min-width: ${breakpoints.S}) {
+	width: 335px;
+}
 
-  @media (min-width: 768px) {
-    width: 350px;
-  }
+@media (min-width: ${breakpoints.M}) {
+	width: 350px;
+}
 
-  @media (min-width: 1440px) {
-    width: 350px;
-  }
+@media (min-width: ${breakpoints.L}) {
+	width: 350px;
+}
 `;
 
 export const StyledCloseButton = styled.button`
@@ -46,6 +47,7 @@ export const StyledCloseButton = styled.button`
   margin-left: auto;
   cursor: pointer;
 `;
+
 export const Svg = styled.svg`
   stroke: var(--iconCloseModal);
 `;
