@@ -34,6 +34,43 @@ export const Textarea = styled(StyledField)`
   height: 120px;
 `;
 
+export const LabelTitle = styled.p`
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.24px;
+`;
+
+export const Labels = styled.div`
+  display: flex;
+  gap: 14px;
+`;
+
+export const LabelRadiobutton = styled.input``;
+
+export const DedlineTitle = styled.p`
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.24px;
+`;
+
+export const DedlineDataField = styled.input`
+  font-size: 14px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+`;
+
 export const ButtonCard = styled.button`
   display: inline-block;
   border-radius: 8px;

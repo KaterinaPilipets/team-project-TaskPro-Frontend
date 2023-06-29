@@ -4,6 +4,11 @@ import {
   TitleCard,
   StyledForm,
   StyledField,
+  LabelTitle,
+  Labels,
+  LabelRadiobutton,
+  DedlineDataField,
+  DedlineTitle,
   ButtonCard,
   Textarea,
   ErrorText,
@@ -54,6 +59,21 @@ const CardModal = ({ isOpen, onClose }) => {
               placeholder="Description"
             />
             <ErrorText name="description" component="div" />
+
+            <LabelTitle>Label color</LabelTitle>
+            <Labels>
+              <LabelRadiobutton
+                type="radio"
+                name="label"
+                value="Without priority"
+              />
+              <LabelRadiobutton type="radio" name="label" value="Low" />
+              <LabelRadiobutton type="radio" name="label" value="Medium" />
+              <LabelRadiobutton type="radio" name="label" value="High" />
+            </Labels>
+
+            <DedlineTitle>Deadline</DedlineTitle>
+            <DedlineDataField type="text" name="date" value="30.06.2023" />
 
             <ButtonCard type="submit" disabled={isSubmitting}>
               Add
