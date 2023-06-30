@@ -41,7 +41,7 @@ export const deleteTask = createAsyncThunk(
   'board/deleteTask',
   async (taskId, thunkAPI) => {
     try {
-      const resp = await axios.delete(`/board/${taskId}`);
+      const resp = await axios.delete(`/cards/${taskId}`);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -77,7 +77,7 @@ export const deleteColumn = createAsyncThunk(
   'board/deleteColumn',
   async (columnId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/delete/columns/${columnId}`);
+      const { data } = await axios.delete(`/api/columns/${columnId}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

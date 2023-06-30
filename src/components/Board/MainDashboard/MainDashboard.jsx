@@ -148,6 +148,7 @@ export const MainDashboard = () => {
                   key={column._id}
                   tasksArray={columnCards}
                   titleColumn={column.title}
+                  id={column._id}
                 />
               );
             })}
