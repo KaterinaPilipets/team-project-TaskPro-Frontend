@@ -9,28 +9,19 @@ import React, { useState, forwardRef } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format, isToday } from 'date-fns';
 import { BsChevronDown } from 'react-icons/bs';
-import { StyledDateTimePicker } from './TaskCalendar.styled';
+// import { StyledDateTimePicker } from './TaskCalendar.styled';
+import DatePicker from 'react-datepicker';
+
 import styles from './TaskInputDate.module.css';
 
 const TaskCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  // const currentDate = new Date();
-  // const numberOfDays = 5;
-
-  // const newDate = new Date();
-  // newDate.setDate(currentDate.getDate() - numberOfDays);
-
-  // console.log(newDate); // Output: Five days ago from the current date
-
   const formatDate = date => {
-    if (date) {
-      if (isToday(date)) {
-        return `today, ${format(date, 'MMMM d')}`;
-      }
-      return format(date, 'EEEE, MMMM d');
+    if (isToday(date)) {
+      return `today, ${format(date, 'MMMM d')}`;
     }
-    return '';
+    return format(date, 'EEEE, MMMM d');
   };
 
   const InputOutputBtn = forwardRef(({ _, onClick }, ref) => (
@@ -40,7 +31,7 @@ const TaskCalendar = () => {
     </button>
   ));
   return (
-    <StyledDateTimePicker
+    <DatePicker
       // title=
       selected={selectedDate}
       onChange={date => setSelectedDate(date)}
