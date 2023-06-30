@@ -47,9 +47,10 @@ export const ListItemButton = styled(NavLink)`
   &.active {
     --color1: var(--sidebarPrimaryTextColor);
     color: var(--sidebarPrimaryTextColor);
+    background: none;
   }
 
-  &:hover .buttons {
+  &.active .buttons {
     display: flex;
   }
 
