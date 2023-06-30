@@ -1,5 +1,4 @@
-import { EditPanel } from 'components/EditPanel/EditPanel';
-import icon from '../../../sourse/sprite.svg';
+import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
 
 import {
   ListItem,
@@ -28,10 +27,8 @@ export const Task = ({ task }) => {
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
         </div>
-        <svg width="16" height="16">
-          <use xlinkHref={`${icon}#${'bell'}`} />
-        </svg>
-        <EditPanel idCard={idCard} />
+
+        <EditPanelCard idCard={idCard} />
       </Wrap>
     </ListItem>
   );

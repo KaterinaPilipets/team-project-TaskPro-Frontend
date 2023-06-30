@@ -27,9 +27,9 @@ export const fetchBoard = createAsyncThunk(
 
 export const addTask = createAsyncThunk(
   'board/addtask',
-  async ({ name, number }, thunkAPI) => {
+  async ({ id }, thunkAPI) => {
     try {
-      const resp = await axios.post('/board', { name, number });
+      const resp = await axios.post('/board', { id });
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -50,7 +50,8 @@ export const deleteTask = createAsyncThunk(
 );
 
 export const addColumn = createAsyncThunk(
-  'board/addColumn', async ({ title, boardId }, thunkAPI) => {
+  'board/addColumn',
+  async ({ title, boardId }, thunkAPI) => {
     try {
       const { data } = await axios.post(`/api/columns/${boardId}`, { title });
       return data;
@@ -58,28 +59,28 @@ export const addColumn = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);
 
 export const patchColumn = createAsyncThunk(
-  'board/patchColumn', async ({ title, columnId }, thunkAPI) => {
+  'board/patchColumn',
+  async ({ title, columnId }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/api/columns/${columnId}`, { title })
+      const { data } = await axios.patch(`/api/columns/${columnId}`, { title });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-
     }
   }
-)
+);
 
 export const deleteColumn = createAsyncThunk(
-  'board/deleteColumn', async (columnId, thunkAPI) => {
+  'board/deleteColumn',
+  async (columnId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/delete/columns/${columnId}`)
+      const { data } = await axios.delete(`/api/delete/columns/${columnId}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-
     }
   }
-)
+);

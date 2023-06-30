@@ -8,6 +8,7 @@ import {
 } from './ColumnTask.Styled';
 import { useToggleModal } from '../../../hooks';
 import { Modal } from 'components/Modal';
+import { EditPanelColumn } from 'components/EditPanelColumn/EditPanelColumn';
 
 export const ColumnTask = ({ tasksArray, titleColumn }) => {
   const { open, close, isOpen } = useToggleModal();
@@ -16,6 +17,7 @@ export const ColumnTask = ({ tasksArray, titleColumn }) => {
     <Column>
       <HeaderColumn>
         <p>{titleColumn}</p>
+        <EditPanelColumn />
       </HeaderColumn>
       <List>
         {tasksArray.map(task => {
