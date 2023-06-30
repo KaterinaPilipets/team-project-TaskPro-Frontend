@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/team-project-TaskPro-Frontend/static/css/main.aef89a62.css",
-    "main.js": "/team-project-TaskPro-Frontend/static/js/main.fc664c5e.js",
+    "main.js": "/team-project-TaskPro-Frontend/static/js/main.6ea01168.js",
     "static/js/927.9917686a.chunk.js": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js",
-    "static/js/804.acc65950.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.acc65950.chunk.js",
+    "static/js/804.137e77ba.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.137e77ba.chunk.js",
     "static/js/206.cd29ceda.chunk.js": "/team-project-TaskPro-Frontend/static/js/206.cd29ceda.chunk.js",
     "static/js/905.d5139d7e.chunk.js": "/team-project-TaskPro-Frontend/static/js/905.d5139d7e.chunk.js",
     "static/media/Poppins-Regular.ttf": "/team-project-TaskPro-Frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
@@ -12,14 +12,14 @@
     "static/media/sprite.svg": "/team-project-TaskPro-Frontend/static/media/sprite.00bc0550d2628c37ae276b6998b04dec.svg",
     "index.html": "/team-project-TaskPro-Frontend/index.html",
     "main.aef89a62.css.map": "/team-project-TaskPro-Frontend/static/css/main.aef89a62.css.map",
-    "main.fc664c5e.js.map": "/team-project-TaskPro-Frontend/static/js/main.fc664c5e.js.map",
+    "main.6ea01168.js.map": "/team-project-TaskPro-Frontend/static/js/main.6ea01168.js.map",
     "927.9917686a.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js.map",
-    "804.acc65950.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.acc65950.chunk.js.map",
+    "804.137e77ba.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.137e77ba.chunk.js.map",
     "206.cd29ceda.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/206.cd29ceda.chunk.js.map",
     "905.d5139d7e.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/905.d5139d7e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aef89a62.css",
-    "static/js/main.fc664c5e.js"
+    "static/js/main.6ea01168.js"
   ]
 }
