@@ -125,13 +125,13 @@
 }
 
 .react-datepicker__day--disabled {
-    color: var(--inputTextColor);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .react-datepicker__day--disabled:hover,
 .react-datepicker__day--disabled:focus {
     background-color: var(--inputBgColor);
-    color: var(--inputTextColor);
+    color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
 }
 
