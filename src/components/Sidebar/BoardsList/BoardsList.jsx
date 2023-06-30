@@ -12,10 +12,15 @@ import {
   Svg,
 } from './BoardsList.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBoardsList } from 'services/boardslist-services';
+import { fetchBoardsList, deleteBoard } from 'services/boardslist-services';
 import icon from 'sourse/sprite.svg';
+import { useToggleModal } from 'hooks';
+import EditBoardModal from '../EditBoardModal';
 
 const BoardsList = () => {
+  const [selectedBoardId, setSelectedBoardId] = React.useState('');
+  const { open, close, isOpen } = useToggleModal();
+
   const dispatch = useDispatch();
   const boards = useSelector(state => state.boardsList.items);
 
@@ -23,12 +28,19 @@ const BoardsList = () => {
     dispatch(fetchBoardsList());
   }, [dispatch]);
 
+  const openEditModal = id => {
+    setSelectedBoardId(id);
+    open();
+  };
+
+  const handleDelete = id => dispatch(deleteBoard(id));
+
   return (
     <Container>
       <List>
         {boards.map(board => (
-          <ListItem key={board.id || board._id}>
-            <ListItemButton to={board.id || board._id}>
+          <ListItem key={board._id}>
+            <ListItemButton to={board._id}>
               <BoardIconContainer>
                 <Svg>
                   <use xlinkHref={`${icon}#${board.icon}`} />
@@ -38,12 +50,12 @@ const BoardsList = () => {
 
               <ActionsContainer className="buttons">
                 <ActionButton marginRight>
-                  <ActionButtonIcon>
+                  <ActionButtonIcon onClick={() => openEditModal(board._id)}>
                     <use xlinkHref={`${icon}#icon-pencil`} />
                   </ActionButtonIcon>
                 </ActionButton>
                 <ActionButton>
-                  <ActionButtonIcon>
+                  <ActionButtonIcon onClick={() => handleDelete(board._id)}>
                     <use xlinkHref={`${icon}#icon-trash`} />
                   </ActionButtonIcon>
                 </ActionButton>
@@ -52,6 +64,7 @@ const BoardsList = () => {
           </ListItem>
         ))}
       </List>
+      <EditBoardModal isOpen={isOpen} onClose={close} id={selectedBoardId} />
     </Container>
   );
 };

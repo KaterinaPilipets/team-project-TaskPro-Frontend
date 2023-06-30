@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Modal } from 'components/Modal';
-
+import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
-import { createBoard } from 'services/boardslist-services';
+import { editBoard } from 'services/boardslist-services';
 
 import {
   TitleHelp,
@@ -21,8 +21,8 @@ import {
   Svg,
   BoardText,
   SubmitButton,
-} from './AddBoardModal.styled';
-// import backgrounds from 'sourse/bgs.json';
+} from './EditBoardModal.styled';
+
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
 
@@ -41,29 +41,32 @@ const BOARD_ICONS = [
   'icon-circle-box',
 ];
 
-const AddBoardModal = ({ isOpen, onClose }) => {
+const EditBoardModal = ({ id, isOpen, onClose }) => {
   const dispatch = useDispatch();
+  const board = useSelector(state =>
+    state.boardsList.items.find(item => item._id === id)
+  );
 
-  if (!isOpen) {
+  if (!isOpen || !board) {
     return null;
   }
 
   const handleSubmit = async (value, { setSubmitting }) => {
     setSubmitting(true);
 
-    await dispatch(createBoard(value));
+    await dispatch(editBoard({ id, value }));
 
     onClose();
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <TitleHelp>New board</TitleHelp>
+      <TitleHelp>Edit board</TitleHelp>
       <Formik
         initialValues={{
-          title: '',
-          background: 'empty',
-          icon: BOARD_ICONS[0],
+          title: board.title,
+          background: board.background,
+          icon: board.icon,
         }}
         validationSchema={BoardSchema}
         onSubmit={handleSubmit}
@@ -107,7 +110,7 @@ const AddBoardModal = ({ isOpen, onClose }) => {
               ))}
             </Row>
 
-            <SubmitButton disabled={isSubmitting}>Create</SubmitButton>
+            <SubmitButton disabled={isSubmitting}>Edit</SubmitButton>
           </StyledForm>
         )}
       </Formik>
@@ -115,4 +118,4 @@ const AddBoardModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default AddBoardModal;
+export default EditBoardModal;
