@@ -48,3 +48,38 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
+
+export const addColumn = createAsyncThunk(
+  'board/addColumn', async ({ title, boardId }, thunkAPI) => {
+    try {
+      const { data } = await axios.post(`/api/columns/${boardId}`, { title });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+
+export const patchColumn = createAsyncThunk(
+  'board/patchColumn', async ({ title, columnId }, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/api/columns/${columnId}`, { title })
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+
+    }
+  }
+)
+
+export const deleteColumn = createAsyncThunk(
+  'board/deleteColumn', async (columnId, thunkAPI) => {
+    try {
+      const { data } = await axios.delete(`/api/delete/columns/${columnId}`)
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+
+    }
+  }
+)
