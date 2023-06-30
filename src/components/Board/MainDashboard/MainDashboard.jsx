@@ -1,6 +1,6 @@
 // import icon from '../../sourse/sprite.svg';
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
-import { ButtonPrimary } from './../ButtonPrimary/ButtonPrimary';
+import { ButtonPrimary } from '../../ButtonPrimary/ButtonPrimary';
 
 // take result from selector
 
