@@ -18,7 +18,7 @@ export const StyledTitle = styled.p`
 export const StyledList = styled.ul`
 position: absolute;
 opacity: ${(props) => (props.isOpen ? '1' : '0')};
-transform: translateY(${(props) => (props.isOpen ? '4px' : '16px')});
+transform: translateY(${(props) => (props.isOpen ? '4px' : '-150px')});
 transition-property: opacity, transform;
 transition: opacity var(--transition), transform var(--transition);
 
