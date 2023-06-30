@@ -62,7 +62,7 @@ const AddBoardModal = ({ isOpen, onClose }) => {
       <Formik
         initialValues={{
           title: '',
-          background: '',
+          background: 'empty',
           icon: BOARD_ICONS[0],
         }}
         validationSchema={BoardSchema}
