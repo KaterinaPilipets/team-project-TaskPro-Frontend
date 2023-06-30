@@ -5,13 +5,14 @@ import 'react-calendar/dist/Calendar.css';
 const TaskCalendar = () => {
     const [date, setDate] = useState(new Date());
     
-    const onChange = (date) => {
+    const onDateChange = (date) => {
         setDate(date);
     }
 
   return (
     <div>
-      <Calendar onChange={onChange} value={date} />
+          <Calendar onChange={onDateChange} value={date} />
+          {date.toString()}
     </div>
   );
 }
