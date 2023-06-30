@@ -26,3 +26,29 @@ export const createBoard = createAsyncThunk(
     }
   }
 );
+
+export const editBoard = createAsyncThunk(
+  'boardsList/editBoard',
+  async ({ id, value }, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/api/boards/${id}`, value);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteBoard = createAsyncThunk(
+  'boardList/deleteBoard',
+  async (boardId, thunkAPI) => {
+    try {
+      await axios.delete(`/api/boards/${boardId}`);
+
+      return boardId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
