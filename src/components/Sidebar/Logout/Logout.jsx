@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 // import { clearToken } from '../../../redux/auth/authSlice';
 // import { logout } from '../../../services/auth-services';
 import { useNavigate } from 'react-router-dom';
+import icon from 'sourse/sprite.svg';
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ const Logout = () => {
   return (
     <Container>
       <Button onClick={handleLogout}>
-        <Icon />
+        <Icon>
+          <use xlinkHref={`${icon}#icon-login-big`} />
+        </Icon>
         Log out
       </Button>
     </Container>
