@@ -1,18 +1,13 @@
-// import React, { useState } from 'react';
-// import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
-// import './calendar.css';
-
 import React, { useState, forwardRef } from 'react';
 // import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
+
 import { format, isToday } from 'date-fns';
 import { BsChevronDown } from 'react-icons/bs';
-// import { StyledDateTimePicker } from './TaskCalendar.styled';
-import DatePicker from 'react-datepicker';
 
-import styles from './TaskInputDate.module.css';
+import DatePicker from 'react-datepicker';
 
 const TaskCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -37,11 +32,11 @@ const TaskCalendar = () => {
       onChange={date => setSelectedDate(date)}
       customInput={<InputOutputBtn />}
       minDate={Date.now()}
-      calendarClassName={styles.calendar}
+      // calendarClassName={styles.calendar}
       // dayClassName="day"
       // popperClassName={styles.currentDay}
       // wrapperClassName={styles.currentDay}
-      className={styles.currentDay}
+      // className={styles.currentDay}
     />
   );
 };

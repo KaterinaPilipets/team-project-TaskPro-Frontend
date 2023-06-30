@@ -29,6 +29,7 @@ export const Task = ({ task }) => {
         <div>
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
+          {/* remove TaskCalendar from here, it is there for visibility only! */}
           <TaskCalendar />
         </div>
         <svg width="16" height="16">
