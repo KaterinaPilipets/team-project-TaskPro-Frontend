@@ -1,4 +1,6 @@
-import { SvgBtn } from 'components/EditPanel/EditPanel';
+import { EditPanel } from 'components/EditPanel/EditPanel';
+import icon from '../../../sourse/sprite.svg';
+
 import {
   ListItem,
   Span,
@@ -9,29 +11,9 @@ import {
   Wrap,
 } from './Task.styled';
 
-import { useToggleModal } from '../../../hooks';
-// import { Modal } from 'components/Modal';
-
-// const EditPanelarray = [
-//   {
-//     name: 'icon-circle-box',
-//     fn: () => {},
-//   },
-//   {
-//     name: 'icon-pencil',
-//     fn: () => {},
-//   },
-//   {
-//     name: 'icon-trash',
-//     fn: () => {},
-//   },
-// ];
 export const Task = ({ task }) => {
-
-  const { title, description, label, deadline } = task;
-
-  const { open } = useToggleModal();
-
+  const { title, description, label, deadline, _id: idCard } = task;
+  //  const [showDedline, setshowDedline] = useState(deadline);
   return (
     <ListItem>
       <Title>{title}</Title>
@@ -46,13 +28,10 @@ export const Task = ({ task }) => {
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
         </div>
-        <SvgBtn
-          idIcon={'icon-pencil'}
-          onClick={() => open()}
-          component={'bbbbggg'}
-        />
-        {/* SvgBtn = ({(IdIcon, fn)}) */}
-        {/* <EditPanel iconsEdit={EditPanelarray} /> */}
+        <svg width="16" height="16">
+          <use xlinkHref={`${icon}#${'bell'}`} />
+        </svg>
+        <EditPanel idCard={idCard} />
       </Wrap>
     </ListItem>
   );

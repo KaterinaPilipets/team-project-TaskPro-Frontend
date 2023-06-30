@@ -1,27 +1,34 @@
 import icon from '../../sourse/sprite.svg';
-import { useToggleModal } from '../../hooks';
 import { Modal } from 'components/Modal';
-export const SvgBtn = ({ idIcon, onClick, component }) => {
-  const { close, isOpen } = useToggleModal();
+import { useState } from 'react';
+import { Btn } from './EditPanel.Styled';
+import { Wrap } from 'components/Board/Task/Task.styled';
+
+export const SvgBtn = ({ idIcon, onClick }) => {
   return (
     <>
-      <button onClick={onClick}>
+      <Btn onClick={onClick}>
         <svg width="16" height="16">
           <use xlinkHref={`${icon}#${idIcon}`} />
         </svg>
-      </button>
-      {isOpen && <Modal onClose={close}>{component}</Modal>}
+      </Btn>
     </>
   );
+};
 
-  //   export const EditPanel = ({ IdIcon, fn }) => {
-  //   return iconsEdit.map(el => {
-  //     return (
-  //       <button type="button" onClick={el.fn}>
-  //         <svg width="16" height="16">
-  //           <use xlinkHref={`${icon}#${el.name}`} />
-  //         </svg>
-  //       </button>
-  //     );
-  //   });
+export const EditPanel = ({ id }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <>
+      <Wrap>
+        <SvgBtn idIcon={'move'} onClick={() => alert('move')} />
+        <SvgBtn idIcon={'icon-pencil'} onClick={() => setShowModal(true)} />
+        <SvgBtn idIcon={'icon-trash'} onClick={() => alert('мусорка')} />
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>"edit card"</Modal>
+        )}
+      </Wrap>
+    </>
+  );
 };
