@@ -1,5 +1,6 @@
 import { EditPanel } from 'components/EditPanel/EditPanel';
 import icon from '../../../sourse/sprite.svg';
+import TaskCalendar from '../TaskCalendar/TaskCalendar';
 
 import {
   ListItem,
@@ -27,6 +28,7 @@ export const Task = ({ task }) => {
         <div>
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
+          <TaskCalendar />
         </div>
         <svg width="16" height="16">
           <use xlinkHref={`${icon}#${'bell'}`} />
