@@ -1,0 +1,39 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 12px;
+    /* border-radius: 4px; */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #313131;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #121212;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #181818;
+}
+
+/* / Firefox */
+scrollbar {
+    width: 8px;
+    height: 12px;
+}
+
+scrollbar-track {
+    background-color: #313131;
+    border-radius: 4px;
+}
+
+scrollbar-thumb {
+    background-color: #121212;
+    border-radius: 4px;
+}
+
+scrollbar-thumb:hover {
+    background-color: #181818;
+}

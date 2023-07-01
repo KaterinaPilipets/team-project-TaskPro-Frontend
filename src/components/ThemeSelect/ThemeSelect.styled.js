@@ -17,19 +17,21 @@ export const StyledTitle = styled.p`
 `;
 
 export const StyledList = styled.ul`
-  display: inline-flex;
-  position: absolute;
-  top: 30px;
-  left: -20px;
-  padding: 18px 44px 18px 18px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  border-radius: var(--borderRadius8);
-  border: 1px solid var(--themeBorderColor);
-  background-color: var(--themeBgColor);
-  gap: 4px;
+position: absolute;
+opacity: ${(props) => (props.isOpen ? '1' : '0')};
+transform: translateY(${(props) => (props.isOpen ? '4px' : '-150px')});
+transition-property: opacity, transform;
+transition: opacity var(--transition), transform var(--transition);
+display: inline-flex;
+padding: 18px 44px 18px 18px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+border-radius: var(--borderRadius8);
+border: 1px solid var(--themeBorderColor);
+background-color: var(--themeBgColor);
+gap: 4px;
 `;
 
 export const StyledItem = styled.li`

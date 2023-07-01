@@ -1,53 +1,75 @@
 import React, { useState } from 'react';
-import { Link } from '@mui/material';
-import css from './LoginForm.module.css';
-import { logIn } from '../../services/auth-services';
 import { useNavigate } from 'react-router-dom';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import sprite from '../../sourse/sprite.svg';
+import { login } from 'redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, LoginBtn, StyledRegistrationLink, StyledLink } from "./LoginForm.styled"
+import { setToken } from 'redux/auth/authSelectors';
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().min(6, 'Password must be at least 6 characters').email('Invalid email').required('Email is required'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+});
 
 function LoginPage() {
   const navigate = useNavigate()
   const [showPassword, setShowPassword ] = useState(false);
+  const dispatch = useDispatch();
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    logIn({
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const currentUser = {
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
-    }).then(() => {console.log('Успішно залогінено')
-    // Ось тут мені потрібно зберегти дані
-    navigate('/home')})
+    }
+
+    if(currentUser) {
+      dispatch(login(currentUser, setToken));
+      navigate('/home');
+    } else {
+      console.log("Error");
+      navigate('/auth/login');
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={css.content}>
-        <div className={css.menu}>
-          <Link href="register" underline="none">Registration</Link>
-          <Link href="login" underline="none">Login</Link>
-        </div>
-        <div className={css.inputs}>
-          <input name='email' type="email" placeholder="Email" />
-          <div className={css.passwordinput}>
-            <input name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
-              <span className={`${css.togglePassword} ${css.toggleIcon}`} onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <FontAwesomeIcon icon={faEyeSlash} width='18px' color='#737373' />
-                ) : (
-                  <svg className={css.svg}><use xlinkHref={`${sprite}#icon-eye`} /></svg>
-                )}
-              </span>
-          </div>
-        </div>
-        <button className={css.registerbtn}>Log In Now</button>
-      </div>
-    </form>
+    <Container>
+      <form onSubmit={handleSubmit}>
+      <Formik initialValues={{ email: '', password: '', }} validationSchema={LoginSchema}>
+        <Content>
+          <Menu>
+            <StyledRegistrationLink href="register" underline="none">Registration</StyledRegistrationLink>
+            <StyledLink href="login" underline="none">Log In</StyledLink>
+          </Menu>
+          <Inputs>
+            <Field name="email" type="email" placeholder="Email" />
+            <ErrorText name="email" component="div" />
+            <PasswordInput>
+              <Field name="password" type={showPassword ? 'text' : 'password'} placeholder="Password" />
+              <ErrorText name="password" component="div" />
+
+                <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <PasswordIcon icon={faEyeSlash} width='18px' />
+                  ) : (
+                    <Svg><use xlinkHref={`${sprite}#icon-eye`} style={{ color:'#737373' }} /></Svg>
+                  )}
+                </PasswordToggle>
+              </PasswordInput>
+          </Inputs>
+          <LoginBtn>Log In Now</LoginBtn>
+        </Content>
+        </Formik>
+      </form>
+    </Container>
   );
 }
 
