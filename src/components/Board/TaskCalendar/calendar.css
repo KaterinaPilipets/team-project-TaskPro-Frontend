@@ -142,3 +142,32 @@
     height: 18px;
     width: 150px;
 }
+
+.input-output-date-btn {
+    color: var(--buttonBgColor);
+    font-size: var(--fontSize14);
+    font-family: var(--fontFamily);
+    font-weight: var(--fontWeight500);
+    letter-spacing: -0.32px;
+
+    display: 'flex';
+    justifyContent: 'center';
+    alignItems: 'center';
+}
+
+.date-button-text {
+    /* color: var(--buttonBgColor);
+    font-size: var(--fontSize14);
+    font-family: var(--fontFamily);
+    font-weight: var(--fontWeight500);
+    letter-spacing: -0.32px; */
+    /* margin-right: 10px; */
+}
+
+.date-picker-arrow {
+    fill: var(--buttonBgColor);
+    margin-left: 10px;
+    /* padding: 10px 5px; */
+    /* width: 18px;
+    height: 18px; */
+}

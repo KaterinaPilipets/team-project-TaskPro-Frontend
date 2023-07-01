@@ -14,29 +14,24 @@ const TaskCalendar = () => {
 
   const formatDate = date => {
     if (isToday(date)) {
-      return `today, ${format(date, 'MMMM d')}`;
+      return `Today, ${format(date, 'MMMM d')}`;
     }
     return format(date, 'EEEE, MMMM d');
   };
 
   const InputOutputBtn = forwardRef(({ _, onClick }, ref) => (
     <button className="input-output-date-btn" onClick={onClick} ref={ref}>
-      {formatDate(selectedDate)}
-      <BsChevronDown />
+      <span className="date-button-text">{formatDate(selectedDate)}</span>
+      <BsChevronDown className="date-picker-arrow" />
     </button>
   ));
   return (
     <DatePicker
-      // title=
       selected={selectedDate}
       onChange={date => setSelectedDate(date)}
       customInput={<InputOutputBtn />}
       minDate={Date.now()}
-      // calendarClassName={styles.calendar}
-      // dayClassName="day"
-      // popperClassName={styles.currentDay}
-      // wrapperClassName={styles.currentDay}
-      // className={styles.currentDay}
+      calendarStartDay={1}
     />
   );
 };
