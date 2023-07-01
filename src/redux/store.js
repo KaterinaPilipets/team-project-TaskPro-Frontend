@@ -30,14 +30,6 @@
 
 // export default store;
 
-
-
-
-
-
-
-
-
 // import { configureStore } from '@reduxjs/toolkit';
 // import {
 //   persistStore,
@@ -91,9 +83,8 @@ import { authReducer } from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
 import { boardsListReducer } from './boards-list/boardsListSlice';
 
-
 import userReducer from './user/userSlice';
-
+import { boardReducer } from './board/boardSlice';
 
 const persistConfig = {
   key: 'root',
@@ -111,17 +102,18 @@ const persistedReducer = persistReducer(
     auth: authReducer,
     sidebar: sidebarReducer,
     boardsList: boardsListReducer,
+    board: boardReducer,
   })
 );
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: getDefaultMiddleware => 
-  getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

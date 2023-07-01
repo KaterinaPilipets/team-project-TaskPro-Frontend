@@ -9,7 +9,6 @@ import {
   BurgerIcon,
   ContainerStyled,
   HeaderBtnWrap,
-  ModalStyled,
   UserAvatar,
   UserInfoBox,
   UserName,
@@ -20,6 +19,7 @@ import { EditProfile } from 'components/EditProfile';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
 import { setName } from 'redux/auth/authSelectors';
+import { Modal } from 'components/Modal';
 
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
@@ -56,9 +56,9 @@ export const Header = () => {
         </HeaderBtnWrap>
       </ContainerStyled>
       {isOpen && (
-        <ModalStyled onClose={close}>
+        <Modal style={{ width: 335 }} onClose={close}>
           <EditProfile stockAvatar={stockAvatar} />
-        </ModalStyled>
+        </Modal>
       )}
     </>
   );

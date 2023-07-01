@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import MenuIcon from '@mui/icons-material/Menu';
 import { breakpoints } from 'constants';
-import { Modal } from 'components/Modal';
+
 export const ContainerStyled = styled.div`
   width: 100%;
   padding: 14px 20px;
@@ -50,7 +50,4 @@ export const BurgerIcon = styled(MenuIcon)`
 
 export const UserName = styled.p`
   color: var(--userNameText);
-`;
-export const ModalStyled = styled(Modal)`
-  width: 335px;
 `;

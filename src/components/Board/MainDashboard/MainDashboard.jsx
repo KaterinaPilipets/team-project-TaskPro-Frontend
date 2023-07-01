@@ -1,9 +1,6 @@
 // import icon from '../../sourse/sprite.svg';
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
 import { ButtonPrimary } from 'components/ButtonPrimary';
-// import { AddColumnModal } from 'components/Board/AddColumnModal';
-// import { EditColumnModal } from './components/Board/EditColumnModal';
-// import { useToggleModal } from 'hooks';
 
 // take result from selector
 
@@ -83,8 +80,6 @@ const result = {
 const filter = '';
 
 export const MainDashboard = () => {
-  // const { open, close, isOpen } = useToggleModal();
-
   const filteredCards = result.cards.filter(card => {
     if (filter === '') {
       return result.cards;

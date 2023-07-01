@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBoard, addTask, deleteTask, addColumn, deleteColumn, patchColumn } from '../../services/board-servises';
+import {
+  fetchBoard,
+  addTask,
+  deleteTask,
+  addColumn,
+  deleteColumn,
+  patchColumn,
+} from '../../services/board-servises';
 const boardSlice = createSlice({
   name: 'board',
   initialState: {
-    title: '',
-    // icon: '',
-    background: '',
     columns: [],
     tasks: [],
   },
@@ -29,7 +33,9 @@ const boardSlice = createSlice({
         state.board.columns = state.board.columns[0].title = payload.title;
       })
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
-        state.board.columns = state.board.columns.filter(({ _id }) => _id !== payload._id)
+        state.board.columns = state.board.columns.filter(
+          ({ _id }) => _id !== payload._id
+        );
       }),
   // .addMatcher(
   //   isAnyOf(fetchBoard.pending, addTask.pending, deleteTask.pending),
