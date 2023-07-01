@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/team-project-TaskPro-Frontend/static/css/main.aef89a62.css",
-    "main.js": "/team-project-TaskPro-Frontend/static/js/main.8d9aa966.js",
+    "main.js": "/team-project-TaskPro-Frontend/static/js/main.011e5f7c.js",
     "static/js/927.9917686a.chunk.js": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js",
-    "static/js/804.137e77ba.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.137e77ba.chunk.js",
+    "static/js/804.7aa89aed.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.7aa89aed.chunk.js",
     "static/js/206.273cbb4b.chunk.js": "/team-project-TaskPro-Frontend/static/js/206.273cbb4b.chunk.js",
     "static/js/905.d5139d7e.chunk.js": "/team-project-TaskPro-Frontend/static/js/905.d5139d7e.chunk.js",
     "static/media/Poppins-Regular.ttf": "/team-project-TaskPro-Frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
@@ -12,14 +12,14 @@
     "static/media/sprite.svg": "/team-project-TaskPro-Frontend/static/media/sprite.00bc0550d2628c37ae276b6998b04dec.svg",
     "index.html": "/team-project-TaskPro-Frontend/index.html",
     "main.aef89a62.css.map": "/team-project-TaskPro-Frontend/static/css/main.aef89a62.css.map",
-    "main.8d9aa966.js.map": "/team-project-TaskPro-Frontend/static/js/main.8d9aa966.js.map",
+    "main.011e5f7c.js.map": "/team-project-TaskPro-Frontend/static/js/main.011e5f7c.js.map",
     "927.9917686a.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js.map",
-    "804.137e77ba.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.137e77ba.chunk.js.map",
+    "804.7aa89aed.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.7aa89aed.chunk.js.map",
     "206.273cbb4b.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/206.273cbb4b.chunk.js.map",
     "905.d5139d7e.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/905.d5139d7e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aef89a62.css",
-    "static/js/main.8d9aa966.js"
+    "static/js/main.011e5f7c.js"
   ]
 }
