@@ -1,4 +1,5 @@
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
+// import { useDispatch } from 'react-redux';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
 
@@ -7,15 +8,17 @@ import {
   BackgroundTitle,
   BackgroundContainer,
   InputField,
+  // InputField2,
   BackgroundImg,
   LabelTitle,
   BackgroundImgCont,
   SvgIcon,
   NoImgCont,
-  InputRadio,
+  // InputRadio,
   LabelShowAllCont,
   RadioButCont,
   RadioLabel,
+  Checkmark,
 } from './ModalBoardFilters.styled';
 
 // const showAll = 'showAll';
@@ -31,6 +34,10 @@ const labels = [
 ];
 
 export const ModalBoardFilters = () => {
+  // const dispatch = useDispatch();
+
+  // const handleSubmit = dispatch();
+
   return (
     <div>
       <FiltersTitle>Filters</FiltersTitle>
@@ -41,7 +48,7 @@ export const ModalBoardFilters = () => {
         }}
         // onSubmit={handleSubmit}
       >
-        <form action="">
+        <Form>
           <div>
             <BackgroundTitle>Background</BackgroundTitle>
             <BackgroundContainer>
@@ -67,28 +74,27 @@ export const ModalBoardFilters = () => {
             <LabelShowAllCont>
               <LabelTitle>Label color</LabelTitle>
               <label htmlFor="">
-                <InputRadio
-                  name="labelColor"
-                  type="radio"
-                  value={labels[0].value}
-                />
+                <input name="labelColor" type="radio" value={labels[0].value} />
               </label>
             </LabelShowAllCont>
             <RadioButCont>
               {labels.slice(1).map(({ name, value, color }) => (
-                <RadioLabel>
-                  <InputRadio
-                    name="labelColor"
-                    type="radio"
-                    value={value}
-                    style={{ backgroundColor: color }}
-                  />
-                  {name}
-                </RadioLabel>
+                <div style={{ display: 'flex' }} key={value}>
+                  <RadioLabel buttonColor={color} className="inputlabel">
+                    <Field
+                      buttonColor={color}
+                      name="labelColor"
+                      type="radio"
+                      value={value}
+                    />
+                    <Checkmark buttonColor={color}></Checkmark>
+                  </RadioLabel>
+                  <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
+                </div>
               ))}
             </RadioButCont>
           </div>
-        </form>
+        </Form>
       </Formik>
     </div>
   );
