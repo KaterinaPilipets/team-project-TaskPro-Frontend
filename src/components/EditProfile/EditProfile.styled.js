@@ -3,15 +3,14 @@ import { breakpoints } from 'constants';
 
 export const WindowContaier = styled.div`
   background-color: var(--profileBgColor);
-  width: 335px;
-  height: 440px;
+
   border-radius: 8px;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 24px;
+
   @media screen and (min-width: ${breakpoints.M}) {
     width: 400px;
   }
