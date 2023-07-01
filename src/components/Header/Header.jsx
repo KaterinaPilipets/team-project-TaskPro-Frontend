@@ -1,6 +1,6 @@
 import { useToggleModal } from '../../hooks';
-import { Modal } from 'components/Modal';
-import { useSelector } from 'react-redux';
+// import { Modal } from 'components/Modal';
+// import { useSelector } from 'react-redux';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 import userPlaceholder from '../../sourse/userPlaceholders.json';
 
@@ -9,6 +9,7 @@ import {
   BurgerIcon,
   ContainerStyled,
   HeaderBtnWrap,
+  ModalStyled,
   UserAvatar,
   UserInfoBox,
   UserName,
@@ -20,22 +21,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
 import { setName } from 'redux/auth/authSelectors';
 
-
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
   const currentTheme = useSelector(state => state.theme);
 
   const stockAvatar = userPlaceholder.URL[currentTheme.themeColor];
 
-
   const dispatch = useDispatch();
-  const username = useSelector(setName)
+  const username = useSelector(setName);
 
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
   };
-
- 
 
   console.log(isOpen);
   return (
@@ -59,9 +56,9 @@ export const Header = () => {
         </HeaderBtnWrap>
       </ContainerStyled>
       {isOpen && (
-        <Modal onClose={close}>
+        <ModalStyled onClose={close}>
           <EditProfile stockAvatar={stockAvatar} />
-        </Modal>
+        </ModalStyled>
       )}
     </>
   );
