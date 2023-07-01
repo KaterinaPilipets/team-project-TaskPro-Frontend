@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { breakpoints } from 'constants';
 
 export const WindowContaier = styled.div`
   background-color: var(--profileBgColor);
@@ -11,6 +12,9 @@ export const WindowContaier = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 24px;
+  @media screen and (min-width: ${breakpoints.M}) {
+    width: 400px;
+  }
 `;
 
 export const ModalTitle = styled.h2`
@@ -79,5 +83,8 @@ export const ProfileInput = styled.input`
   }
   &:last-child {
     margin-top: 14px;
+  }
+  @media screen and (min-width: ${breakpoints.M}) {
+    width: 352px;
   }
 `;
