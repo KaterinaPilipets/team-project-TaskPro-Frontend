@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Text } from './TitleBoard.styled';
 
 const TitleBoard = () => {

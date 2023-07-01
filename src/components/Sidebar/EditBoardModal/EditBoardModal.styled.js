@@ -79,6 +79,22 @@ export const RadioLabel = styled.div`
   cursor: pointer;
 `;
 
+export const DefaultBackgroundIconContainer = styled.div`
+  background: var(--defaultBgImageColor);
+  fill: var(--defaultBgImageFill);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DefaultBackgroundIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+`;
+
 export const RadioField = styled(Field)`
   position: fixed;
   opacity: 0;
@@ -104,4 +120,9 @@ export const IconContainer = styled.div`
 export const Svg = styled.svg`
   width: 18px;
   height: 18px;
+`;
+
+export const ErrorMessageText = styled.div`
+  color: var(--createBoardInputTextFocus);
+  margin-top: 10px;
 `;
