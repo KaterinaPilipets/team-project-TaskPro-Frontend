@@ -9,7 +9,7 @@ import { BsChevronDown } from 'react-icons/bs';
 
 import DatePicker from 'react-datepicker';
 
-const TaskCalendar = () => {
+const TaskCalendar = ({ dateChange }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const formatDate = date => {
@@ -19,6 +19,11 @@ const TaskCalendar = () => {
     return format(date, 'EEEE, MMMM d');
   };
 
+  const onDateChange = date => {
+    setSelectedDate(date);
+    dateChange(date);
+  };
+
   const InputOutputBtn = forwardRef(({ _, onClick }, ref) => (
     <button className="input-output-date-btn" onClick={onClick} ref={ref}>
       <span className="date-button-text">{formatDate(selectedDate)}</span>
@@ -26,13 +31,16 @@ const TaskCalendar = () => {
     </button>
   ));
   return (
-    <DatePicker
-      selected={selectedDate}
-      onChange={date => setSelectedDate(date)}
-      customInput={<InputOutputBtn />}
-      minDate={Date.now()}
-      calendarStartDay={1}
-    />
+    <div>
+      <DatePicker
+        selected={selectedDate}
+        onChange={onDateChange}
+        customInput={<InputOutputBtn />}
+        minDate={Date.now()}
+        calendarStartDay={1}
+        popperPlacement="right-end"
+      />
+    </div>
   );
 };
 export default TaskCalendar;
