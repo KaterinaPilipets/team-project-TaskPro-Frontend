@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const HeaderDashboardContainer = styled.button`
+export const HeaderDashboardContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
