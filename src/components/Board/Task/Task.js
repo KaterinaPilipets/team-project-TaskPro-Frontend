@@ -1,5 +1,5 @@
 import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
-import TaskCalendar from '../TaskCalendar/TaskCalendar';
+// import TaskCalendar from '../TaskCalendar/TaskCalendar';
 // import { TaskInputDate } from '../TaskCalendar/TaskInputDate';
 
 import {
@@ -19,13 +19,11 @@ import { getPriorityStyles } from 'helpers';
 export const Task = ({ task }) => {
   const { title, description, label, deadline, _id: idCard } = task;
 
- 
-
   const priorityStyles = getPriorityStyles(label);
 
   //  const [showDedline, setshowDedline] = useState(deadline);
   return (
-    <ListItem color = {priorityStyles.color}>
+    <ListItem color={priorityStyles.color}>
       <Title>{title}</Title>
       <TextHidden>{description}</TextHidden>
       <Span />
@@ -33,17 +31,13 @@ export const Task = ({ task }) => {
         <div>
           <SubTitle>Priority</SubTitle>
           <PriorityWrapper>
-            <PriorityIndicator
-              color={priorityStyles.color}
-            />
+            <PriorityIndicator color={priorityStyles.color} />
             <SubText>{priorityStyles.labelText}</SubText>
           </PriorityWrapper>
         </div>
         <div>
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
-          {/* remove TaskCalendar from here, it is there for visibility only! */}
-          <TaskCalendar />
         </div>
 
         <EditPanelCard idCard={idCard} />

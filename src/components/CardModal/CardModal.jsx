@@ -7,7 +7,7 @@ import {
   LabelTitle,
   Labels,
   LabelRadiobutton,
-  DedlineDataField,
+  // DedlineDataField,
   DedlineTitle,
   ButtonCard,
   Textarea,
@@ -16,7 +16,8 @@ import {
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
@@ -24,7 +25,7 @@ const CommentSchema = Yup.object().shape({
 });
 
 const CardModal = ({ isOpen, onClose }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   if (!isOpen) {
     return null;
@@ -73,8 +74,8 @@ const CardModal = ({ isOpen, onClose }) => {
             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
-            <DedlineDataField type="text" name="date" value="30.06.2023" />
-
+            {/* <DedlineDataField type="text" name="date" value="30.06.2023" /> */}
+            <TaskCalendar />
             <ButtonCard type="submit" disabled={isSubmitting}>
               Add
             </ButtonCard>

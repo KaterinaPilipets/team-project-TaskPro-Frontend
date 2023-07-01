@@ -176,7 +176,6 @@ export const Wrap = styled.div`
 // ];
 export const PriorityWrapper = styled.div`
   display: flex;
-
   align-items: center;
 `;
 
@@ -185,9 +184,8 @@ export const PriorityIndicator = styled.span`
   width: 12px;
   height: 12px;
   border-radius: 12px;
-  margin-right:4px; 
+  margin-right: 4px;
   ${({ color }) => `
     background-color: ${color};
   `}
 `;
-
