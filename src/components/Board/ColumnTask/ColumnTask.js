@@ -7,12 +7,11 @@ import {
   List,
 } from './ColumnTask.Styled';
 import { useToggleModal } from '../../../hooks';
+import CardModal from 'components/CardModal';
 import { Modal } from 'components/Modal';
 import { EditPanelColumn } from 'components/EditPanelColumn/EditPanelColumn';
-
 export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
   const { open, close, isOpen } = useToggleModal();
-
   return (
     <Column>
       <HeaderColumn>
@@ -27,11 +26,7 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-      {isOpen && (
-        <Modal onClose={close}>
-          <p>Add card</p>
-        </Modal>
-      )}
+      {isOpen && <CardModal isOpen={isOpen} onClose={close} />}
     </Column>
   );
 };
