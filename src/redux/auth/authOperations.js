@@ -77,10 +77,27 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await axios.get('/api/users/current');
-      console.log(res)
+      console.log(res);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserData = createAsyncThunk(
+  'users/updateUserData',
+  async (formData, thunkAPI) => {
+    try {
+      const resp = await axios.patch('api/users', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(resp.data);
+      return resp.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
