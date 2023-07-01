@@ -1,85 +1,19 @@
-// import icon from '../../sourse/sprite.svg';
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
 import { ButtonPrimary } from 'components/ButtonPrimary';
-
-// take result from selector
-
-// const result = null;
-
-const result = {
-  columns: [
-    {
-      _id: '6499ce1761db2ad559ea7462',
-      title: 'after-noon1',
-      columnOwner: '649738732301f0d9412b3b25',
-    },
-    {
-      _id: '649ac92bff119f22533e7909',
-      title: 'Dddd',
-      columnOwner: '649738732301f0d9412b3b25',
-    },
-    {
-      _id: '649ac92bff119f22533e7111',
-      title: 'Aaaa',
-      columnOwner: '649738732301f0d9412b3b25',
-    },
-  ],
-  cards: [
-    {
-      _id: '6499f64aa82d48b430dafa6a',
-      title: 'test1',
-      description: 'AAaaaa',
-      label: 'without',
-      deadline: '11/11/2023',
-      cardOwner: '6499ce1761db2ad559ea7462',
-    },
-    {
-      _id: '6499f64fa82d48b430dafa6d',
-      title: 'test2',
-      description: 'BBbbb',
-      label: 'medium',
-      deadline: '12/12/2022',
-      cardOwner: '649ac92bff119f22533e7909',
-    },
-    {
-      _id: '6499f64fa82d48b430daf10d',
-      title: 'test2',
-      description: 'BBbbb',
-      label: 'medium',
-      deadline: '12/12/2022',
-      cardOwner: '649ac92bff119f22533e7909',
-    },
-    // {
-    //   _id: '6499f64fa82d48b430da206d',
-    //   title: 'test2',
-    //   description: 'BBbbb',
-    //   label: 'medium',
-    //   deadline: '12/12/2022',
-    //   cardOwner: '649ac92bff119f22533e7909',
-    // },
-    {
-      _id: '6499f64fa82d48b430dafa7d',
-      title: 'test4',
-      description: 'BBbbb',
-      label: 'high',
-      deadline: '12/12/2022',
-      cardOwner: '649ac92bff119f22533e7909',
-    },
-    {
-      _id: '6499f64fa82d48b430dafa8d',
-      title: 'test3',
-      description: 'Ccccc',
-      label: 'low',
-      deadline: '12/12/2022',
-      cardOwner: '649ac92bff119f22533e7111',
-    },
-  ],
-};
+import { useToggleModal } from 'hooks';
+import { AddColumnModal } from '../AddColumnModal';
+import { Modal } from 'components/Modal';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { board } from 'redux/board/boardSelector';
 
 // receive filter from filter component
 const filter = '';
 
 export const MainDashboard = () => {
+  const { isOpen, close, open } = useToggleModal();
+  let result = useSelector(board);
+  const { boardId } = useParams();
   const filteredCards = result.cards.filter(card => {
     if (filter === '') {
       return result.cards;
@@ -185,11 +119,16 @@ export const MainDashboard = () => {
               height: 56,
             }}
           >
-            <ButtonPrimary type="button">Add another column</ButtonPrimary>
+            <ButtonPrimary onClick={open} type="button">
+              Add another column
+            </ButtonPrimary>
           </div>
-          {/* <AddColumnModal isOpen={isOpen} onClose={close} /> */}
 
-          {/* <EditColumnModal isOpen={isOpen} onClose={close} /> */}
+          {isOpen && (
+            <Modal onClose={close}>
+              <AddColumnModal onClose={close} />
+            </Modal>
+          )}
         </div>
       )}
     </div>

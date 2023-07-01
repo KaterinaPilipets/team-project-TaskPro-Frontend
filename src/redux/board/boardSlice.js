@@ -11,31 +11,32 @@ const boardSlice = createSlice({
   name: 'board',
   initialState: {
     columns: [],
-    tasks: [],
+    cards: [],
   },
   extraReducers: builder =>
     builder
       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
-        state.board = payload;
+        state.columns = payload.columns;
+        state.cards = payload.cards;
+      })
+      .addCase(addColumn.fulfilled, (state, { payload }) => {
+        state.columns.push(payload);
+      })
+      .addCase(patchColumn.fulfilled, (state, { payload }) => {
+        state.columns = state.columns[0].title = payload.title;
+      })
+      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
+        const index = state.columns.findIndex(
+          column => column._id === payload._id
+        );
+        state.columns.splice(index, 1);
       })
       .addCase(addTask.fulfilled, (state, { payload }) => {
-        state.board.tasks.push(payload);
+        state.cards.push(payload);
       })
       .addCase(deleteTask.fulfilled, (state, { payload }) => {
         const index = state.tasks.findIndex(task => task.id === payload.id);
-        state.board.tasks.splice(index, 1);
-      })
-
-      .addCase(addColumn.fulfilled, (state, { payload }) => {
-        state.board.columns.push(payload);
-      })
-      .addCase(patchColumn.fulfilled, (state, { payload }) => {
-        state.board.columns = state.board.columns[0].title = payload.title;
-      })
-      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
-        state.board.columns = state.board.columns.filter(
-          ({ _id }) => _id !== payload._id
-        );
+        state.cards.splice(index, 1);
       }),
   // .addMatcher(
   //   isAnyOf(fetchBoard.pending, addTask.pending, deleteTask.pending),

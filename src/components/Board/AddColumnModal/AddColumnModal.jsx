@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { Modal } from 'components/Modal';
+
 import { addColumn } from 'services/board-servises';
 
 import {
@@ -21,23 +21,20 @@ const columnSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
 });
 
-export const AddColumnModal = ({ isOpen, onClose }) => {
+export const AddColumnModal = ({ onClose }) => {
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
-  if (!isOpen) {
-    return null;
-  }
-
-  const handleSubmit = (value, { setSubmitting }) => {
+  const handleSubmit = ({ title }, { setSubmitting }) => {
     setSubmitting(true);
-    dispatch(addColumn(value, boardId));
+
+    dispatch(addColumn({ title, boardId }));
 
     onClose();
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <>
       <StyledTitle>Add column</StyledTitle>
       <Formik
         initialValues={initialValues}
@@ -54,6 +51,6 @@ export const AddColumnModal = ({ isOpen, onClose }) => {
           </StyledForm>
         )}
       </Formik>
-    </Modal>
+    </>
   );
 };

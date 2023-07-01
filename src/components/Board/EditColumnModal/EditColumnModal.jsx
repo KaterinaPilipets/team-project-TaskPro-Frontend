@@ -11,8 +11,8 @@ import {
   StyledForm,
   StyledFormField,
 } from '../AddColumnModal/AddColumnModal.styled';
-import { useToggleModal } from 'hooks';
-import { useParams } from 'react-router';
+// import { useToggleModal } from 'hooks';
+// import { useParams } from 'react-router';
 
 const initialValues = {
   title: '',
@@ -22,17 +22,18 @@ const columnSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
 });
 
-export const EditColumnModal = () => {
-  const { close } = useToggleModal();
+export const EditColumnModal = ({ id, onClose }) => {
   const dispatch = useDispatch();
-  console.log(useParams());
-  const { boardId } = useParams();
 
-  const handleSubmit = (value, { setSubmitting }) => {
+  // const { boardId } = useParams();
+
+  const handleSubmit = ({ title }, { setSubmitting }) => {
     setSubmitting(true);
-    dispatch(patchColumn(value, boardId));
+    // console.log('из модалки', title);
+    // console.log('из модалки', id);
+    dispatch(patchColumn({ title, id }));
 
-    close();
+    onClose();
   };
 
   return (

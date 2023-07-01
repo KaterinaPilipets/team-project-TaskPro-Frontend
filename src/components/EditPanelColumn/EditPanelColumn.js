@@ -13,16 +13,16 @@ export const EditPanelColumn = ({ id }) => {
   const onDelete = id => {
     dispatch(deleteColumn(id));
     // сохранить в стейт /перерендерить страницу
-    close();
+    // close();
   };
   return (
     <>
       <Wrap>
         <SvgBtn idIcon={'icon-pencil'} onClick={open} />
-        <SvgBtn idIcon={'icon-trash'} onClick={onDelete} />
+        <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
         {isOpen && (
           <Modal onClose={close}>
-            <EditColumnModal />
+            <EditColumnModal id={id} />
           </Modal>
         )}
       </Wrap>

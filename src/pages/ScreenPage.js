@@ -9,11 +9,10 @@ export const ScreenPage = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(boardId);
     if (boardId) {
-      dispatch(fetchBoard(boardId));
+      dispatch(fetchBoard({ boardId }));
     }
-  }, [dispatch, boardId]);
+  }, [boardId, dispatch]);
   return (
     <>
       <Board />
