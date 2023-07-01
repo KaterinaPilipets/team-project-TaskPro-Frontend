@@ -13,20 +13,35 @@ import {
   UserInfoBox,
   UserName,
 } from './Header.styled';
+
 import { EditProfile } from 'components/EditProfile';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
+import { setName } from 'redux/auth/authSelectors';
+
+
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
   const currentTheme = useSelector(state => state.theme);
 
   const stockAvatar = userPlaceholder.URL[currentTheme.themeColor];
 
-  const username = 'Iveta';
+
+  const dispatch = useDispatch();
+  const username = useSelector(setName)
+
+  const handleToggleSidebar = () => {
+    dispatch(toggleSidebar());
+  };
+
+ 
 
   console.log(isOpen);
   return (
     <>
       <ContainerStyled>
-        <BurgerBtn>
+        <BurgerBtn onClick={handleToggleSidebar}>
           <BurgerIcon color="#fff" />
         </BurgerBtn>
         <HeaderBtnWrap>
