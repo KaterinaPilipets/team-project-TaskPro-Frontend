@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import {
   register,
   login,
   logout,
   refreshUser,
   updateTheme,
-  updateUserData,
+  // updateUserData,
 } from './authOperations';
 export const authSlice = createSlice({
   name: 'auth',
@@ -27,7 +27,7 @@ export const authSlice = createSlice({
         state.error = null;
       })
       .addCase(register.rejected, (state, { payload }) => {
-        state.error = payload
+        state.error = payload;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
         state.user = payload.user;
@@ -62,6 +62,5 @@ export const authSlice = createSlice({
         state.user.theme = payload.theme;
       }),
 });
-
 
 export const authReducer = authSlice.reducer;
