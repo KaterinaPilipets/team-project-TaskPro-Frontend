@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -15,12 +15,15 @@ import {
   ErrorText,
   Row,
   BackgroundIcon,
+  DefaultBackgroundIconContainer,
+  DefaultBackgroundIcon,
   RadioField,
   RadioLabel,
   IconContainer,
   Svg,
   BoardText,
   SubmitButton,
+  ErrorMessageText,
 } from './EditBoardModal.styled';
 
 import { bgs } from 'sourse/bgs';
@@ -41,26 +44,32 @@ const BOARD_ICONS = [
   'icon-circle-box',
 ];
 
-const EditBoardModal = ({ id, isOpen, onClose }) => {
+const EditBoardModal = ({ id, onClose }) => {
   const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const board = useSelector(state =>
     state.boardsList.items.find(item => item._id === id)
   );
 
-  if (!isOpen || !board) {
+  if (!board) {
     return null;
   }
 
   const handleSubmit = async (value, { setSubmitting }) => {
     setSubmitting(true);
 
-    await dispatch(editBoard({ id, value }));
+    const response = await dispatch(editBoard({ id, value }));
 
-    onClose();
+    if (response.error) {
+      setErrorMessage(response.payload);
+    } else {
+      onClose();
+    }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal onClose={onClose}>
       <TitleHelp>Edit board</TitleHelp>
       <Formik
         initialValues={{
@@ -72,7 +81,7 @@ const EditBoardModal = ({ id, isOpen, onClose }) => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <StyledForm>
+          <StyledForm onChange={() => setErrorMessage(null)}>
             <FormField>
               <StyledField name="title" placeholder="Title" />
               <ErrorText name="title" component="div" />
@@ -96,7 +105,11 @@ const EditBoardModal = ({ id, isOpen, onClose }) => {
               <label>
                 <RadioField name="background" type="radio" value="empty" />
                 <RadioLabel className="background-label">
-                  <BackgroundIcon alt={'no background'} src={''} />
+                  <DefaultBackgroundIconContainer>
+                    <DefaultBackgroundIcon>
+                      <use xlinkHref={`${icon}#icon-image`} />
+                    </DefaultBackgroundIcon>
+                  </DefaultBackgroundIconContainer>
                 </RadioLabel>
               </label>
 
@@ -111,6 +124,9 @@ const EditBoardModal = ({ id, isOpen, onClose }) => {
             </Row>
 
             <SubmitButton disabled={isSubmitting}>Edit</SubmitButton>
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>

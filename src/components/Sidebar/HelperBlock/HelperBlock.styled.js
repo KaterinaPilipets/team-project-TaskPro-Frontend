@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import HelpOutlineSharpIcon from '@mui/icons-material/HelpOutlineSharp';
 
 export const Container = styled.div`
   padding: 20px;
@@ -30,8 +29,11 @@ export const Button = styled.button`
   align-items: center;
 `;
 
-export const HelpIcon = styled(HelpOutlineSharpIcon)`
+export const HelpIcon = styled.svg`
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
+  --color1: var(--helpIconColor);
 `;
 export const HelpImgContainer = styled.div`
   width: 54px;
@@ -40,4 +42,7 @@ export const HelpImgContainer = styled.div`
 
 export const HelpImage = styled.img`
   width: 100%;
+`;
+export const NeedHelpText = styled.span`
+  color: var(--helpText);
 `;

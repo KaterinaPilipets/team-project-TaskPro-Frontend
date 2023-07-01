@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Container, Button, Icon } from './Logout.styled';
 import { logout } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';

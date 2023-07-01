@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
 

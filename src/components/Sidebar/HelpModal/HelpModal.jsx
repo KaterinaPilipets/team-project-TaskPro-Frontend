@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import {
   TitleHelp,
@@ -7,35 +7,37 @@ import {
   ButtonHelp,
   Textarea,
   ErrorText,
+  ErrorMessageText,
 } from './HelpModal.styled';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
 import { sendEmail } from 'services/help-services';
 
 const CommentSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
-  message: Yup.string().required('Comment is required'),
+  message: Yup.string()
+    .required('Comment is required')
+    .min(10, 'Please write more details'),
 });
 
-const HelpModal = ({ isOpen, onClose }) => {
-  const dispatch = useDispatch();
-
-  if (!isOpen) {
-    return null;
-  }
+const HelpModal = ({ onClose }) => {
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleSubmit = async (value, { setSubmitting }) => {
     setSubmitting(true);
 
-    await dispatch(sendEmail(value));
+    try {
+      await sendEmail(value);
 
-    onClose();
+      onClose();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal onClose={onClose}>
       <TitleHelp>Need help</TitleHelp>
       <Formik
         initialValues={{
@@ -46,7 +48,7 @@ const HelpModal = ({ isOpen, onClose }) => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <StyledForm>
+          <StyledForm onChange={() => setErrorMessage(null)}>
             <StyledField
               name="email"
               type="email"
@@ -60,6 +62,9 @@ const HelpModal = ({ isOpen, onClose }) => {
             <ButtonHelp type="submit" disabled={isSubmitting}>
               Send
             </ButtonHelp>
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>
