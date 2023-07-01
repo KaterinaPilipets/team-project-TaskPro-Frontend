@@ -18,6 +18,9 @@ export const Content = styled.div `
   background: var(--bgColorAuth);
   border-radius: 8px;
   padding: 40px;
+  @media screen and (max-width: 768px) {
+    padding: 24px;
+  }
 `
 export const Menu = styled.div`
   display: flex;
@@ -42,10 +45,6 @@ export const StyledRegistrationLink = styled(Link)`
   line-height: 27px;
   letter-spacing: -0.02em;
   color: var(--inputTextColor);
-
-  @media screen and (max-width: 768px) {
-    margin-left: 24px;
-  }
 `;
 
 export const Inputs = styled.div`
@@ -68,8 +67,6 @@ export const Inputs = styled.div`
     border-radius: 8px;
     @media screen and (max-width: 768px) {
         width: 287px;
-        margin-left: 24px;
-        margin-right: 24px;
 
     }
   }
@@ -101,9 +98,6 @@ export const PasswordToggle = styled.span`
     top: 19px;
     cursor: pointer;
     color: var(--passwordColor);
-    @media screen and (max-width: 768px) {
-        right: 42.75px
-    }
 `;
 
 export const PasswordIcon = styled(FontAwesomeIcon)`
@@ -131,7 +125,6 @@ export const LoginBtn = styled.button`
     cursor: pointer;
     @media screen and (max-width: 768px) {
         width: 287px;
-        margin-bottom: 24px;
     }
 `;
 
