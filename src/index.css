@@ -278,6 +278,8 @@ body[data-theme='dark'] {
 
   --createBoardIconsFill: rgba(255, 255, 255, 0.5);
   --createBoardSelectIconsFill: #FFFFFF;
+  --defaultBgImageColor: #1F1F1F;
+  --defaultBgImageFill: rgba(255, 255, 255, 0.1);
 
 
   /* * Pop up Email, Comments*/
@@ -457,6 +459,8 @@ body[data-theme='light'] {
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
+  --defaultBgImageColor: #F6F6F7;
+  --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
 
   /* * Pop up Email, Comments*/
@@ -636,6 +640,8 @@ body[data-theme='violet'] {
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
+  --defaultBgImageColor: #ECEDFD;
+  --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
 
   /* * Pop up Email, Comments*/
