@@ -1,4 +1,6 @@
 import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
+import TaskCalendar from '../TaskCalendar/TaskCalendar';
+// import { TaskInputDate } from '../TaskCalendar/TaskInputDate';
 
 import {
   ListItem,
@@ -40,6 +42,8 @@ export const Task = ({ task }) => {
         <div>
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
+          {/* remove TaskCalendar from here, it is there for visibility only! */}
+          <TaskCalendar />
         </div>
 
         <EditPanelCard idCard={idCard} />
