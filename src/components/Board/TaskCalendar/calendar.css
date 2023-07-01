@@ -143,6 +143,11 @@
     width: 150px;
 }
 
+.react-datepicker__tab-loop {
+    background-color: red;
+    margin: 0;
+}
+
 .input-output-date-btn {
     color: var(--buttonBgColor);
     font-size: var(--fontSize14);
@@ -151,8 +156,8 @@
     letter-spacing: -0.32px;
 
     display: 'flex';
-    justifyContent: 'center';
-    alignItems: 'center';
+    justify-content: 'center';
+    align-items: 'center';
 }
 
 .date-button-text {
