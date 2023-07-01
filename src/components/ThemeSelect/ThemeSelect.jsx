@@ -35,14 +35,17 @@ const ThemeSelect = () => {
       <StyledSelectWrapper onClick={() => setIsThemeOpen(!isThemeOpen)}>
         <StyledTitle>Theme</StyledTitle>
         <MdOutlineKeyboardArrowDown size={16} color="var(--themeText)" />
+
+        {isThemeOpen && (
+          <StyledList isOpen={isThemeOpen}>
+            {themes.map(({ value, name }) => (
+              <StyledItem key={value} onClick={() => toggleTheme(value)}>
+                {name}
+              </StyledItem>
+            ))}
+          </StyledList>
+        )}
       </StyledSelectWrapper>
-      <StyledList isOpen={isThemeOpen}>
-        {themes.map(({ value, name }) => (
-          <StyledItem key={value} onClick={() => toggleTheme(value)}>
-            {name}
-          </StyledItem>
-        ))}
-      </StyledList>
     </div>
   );
 };

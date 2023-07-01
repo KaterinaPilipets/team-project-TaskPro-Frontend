@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const StyledSelectWrapper = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -17,6 +18,9 @@ export const StyledTitle = styled.p`
 
 export const StyledList = styled.ul`
   display: inline-flex;
+  position: absolute;
+  top: 30px;
+  left: -20px;
   padding: 18px 44px 18px 18px;
   flex-direction: column;
   justify-content: center;
