@@ -1,5 +1,4 @@
-import { EditPanel } from 'components/EditPanel/EditPanel';
-import icon from '../../../sourse/sprite.svg';
+import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
 import TaskCalendar from '../TaskCalendar/TaskCalendar';
 // import { TaskInputDate } from '../TaskCalendar/TaskInputDate';
 
@@ -32,10 +31,8 @@ export const Task = ({ task }) => {
           {/* remove TaskCalendar from here, it is there for visibility only! */}
           <TaskCalendar />
         </div>
-        <svg width="16" height="16">
-          <use xlinkHref={`${icon}#${'bell'}`} />
-        </svg>
-        <EditPanel idCard={idCard} />
+
+        <EditPanelCard idCard={idCard} />
       </Wrap>
     </ListItem>
   );

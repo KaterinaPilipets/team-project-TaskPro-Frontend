@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { breakpoints } from 'constants';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 export const Container = styled.div`
   margin-bottom: 24px;
@@ -20,7 +19,9 @@ export const Button = styled.button`
   }
 `;
 
-export const Icon = styled(ExitToAppIcon)`
+export const Icon = styled.svg`
+  --color2: var(--iconLogOutColor);
   margin-right: 14px;
-  color: var(--iconLogOutColor);
+  width: 32px;
+  height: 32px;
 `;

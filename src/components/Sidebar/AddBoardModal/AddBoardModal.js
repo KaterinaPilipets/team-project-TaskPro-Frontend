@@ -91,17 +91,17 @@ const AddBoardModal = ({ isOpen, onClose }) => {
             <BoardText>Background</BoardText>
             <Row>
               <label>
-                <RadioField name="background" type="radio" value="" />
+                <RadioField name="background" type="radio" value="empty" />
                 <RadioLabel className="background-label">
                   <BackgroundIcon alt={'no background'} src={''} />
                 </RadioLabel>
               </label>
 
-              {bgs.map(({ id, bgname, URL }) => (
+              {bgs.map(({ id, alt, URL }) => (
                 <label key={id}>
                   <RadioField name="background" type="radio" value={id} />
                   <RadioLabel className="background-label">
-                    <BackgroundIcon alt={bgname} src={URL.icon} />
+                    <BackgroundIcon alt={alt} src={URL.icon} />
                   </RadioLabel>
                 </label>
               ))}

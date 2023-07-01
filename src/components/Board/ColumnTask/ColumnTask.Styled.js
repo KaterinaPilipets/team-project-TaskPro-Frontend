@@ -16,6 +16,7 @@ export const HeaderColumn = styled.div`
   background-color: var(--bgColor);
   color: var(--titleColor);
   font-weight: var(--fontWeight500);
+  display: flex;
   // margin-bottom: 14px;
 `;
 export const ButtonPrimaryStyled = styled(ButtonPrimary)`

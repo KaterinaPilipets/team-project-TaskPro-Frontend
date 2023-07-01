@@ -26,3 +26,9 @@ export const AppName = styled.p`
   line-height: 1.5;
   letter-spacing: -0.04em;
 `;
+
+export const BoltSharpIcon = styled.svg`
+  --color1: var(--logoIconFill);
+  width: 12px;
+  height: 16px;
+`;

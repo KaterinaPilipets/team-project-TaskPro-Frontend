@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-// import { logIn } from '../../services/auth-services';
 import { useNavigate } from 'react-router-dom';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import sprite from '../../sourse/sprite.svg';
 import { login } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
-// import { setUser, setToken } from '../../redux/auth/authSlice';
-import { PasswordToggle, PasswordInputField, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, LoginBtn, StyledRegistrationLink, StyledLink } from "./LoginForm.styled"
+import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, LoginBtn, StyledRegistrationLink, StyledLink } from "./LoginForm.styled"
 import { setToken } from 'redux/auth/authSelectors';
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().min(6, 'Password must be at least 6 characters').email('Invalid email').required('Email is required'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+});
 
 function LoginPage() {
   const navigate = useNavigate()
@@ -19,33 +24,7 @@ function LoginPage() {
     setShowPassword(!showPassword);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   logIn({
-  //     email: event.target.elements.email.value,
-  //     password: event.target.elements.password.value,
-  //   }).then(() => {console.log('Успішно залогінено')
-  //   // Ось тут мені потрібно зберегти дані
-  //   navigate('/home')})
-  // }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   logIn({
-  //     email: event.target.elements.email.value,
-  //     password: event.target.elements.password.value,
-  //   })
-  //     .then((response) => {
-  //       console.log('Успішно залогінено');
-  //       const { user, token } = response.data;
-  //       dispatch(setUser(user));
-  //       dispatch(setToken(token));
-  //       navigate('/home');
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const currentUser = {
       email: event.target.elements.email.value,
@@ -59,40 +38,36 @@ function LoginPage() {
       console.log("Error");
       navigate('/auth/login');
     }
-      // .then((response) => {
-      //   console.log('Успішно залогінено');
-      //   // const { user, token } = response.data;
-      //   // dispatch(setUser(user));
-      //   // dispatch(setToken(token));
-      //   // localStorage.setItem('token', token); // Зберегти токен у localStorage
-      //   navigate('/home');
-      // })
-      // .catch((error) => console.log(error));
   }
 
   return (
     <Container>
       <form onSubmit={handleSubmit}>
+      <Formik initialValues={{ email: '', password: '', }} validationSchema={LoginSchema}>
         <Content>
           <Menu>
             <StyledRegistrationLink href="register" underline="none">Registration</StyledRegistrationLink>
             <StyledLink href="login" underline="none">Log In</StyledLink>
           </Menu>
           <Inputs>
-            <input name='email' type="email" placeholder="Email" />
+            <Field name="email" type="email" placeholder="Email" />
+            <ErrorText name="email" component="div" />
             <PasswordInput>
-            <PasswordInputField name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
-              <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <PasswordIcon icon={faEyeSlash} width='18px' />
-                ) : (
-                  <Svg><use xlinkHref={`${sprite}#icon-eye`} style={{ color:'#737373' }} /></Svg>
-                )}
-              </PasswordToggle>
-            </PasswordInput>
+              <Field name="password" type={showPassword ? 'text' : 'password'} placeholder="Password" />
+              <ErrorText name="password" component="div" />
+
+                <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <PasswordIcon icon={faEyeSlash} width='18px' />
+                  ) : (
+                    <Svg><use xlinkHref={`${sprite}#icon-eye`} style={{ color:'#737373' }} /></Svg>
+                  )}
+                </PasswordToggle>
+              </PasswordInput>
           </Inputs>
           <LoginBtn>Log In Now</LoginBtn>
         </Content>
+        </Formik>
       </form>
     </Container>
   );
