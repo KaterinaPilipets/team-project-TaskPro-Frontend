@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { patchColumn } from 'services/board-servises';
-import { Modal } from 'components/Modal';
+// import { Modal } from 'components/Modal';
 
 import {
   StyledTitle,
@@ -22,24 +22,21 @@ const columnSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
 });
 
-export const EditColumnModal = ({ isOpen, onClose }) => {
+export const EditColumnModal = () => {
   const { close } = useToggleModal();
   const dispatch = useDispatch();
+  console.log(useParams());
   const { boardId } = useParams();
-
-  if (!isOpen) {
-    return null;
-  }
 
   const handleSubmit = (value, { setSubmitting }) => {
     setSubmitting(true);
     dispatch(patchColumn(value, boardId));
 
-    onClose();
+    close();
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={close}>
+    <>
       <StyledTitle>Edit column</StyledTitle>
       <Formik
         initialValues={initialValues}
@@ -56,6 +53,6 @@ export const EditColumnModal = ({ isOpen, onClose }) => {
           </StyledForm>
         )}
       </Formik>
-    </Modal>
+    </>
   );
 };

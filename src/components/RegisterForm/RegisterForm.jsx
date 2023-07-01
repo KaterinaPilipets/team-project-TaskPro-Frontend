@@ -1,44 +1,42 @@
 import React, { useState } from 'react';
-// import { singUp } from '../../services/auth-services';
-import { useNavigate } from 'react-router-dom'
+
+import { useNavigate } from 'react-router-dom';
 import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { register } from 'redux/auth/authOperations';
+import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import { PasswordToggle, PasswordInputField, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled"
+import * as Yup from 'yup';
+import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled";
+
+const RegisterSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().min(6, 'Password must be at least 6 characters').email('Invalid email').required('Email is required'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+});
 
 function RegistrationPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
-  const [showPassword, setShowPassword ] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const newUser = {
-  //     name: event.target.elements.name.value,
-  //     email: event.target.elements.email.value,
-  //     password: event.target.elements.password.value,
-  //   }
 
-  //   singUp(newUser)
-  //     .then(() => {console.log('Все відправлено на Бекенд')
-  //     navigate('/home')})
-  //     .catch((error) => console.log(error))
-  // }
+  const handleSubmit = async (event) => {
 
-  const handleSubmit = (event) => {
     event.preventDefault();
     const newUser = {
       name: event.target.elements.name.value,
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
     };
+
 
     if (newUser) {
       dispatch(register(newUser));
@@ -51,29 +49,35 @@ function RegistrationPage() {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Content>
-          <Menu>
-            <StyledRegistrationLink href="register" underline="none">Registration</StyledRegistrationLink>
-            <StyledLink href="login" underline="none">Log In</StyledLink>
-          </Menu>
-          <Inputs>
-            <input name='name' type="text" placeholder="Name" />
-            <input name='email' type="email" placeholder="Email" />
-            <PasswordInput>
-            <PasswordInputField name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
-              <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <PasswordIcon icon={faEyeSlash} width='18px' />
-                ) : (
-                  <Svg><use xlinkHref={`${sprite}#icon-eye`} /></Svg>
-                )}
-              </PasswordToggle>
-            </PasswordInput>
-          </Inputs>
-          <RegisterBtn>Register Now</RegisterBtn>
-        </Content>
+        <Formik initialValues={{ name: '', email: '', password: '', }} validationSchema={RegisterSchema}>
+          <Content>
+            <Menu>
+              <StyledRegistrationLink href="register" underline="none">Registration</StyledRegistrationLink>
+              <StyledLink href="login" underline="none">Log In</StyledLink>
+            </Menu>
+            <Inputs>
+              <Field name="name" type="text" placeholder="Name" />
+              <ErrorText name="name" component="div" />
+              <Field name="email" type="email" placeholder="Email" />
+              <ErrorText name="email" component="div" />
+              <PasswordInput>
+                <Field name="password" type={showPassword ? 'text' : 'password'} placeholder="Password" />
+                <ErrorText name="password" component="div" />
+                <PasswordToggle className={`${PasswordToggle} ${PasswordIcon}`} onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <PasswordIcon icon={faEyeSlash} width='18px' />
+                  ) : (
+                    <Svg><use xlinkHref={`${sprite}#icon-eye`} /></Svg>
+                  )}
+                </PasswordToggle>
+              </PasswordInput>
+            </Inputs>
+            <RegisterBtn type='submit'>Register Now</RegisterBtn>
+          </Content>
+        </Formik>
       </form>
     </Container>
+
   );
 }
 
