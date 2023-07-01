@@ -91,6 +91,10 @@ import { authReducer } from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
 import { boardsListReducer } from './boards-list/boardsListSlice';
 
+
+import userReducer from './user/userSlice';
+
+
 const persistConfig = {
   key: 'root',
   // key: 'auth',
@@ -102,6 +106,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
+    user: userReducer,
     theme: themeReducer,
     auth: authReducer,
     sidebar: sidebarReducer,

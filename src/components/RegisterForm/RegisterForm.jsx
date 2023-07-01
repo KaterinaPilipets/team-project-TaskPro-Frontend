@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -16,21 +17,26 @@ const RegisterSchema = Yup.object().shape({
 
 function RegistrationPage() {
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
-  const [showPassword, setShowPassword ] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+
   const handleSubmit = async (event) => {
+
     event.preventDefault();
     const newUser = {
       name: event.target.elements.name.value,
       email: event.target.elements.email.value,
       password: event.target.elements.password.value,
     };
+
 
     if (newUser) {
       dispatch(register(newUser));
@@ -71,6 +77,7 @@ function RegistrationPage() {
         </Formik>
       </form>
     </Container>
+
   );
 }
 
