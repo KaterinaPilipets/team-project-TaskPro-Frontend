@@ -1,4 +1,5 @@
 import { Board } from 'components/Board/Board/Board';
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -13,9 +14,10 @@ export const ScreenPage = () => {
       dispatch(fetchBoard({ boardId }));
     }
   }, [boardId, dispatch]);
+
   return (
     <>
-      <Board />
+       <Board />
     </>
   );
 };

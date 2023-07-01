@@ -13,7 +13,7 @@ const filter = '';
 export const MainDashboard = () => {
   const { isOpen, close, open } = useToggleModal();
   let result = useSelector(board);
-  // const { boardId } = useParams();
+
   const filteredCards = result.cards.filter(card => {
     if (filter === '') {
       return result.cards;
