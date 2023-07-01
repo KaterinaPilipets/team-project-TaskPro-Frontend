@@ -1,5 +1,3 @@
-import * as React from 'react';
-// import BoltSharpIcon from '@mui/icons-material/BoltSharp';
 import {
   Container,
   LogoContainer,

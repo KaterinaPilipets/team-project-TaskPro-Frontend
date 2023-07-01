@@ -33,20 +33,57 @@ export const InputField = styled(Field)`
   pointer-events: none;
 `;
 
-export const InputRadio = styled(Field)`
-  margin-right: 8px;
-  appearance: none;
-  /* padding: 10px; */
-  /* background-color: yellow; */
-  border-radius: 14px;
+export const RadioLabel = styled.label`
+  /* font-size: var(--fontSize12); */
+  /* color: var(--filtersTextColor); */
   width: 14px;
   height: 14px;
-
-  /* &:checked {
-    appearance: auto;
-    background-color: blue;
-    outline: 1px solid var(blue);
+  margin-right: 8px;
+  border: 2px solid ${props => props.buttonColor};
+  /* background-color: ${props => props.buttonColor}; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & input {
+    display: none;
+  }
+  /* & input[type='radio']:checked + label {
+    background-color: transparent;
+    border: 2px solid ${props => props.buttonColor};
   } */
+  & input:checked + span {
+    opacity: 1;
+  }
+`;
+
+// export const InputField2 = styled.input`
+//   &:checked + label {
+//     background-color: transparent;
+//     border: 2px solid ${props => props.buttonColor};
+//   }
+// `;
+
+// .labelColor:checked + .inputlabel {
+//     background-color: transparent;
+//     border: 2px solid ${props => props.buttonColor};
+//   }
+
+export const RadioButCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 8px;
+`;
+
+export const Checkmark = styled.span`
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 50%;
+  background-color: ${props => props.buttonColor};
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.25s ease;
 `;
 
 export const BackgroundImgCont = styled.div`
@@ -65,20 +102,6 @@ export const BackgroundImg = styled.img`
 export const LabelShowAllCont = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-`;
-
-export const RadioButCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  gap: 8px;
-`;
-
-export const RadioLabel = styled.label`
-  font-size: var(--fontSize12);
-  color: var(--filtersTextColor);
-  display: flex;
   align-items: center;
 `;
 

@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { toast } from 'react-toastify';
 import {
   register,
   login,
   logout,
   refreshUser,
   updateTheme,
+  updateUserData,
 } from './authOperations';
 export const authSlice = createSlice({
   name: 'auth',
@@ -46,7 +47,7 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(refreshUser.pending, (state) => {
+      .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import {
   Container,
   List,
@@ -18,13 +18,13 @@ import { useToggleModal } from 'hooks';
 import EditBoardModal from '../EditBoardModal';
 
 const BoardsList = () => {
-  const [selectedBoardId, setSelectedBoardId] = React.useState('');
+  const [selectedBoardId, setSelectedBoardId] = useState('');
   const { open, close, isOpen } = useToggleModal();
 
   const dispatch = useDispatch();
   const boards = useSelector(state => state.boardsList.items);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchBoardsList());
   }, [dispatch]);
 
@@ -64,7 +64,7 @@ const BoardsList = () => {
           </ListItem>
         ))}
       </List>
-      <EditBoardModal isOpen={isOpen} onClose={close} id={selectedBoardId} />
+      {isOpen && <EditBoardModal onClose={close} id={selectedBoardId} />}
     </Container>
   );
 };

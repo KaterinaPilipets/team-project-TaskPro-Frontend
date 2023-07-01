@@ -23,13 +23,13 @@ import { Modal } from 'components/Modal';
 
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
+
   const currentTheme = useSelector(state => state.theme);
+  const username = useSelector(setName);
+  const userAvatar = useSelector(state => state.auth.user.avatarURL);
+  const dispatch = useDispatch();
 
   const stockAvatar = userPlaceholder.URL[currentTheme.themeColor];
-
-  const dispatch = useDispatch();
-  const username = useSelector(setName);
-
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
   };
@@ -47,7 +47,7 @@ export const Header = () => {
           <UserInfoBox onClick={open}>
             <UserName>{username}</UserName>
             <UserAvatar
-              src={stockAvatar}
+              src={userAvatar || stockAvatar}
               alt="User avatar"
               width={32}
               height={32}
@@ -57,7 +57,7 @@ export const Header = () => {
       </ContainerStyled>
       {isOpen && (
         <Modal style={{ width: 335 }} onClose={close}>
-          <EditProfile stockAvatar={stockAvatar} />
+          <EditProfile onClose={close} stockAvatar={stockAvatar} />
         </Modal>
       )}
     </>

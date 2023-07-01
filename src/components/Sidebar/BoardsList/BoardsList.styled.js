@@ -84,7 +84,7 @@ export const ActionsContainer = styled.div`
 `;
 
 export const ActionButton = styled.button`
-  --color1: var(--sidebarSecondaryTextColor);
+  stroke: var(--sidebarSecondaryTextColor);
   padding: 0;
   ${({ marginRight }) => marginRight && 'margin-right: 8px;'};
 `;
