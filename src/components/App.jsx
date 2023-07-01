@@ -79,7 +79,7 @@ export const App = () => {
               ) : (
                 <WelcomePage />
               )
-            }
+            } 
           />
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/auth/:id" element={<AuthPage />} />

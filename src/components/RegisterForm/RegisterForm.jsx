@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { register } from 'redux/auth/authOperations';
 import { Formik, Field } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled";
+import { getError } from 'redux/auth/authSelectors';
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  email: Yup.string().min(6, 'Password must be at least 6 characters').email('Invalid email').required('Email is required'),
+  email: Yup.string().min(6, 'Email must be at least 6 characters').email('Invalid email').required('Email is required'),
   password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
 });
 
 function RegistrationPage() {
   const navigate = useNavigate();
-
+  const errorMessage = useSelector(getError);
   const dispatch = useDispatch();
 
 
@@ -41,8 +41,6 @@ function RegistrationPage() {
     if (newUser) {
       dispatch(register(newUser));
       navigate('/home');
-    } else {
-      console.log("Error")
     }
   }
 
@@ -72,7 +70,8 @@ function RegistrationPage() {
                 </PasswordToggle>
               </PasswordInput>
             </Inputs>
-            <RegisterBtn type='submit'>Register Now</RegisterBtn>
+            <RegisterBtn type='submit'>Register Now</RegisterBtn> 
+            {errorMessage}
           </Content>
         </Formik>
       </form>
