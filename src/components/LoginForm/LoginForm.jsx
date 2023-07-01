@@ -35,7 +35,6 @@ function LoginPage() {
       dispatch(login(currentUser, setToken));
       navigate('/home');
     } else {
-      console.log("Error");
       navigate('/auth/login');
     }
   }

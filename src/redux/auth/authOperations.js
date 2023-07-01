@@ -7,7 +7,6 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// Utility to remove JWT
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
@@ -20,8 +19,7 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (err) {
-      alert('You are not registered! Perhaps such a user already exists.');
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -34,7 +32,6 @@ export const login = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (err) {
-      alert('No such user found, please register');
       return thunkAPI.rejectWithValue(err.message);
     }
   }
@@ -64,20 +61,16 @@ export const updateTheme = createAsyncThunk(
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    // Reading the token from the state via getState()
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      // If there is no token, exit without performing any request
+    if (!persistedToken) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
     try {
-      // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await axios.get('/api/users/current');
-      console.log(res)
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
