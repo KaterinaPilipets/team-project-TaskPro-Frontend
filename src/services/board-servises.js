@@ -56,6 +56,7 @@ export const addColumn = createAsyncThunk(
 export const patchColumn = createAsyncThunk(
   'board/patchColumn',
   async ({ title, columnId }, thunkAPI) => {
+    console.log(columnId);
     try {
       const { data } = await axios.patch(`/api/columns/${columnId}`, { title });
       return data;

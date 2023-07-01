@@ -12,8 +12,6 @@ export const EditPanelColumn = ({ id }) => {
   const dispatch = useDispatch();
   const onDelete = id => {
     dispatch(deleteColumn(id));
-    // сохранить в стейт /перерендерить страницу
-    // close();
   };
   return (
     <>
@@ -22,7 +20,7 @@ export const EditPanelColumn = ({ id }) => {
         <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
         {isOpen && (
           <Modal onClose={close}>
-            <EditColumnModal id={id} />
+            <EditColumnModal columnId={id} onClose={() => close()} />
           </Modal>
         )}
       </Wrap>

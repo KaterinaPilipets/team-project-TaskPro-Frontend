@@ -23,7 +23,13 @@ const boardSlice = createSlice({
         state.columns.push(payload);
       })
       .addCase(patchColumn.fulfilled, (state, { payload }) => {
-        state.columns = state.columns[0].title = payload.title;
+        state.columns = state.columns.map(column => {
+          if (column._id === payload._id) {
+            return payload;
+          }
+
+          return column;
+        });
       })
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
         const index = state.columns.findIndex(
