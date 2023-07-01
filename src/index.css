@@ -19,10 +19,10 @@
   --transition: 0.25s;
   --darkColor: #161616;
   --lightColor: #FFFFFF;
-  --welcomeBgColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
+  --welcomeBgColor: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #BEDBB0 92.19%);
 
   /**Register, LogIn */
-  --bgColor: #151515;
+  --bgColorAuth: #151515;
   --inputBgColor: #1F1F1F;
   --inputTextColor: rgba(255, 255, 255, 0.3);
   --inputTextFocus: #FFFFFF;
@@ -30,6 +30,7 @@
   --inputBorderFocus: #BEDBB0;
   --buttonBgColor: #BEDBB0;
   --buttonColor: #161616;
+  --passwordColor: #737373;
 
 
   /** Priority Colors*/
@@ -225,7 +226,7 @@ body[data-theme='dark'] {
 
   /* * Pop up Edit Profile */
   --profileBgColor: #151515;
-
+  --profileColor: #FFFFFF;
   --profileInputBgColor: #1F1F1F;
   --profileInputTextColor: rgba(255, 255, 255, 0.3);
   --profileInputTextFocus: #FFFFFF;
@@ -243,6 +244,7 @@ body[data-theme='dark'] {
 
   /* * Pop up Add card and Edit card*/
   --addCardBgColor: #151515;
+  --addCardColor: #FFFFFF;
 
   --addCardInputBgColor: #1F1F1F;
   --addCardInputTextColor: rgba(255, 255, 255, 0.3);
@@ -261,6 +263,7 @@ body[data-theme='dark'] {
 
   /* * Pop up Create board and Edit board*/
   --createBoardBgColor: #151515;
+  --createBoardColor: #FFFFFF;
 
   --createBoardInputBgColor: #1F1F1F;
   --createBoardInputTextColor: rgba(255, 255, 255, 0.3);
@@ -275,10 +278,13 @@ body[data-theme='dark'] {
 
   --createBoardIconsFill: rgba(255, 255, 255, 0.5);
   --createBoardSelectIconsFill: #FFFFFF;
+  --defaultBgImageColor: #1F1F1F;
+  --defaultBgImageFill: rgba(255, 255, 255, 0.1);
 
 
   /* * Pop up Email, Comments*/
   --createBoardBgColor: #151515;
+  --createBoardColor: #FFFFFF;
 
   --createBoardInputBgColor: #1F1F1F;
   --createBoardInputTextColor: rgba(255, 255, 255, 0.3);
@@ -398,6 +404,7 @@ body[data-theme='light'] {
 
   /* * Pop up Edit Profile */
   --profileBgColor: #FCFCFC;
+  --profileColor: #161616;
 
   --profileInputBgColor: #FCFCFC;
   --profileInputTextColor: rgba(22, 22, 22, 0.3);
@@ -417,6 +424,7 @@ body[data-theme='light'] {
 
   /* * Pop up Add card and Edit card*/
   --addCardBgColor: #FCFCFC;
+  --addCardColor: #161616;
 
   --addCardInputBgColor: #FCFCFC;
   --addCardInputTextColor: rgba(22, 22, 22, 0.3);
@@ -435,6 +443,7 @@ body[data-theme='light'] {
 
   /* * Pop up Create board and Edit board*/
   --createBoardBgColor: #FCFCFC;
+  --createBoardColor: #161616;
 
   --createBoardInputBgColor: #FCFCFC;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
@@ -445,14 +454,18 @@ body[data-theme='light'] {
   --createBoardButtonBgColor: #BEDBB0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: rgba(22, 22, 22, 1);;
+  --createBoardButtonIconFill: rgba(22, 22, 22, 1);
+  ;
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
+  --defaultBgImageColor: #F6F6F7;
+  --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
 
   /* * Pop up Email, Comments*/
   --createBoardBgColor: #FCFCFC;
+  --createBoardColor: #161616;
 
   --createBoardInputBgColor: #FCFCFC;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
@@ -573,6 +586,7 @@ body[data-theme='violet'] {
 
   /* * Pop up Edit Profile */
   --profileBgColor: #FCFCFC;
+  --profileColor: #161616;
 
   --profileInputBgColor: #FCFCFC;
   --profileInputTextColor: rgba(22, 22, 22, 0.3);
@@ -592,6 +606,7 @@ body[data-theme='violet'] {
 
   /* * Pop up Add card and Edit card*/
   --addCardBgColor: #FCFCFC;
+  --addCardColor: #161616;
 
   --addCardInputBgColor: #FCFCFC;
   --addCardInputTextColor: rgba(22, 22, 22, 0.3);
@@ -610,6 +625,7 @@ body[data-theme='violet'] {
 
   /* * Pop up Create board and Edit board*/
   --createBoardBgColor: #FCFCFC;
+  --createBoardColor: #161616;
 
   --createBoardInputBgColor: #FCFCFC;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
@@ -624,10 +640,13 @@ body[data-theme='violet'] {
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
+  --defaultBgImageColor: #ECEDFD;
+  --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
 
   /* * Pop up Email, Comments*/
   --createBoardBgColor: #FCFCFC;
+  --createBoardColor: #161616;
 
   --createBoardInputBgColor: #FCFCFC;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);

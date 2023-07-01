@@ -47,9 +47,10 @@ export const ListItemButton = styled(NavLink)`
   &.active {
     --color1: var(--sidebarPrimaryTextColor);
     color: var(--sidebarPrimaryTextColor);
+    background: none;
   }
 
-  &:hover .buttons {
+  &.active .buttons {
     display: flex;
   }
 
@@ -83,7 +84,7 @@ export const ActionsContainer = styled.div`
 `;
 
 export const ActionButton = styled.button`
-  --color1: var(--sidebarSecondaryTextColor);
+  stroke: var(--sidebarSecondaryTextColor);
   padding: 0;
   ${({ marginRight }) => marginRight && 'margin-right: 8px;'};
 `;

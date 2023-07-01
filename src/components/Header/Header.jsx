@@ -1,6 +1,9 @@
 import { useToggleModal } from '../../hooks';
-import { Modal } from 'components/Modal';
+// import { Modal } from 'components/Modal';
+// import { useSelector } from 'react-redux';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
+import userPlaceholder from '../../sourse/userPlaceholders.json';
+
 import {
   BurgerBtn,
   BurgerIcon,
@@ -10,23 +13,26 @@ import {
   UserInfoBox,
   UserName,
 } from './Header.styled';
+
+import { EditProfile } from 'components/EditProfile';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
 import { setName } from 'redux/auth/authSelectors';
+import { Modal } from 'components/Modal';
 
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
 
+  const currentTheme = useSelector(state => state.theme);
+  const username = useSelector(setName);
+  const userAvatar = useSelector(state => state.auth.user.avatarURL);
   const dispatch = useDispatch();
-  const username = useSelector(setName)
 
+  const stockAvatar = userPlaceholder.URL[currentTheme.themeColor];
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
   };
-
-  const avatar =
-    'https://res.cloudinary.com/dsqxw0541/image/upload/v1687678852/TaskProImages/placeholders/user-dark_jkv8qb.png';
-  // const username = 'Ivetta';
 
   console.log(isOpen);
   return (
@@ -40,13 +46,18 @@ export const Header = () => {
           <ThemeSelect />
           <UserInfoBox onClick={open}>
             <UserName>{username}</UserName>
-            <UserAvatar src={avatar} alt="User avatar" width={32} height={32} />
+            <UserAvatar
+              src={userAvatar || stockAvatar}
+              alt="User avatar"
+              width={32}
+              height={32}
+            />
           </UserInfoBox>
         </HeaderBtnWrap>
       </ContainerStyled>
       {isOpen && (
-        <Modal onClose={close}>
-          <p>ModalEditProfile</p>
+        <Modal style={{ width: 335 }} onClose={close}>
+          <EditProfile onClose={close} stockAvatar={stockAvatar} />
         </Modal>
       )}
     </>

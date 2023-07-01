@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {
   Container,
   Text,
@@ -13,6 +11,7 @@ import {
 import cactusImage from 'sourse/help.json';
 import { useToggleModal } from 'hooks';
 import HelpModal from '../HelpModal';
+import icon from 'sourse/sprite.svg';
 
 const HelperBlock = () => {
   const { open, close, isOpen } = useToggleModal();
@@ -27,11 +26,13 @@ const HelperBlock = () => {
         support resources or reach out to our customer support team.
       </Text>
       <Button onClick={open}>
-        <HelpIcon />
-        Need help?
+        <HelpIcon>
+          <use xlinkHref={`${icon}#icon-question`} />
+        </HelpIcon>
+        <span>Need help?</span>
       </Button>
 
-      <HelpModal isOpen={isOpen} onClose={close} />
+      {isOpen && <HelpModal onClose={close} />}
     </Container>
   );
 };

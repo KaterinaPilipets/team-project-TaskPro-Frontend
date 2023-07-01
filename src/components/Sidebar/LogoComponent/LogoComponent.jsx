@@ -1,13 +1,19 @@
-import * as React from 'react';
-import BoltSharpIcon from '@mui/icons-material/BoltSharp';
-import { Container, LogoContainer, AppName } from './LogoComponent.styled';
+import {
+  Container,
+  LogoContainer,
+  AppName,
+  BoltSharpIcon,
+} from './LogoComponent.styled';
+import icon from 'sourse/sprite.svg';
 
 const LogoComponent = () => {
   return (
     <div>
       <Container>
         <LogoContainer>
-          <BoltSharpIcon />
+          <BoltSharpIcon>
+            <use xlinkHref={`${icon}#icon-logo`} />
+          </BoltSharpIcon>
         </LogoContainer>
         <AppName>Task Pro</AppName>
       </Container>

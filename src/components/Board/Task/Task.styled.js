@@ -104,13 +104,17 @@ import styled from '@emotion/styled';
 // `;
 
 export const ListItem = styled.li`
-  border-left: 4px solid teal;
+  border-left: 4px solid;
   border-radius: 8px;
   width: 100%;
   height: 154px;
   padding: 14px 24px;
   background-color: var(--bgColor);
   color: var(--textColor);
+
+  ${({ color }) => `
+    border-color: ${color};
+  `}
 `;
 
 //   width: 334px;
@@ -127,6 +131,7 @@ export const Title = styled.p`
 export const SubTitle = styled.p`
   color: var(--subTitleColor);
   font-size: var(--fontSize8);
+  margin-bottom: 4px;
 `;
 export const SubText = styled.p`
   color: var(--subTextColor);
@@ -150,10 +155,11 @@ export const Span = styled.span`
 `;
 export const Wrap = styled.div`
   display: flex;
-  justify-contact: center;
-  aling-items: center;
+  justify-content: center;
+  align-items: center;
   gap: 14px;
 `;
+
 // [
 //   {
 //     name: 'Without priority',
@@ -168,3 +174,20 @@ export const Wrap = styled.div`
 //     color: '--mediumPriorityColor',
 //   },
 // ];
+export const PriorityWrapper = styled.div`
+  display: flex;
+
+  align-items: center;
+`;
+
+export const PriorityIndicator = styled.span`
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  margin-right:4px; 
+  ${({ color }) => `
+    background-color: ${color};
+  `}
+`;
+

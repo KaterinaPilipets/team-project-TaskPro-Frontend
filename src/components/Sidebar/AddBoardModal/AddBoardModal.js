@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from 'components/Modal';
 
 import { Formik } from 'formik';
@@ -15,14 +16,16 @@ import {
   ErrorText,
   Row,
   BackgroundIcon,
+  DefaultBackgroundIconContainer,
+  DefaultBackgroundIcon,
   RadioField,
   RadioLabel,
   IconContainer,
   Svg,
   BoardText,
   SubmitButton,
+  ErrorMessageText,
 } from './AddBoardModal.styled';
-// import backgrounds from 'sourse/bgs.json';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
 
@@ -41,35 +44,38 @@ const BOARD_ICONS = [
   'icon-circle-box',
 ];
 
-const AddBoardModal = ({ isOpen, onClose }) => {
+const AddBoardModal = ({ onClose }) => {
   const dispatch = useDispatch();
-
-  if (!isOpen) {
-    return null;
-  }
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleSubmit = async (value, { setSubmitting }) => {
     setSubmitting(true);
 
-    await dispatch(createBoard(value));
+    const response = await dispatch(createBoard(value));
 
-    onClose();
+    if (response.error) {
+      setErrorMessage(response.payload);
+    } else {
+      navigate(response.payload._id);
+      onClose();
+    }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal onClose={onClose}>
       <TitleHelp>New board</TitleHelp>
       <Formik
         initialValues={{
           title: '',
-          background: '',
+          background: 'empty',
           icon: BOARD_ICONS[0],
         }}
         validationSchema={BoardSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <StyledForm>
+          <StyledForm onChange={() => setErrorMessage(null)}>
             <FormField>
               <StyledField name="title" placeholder="Title" />
               <ErrorText name="title" component="div" />
@@ -91,23 +97,31 @@ const AddBoardModal = ({ isOpen, onClose }) => {
             <BoardText>Background</BoardText>
             <Row>
               <label>
-                <RadioField name="background" type="radio" value="" />
+                <RadioField name="background" type="radio" value="empty" />
                 <RadioLabel className="background-label">
-                  <BackgroundIcon alt={'no background'} src={''} />
+                  <DefaultBackgroundIconContainer>
+                    <DefaultBackgroundIcon>
+                      <use xlinkHref={`${icon}#icon-image`} />
+                    </DefaultBackgroundIcon>
+                  </DefaultBackgroundIconContainer>
                 </RadioLabel>
               </label>
 
-              {bgs.map(({ id, bgname, URL }) => (
+              {bgs.map(({ id, alt, URL }) => (
                 <label key={id}>
                   <RadioField name="background" type="radio" value={id} />
                   <RadioLabel className="background-label">
-                    <BackgroundIcon alt={bgname} src={URL.icon} />
+                    <BackgroundIcon alt={alt} src={URL.icon} />
                   </RadioLabel>
                 </label>
               ))}
             </Row>
 
             <SubmitButton disabled={isSubmitting}>Create</SubmitButton>
+
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>

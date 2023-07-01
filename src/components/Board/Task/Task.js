@@ -1,4 +1,7 @@
-import { SvgBtn } from 'components/EditPanel/EditPanel';
+import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
+import TaskCalendar from '../TaskCalendar/TaskCalendar';
+// import { TaskInputDate } from '../TaskCalendar/TaskInputDate';
+
 import {
   ListItem,
   Span,
@@ -7,52 +10,43 @@ import {
   SubTitle,
   SubText,
   Wrap,
+  PriorityWrapper,
+  PriorityIndicator,
 } from './Task.styled';
 
-import { useToggleModal } from '../../../hooks';
-// import { Modal } from 'components/Modal';
+import { getPriorityStyles } from 'helpers';
 
-// const EditPanelarray = [
-//   {
-//     name: 'icon-circle-box',
-//     fn: () => {},
-//   },
-//   {
-//     name: 'icon-pencil',
-//     fn: () => {},
-//   },
-//   {
-//     name: 'icon-trash',
-//     fn: () => {},
-//   },
-// ];
 export const Task = ({ task }) => {
+  const { title, description, label, deadline, _id: idCard } = task;
 
-  const { title, description, label, deadline } = task;
+ 
 
-  const { open } = useToggleModal();
+  const priorityStyles = getPriorityStyles(label);
 
+  //  const [showDedline, setshowDedline] = useState(deadline);
   return (
-    <ListItem>
+    <ListItem color = {priorityStyles.color}>
       <Title>{title}</Title>
       <TextHidden>{description}</TextHidden>
       <Span />
       <Wrap>
         <div>
           <SubTitle>Priority</SubTitle>
-          <SubText>{label}</SubText>
+          <PriorityWrapper>
+            <PriorityIndicator
+              color={priorityStyles.color}
+            />
+            <SubText>{priorityStyles.labelText}</SubText>
+          </PriorityWrapper>
         </div>
         <div>
           <SubTitle>Deadline</SubTitle>
           <SubText>{deadline}</SubText>
+          {/* remove TaskCalendar from here, it is there for visibility only! */}
+          <TaskCalendar />
         </div>
-        <SvgBtn
-          idIcon={'icon-pencil'}
-          onClick={() => open()}
-          component={'bbbbggg'}
-        />
-        {/* SvgBtn = ({(IdIcon, fn)}) */}
-        {/* <EditPanel iconsEdit={EditPanelarray} /> */}
+
+        <EditPanelCard idCard={idCard} />
       </Wrap>
     </ListItem>
   );

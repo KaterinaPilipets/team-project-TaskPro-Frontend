@@ -19,9 +19,6 @@ export const StyledModal = styled.div`
   border-radius: var(--borderRadius8);
   background-color: var(--profileBgColor);
   padding: 24px;
-  //   padding-top: 75px;
-  //   padding-right: 24px;
-  //   padding-bottom: 24px;
 
   @media (max-width: 374px) {
     min-width: 50%;

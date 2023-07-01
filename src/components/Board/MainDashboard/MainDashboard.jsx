@@ -1,6 +1,6 @@
 // import icon from '../../sourse/sprite.svg';
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
-import { ButtonPrimary } from './../ButtonPrimary/ButtonPrimary';
+import { ButtonPrimary } from 'components/ButtonPrimary';
 
 // take result from selector
 
@@ -143,6 +143,7 @@ export const MainDashboard = () => {
                   key={column._id}
                   tasksArray={columnCards}
                   titleColumn={column.title}
+                  id={column._id}
                 />
               );
             })}
@@ -158,7 +159,7 @@ export const MainDashboard = () => {
               height: 56,
               backgroundColor: 'gray',
               borderRadius: 8,
-              fontSize: 14,              
+              fontSize: 14,
             }}
           >
             <svg
@@ -184,10 +185,11 @@ export const MainDashboard = () => {
               height: 56,
             }}
           >
-            <ButtonPrimary type={'button'} onClick={null}>
-              Add another column
-            </ButtonPrimary>
+            <ButtonPrimary type="button">Add another column</ButtonPrimary>
           </div>
+          {/* <AddColumnModal isOpen={isOpen} onClose={close} /> */}
+
+          {/* <EditColumnModal isOpen={isOpen} onClose={close} /> */}
         </div>
       )}
     </div>
