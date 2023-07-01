@@ -12,7 +12,6 @@ import CardModal from 'components/CardModal';
 import { EditPanelColumn } from 'components/EditPanelColumn/EditPanelColumn';
 
 export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
-  // const { open } = useToggleModal();
   const { open, close, isOpen } = useToggleModal();
 
   return (
