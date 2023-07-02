@@ -15,14 +15,14 @@ import { useDispatch } from 'react-redux';
 import { deleteCard } from 'services/board-servises';
 import { differenceInHours } from 'date-fns';
 import ColumnChanger from '../Board/ColumnChanger/ColumnChanger';
+import { useState } from 'react';
 
 export const EditPanelCard = ({ id, deadline }) => {
   const { isOpen, close, open } = useToggleModal();
 
-
   const [showColumnChanger, setShowColumnChanger] = useState(false);
 
-  const [setErrorMessage] = useState(null);
+  // const [setErrorMessage] = useState(null);
 
   // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
