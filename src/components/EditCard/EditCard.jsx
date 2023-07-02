@@ -7,8 +7,10 @@ import {
   StyledField,
   LabelTitle,
   Labels,
+  RadioLabel,
   LabelRadiobutton,
-  // DedlineDataField,
+  Checkmark,
+
   DedlineTitle,
   ButtonCard,
   Textarea,
@@ -24,6 +26,13 @@ import { cards } from 'redux/board/boardSelector';
 
 import { formatISO } from 'date-fns';
 import { editCard } from 'services/board-servises';
+
+const labels = [
+  { value: 'without', color: '#FFFFFF4D' },
+  { value: 'low', color: '#8FA1D0' },
+  { value: 'medium', color: '#E09CB5' },
+  { value: 'high', color: '#BEDBB0' },
+];
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
@@ -68,6 +77,7 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
         initialValues={{
           title: cardState.title,
           description: cardState.description,
+          label: cardState.label,
         }}
         validationSchema={CommentSchema}
         onSubmit={handleSubmit}
@@ -86,11 +96,21 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-              <LabelRadiobutton type="radio" name="label" value="without" />
-              <LabelRadiobutton type="radio" name="label" value="low" />
-              <LabelRadiobutton type="radio" name="label" value="medium" />
-              <LabelRadiobutton type="radio" name="label" value="high" />
-            </Labels>
+            {labels.slice().map(({ name, value, color }) => (
+                <div style={{ display: 'flex' }} key={value}>
+                  <RadioLabel buttoncolor={color} className="inputlabel">
+                    <LabelRadiobutton
+                      buttoncolor={color}
+                      name="label"
+                      type="radio"
+                      value={value}
+                    />
+                    <Checkmark buttoncolor={color}></Checkmark>
+                  </RadioLabel>
+                  <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
+                </div>
+              ))}
+             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
             <TaskCalendar dateChange={onDateChange} initialDate={date} />
