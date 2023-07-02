@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CardModal from 'components/CardModal';
+import { EditCard } from 'components/EditCard';
 
 import icon from '../../sourse/sprite.svg';
 import {
@@ -27,16 +27,6 @@ export const EditPanelCard = ({ id, deadline }) => {
     close();
   };
 
-  const onSubmit = async (value, { setSubmitting }) => {
-    setSubmitting(true);
-    try {
-      // dispatch(editTask({ value, id }));
-      close();
-    } catch (error) {
-      setErrorMessage(error.response.data.message);
-    }
-  };
-
   const is24Hours = differenceInHours(new Date(deadline), Date.now()) < 24;
   return (
     <>
@@ -54,10 +44,10 @@ export const EditPanelCard = ({ id, deadline }) => {
 
         <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
         {isOpen && (
-          <CardModal
+          <EditCard
+            id={id}
             isOpen={isOpen}
             onClose={close}
-            handleSubmit={onSubmit}
             operationName={'Edit'}
           />
         )}
