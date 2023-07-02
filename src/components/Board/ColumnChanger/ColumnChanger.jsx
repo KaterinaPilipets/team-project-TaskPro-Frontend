@@ -9,7 +9,7 @@ import {
   ColumnChangerButton,
 } from './ColumnChanger.styled';
 import icon from '../../../sourse/sprite.svg';
-import { updateCard } from 'services/board-servises';
+import { editCard } from 'services/board-servises';
 
 const ColumnChanger = ({ onClose, id }) => {
   const getColumns = useSelector(columns);
@@ -20,8 +20,7 @@ const ColumnChanger = ({ onClose, id }) => {
   const moveCard = columnId => {
     const value = { cardOwner: columnId };
 
-
-    dispatch(updateCard({id}, value));
+    dispatch(editCard({ id }, value));
   };
   return (
     <>
