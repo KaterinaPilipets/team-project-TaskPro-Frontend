@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { bgs } from 'sourse/bgs';
 
 export const BoardContainer = styled.div`
+  /* max-width: 1180px; */
   width: 100%;
   height: 100%;
   display: flex;
