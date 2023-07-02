@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import CardModal from 'components/CardModal';
+import { EditCard } from 'components/EditCard';
 
 import icon from '../../sourse/sprite.svg';
 import {
@@ -20,6 +19,7 @@ import ColumnChanger from '../Board/ColumnChanger/ColumnChanger';
 export const EditPanelCard = ({ id, deadline }) => {
   const { isOpen, close, open } = useToggleModal();
 
+
   const [showColumnChanger, setShowColumnChanger] = useState(false);
 
   const [setErrorMessage] = useState(null);
@@ -27,20 +27,9 @@ export const EditPanelCard = ({ id, deadline }) => {
   // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const onDelete = id => {
-    console.log(id);
     dispatch(deleteCard({ id }));
     // сохранить в стейт /перерендерить страницу
     close();
-  };
-
-  const onSubmit = async (value, { setSubmitting }) => {
-    setSubmitting(true);
-    try {
-      // dispatch(editTask({ value, id }));
-      close();
-    } catch (error) {
-      setErrorMessage(error.response.data.message);
-    }
   };
 
   const is24Hours = differenceInHours(new Date(deadline), Date.now()) < 24;
@@ -69,10 +58,10 @@ export const EditPanelCard = ({ id, deadline }) => {
         </BtnWrapper>
 
         {isOpen && (
-          <CardModal
+          <EditCard
+            id={id}
             isOpen={isOpen}
             onClose={close}
-            handleSubmit={onSubmit}
             operationName={'Edit'}
           />
         )}

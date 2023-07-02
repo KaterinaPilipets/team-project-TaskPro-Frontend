@@ -14,24 +14,30 @@ import {
   Textarea,
   ErrorText,
   ErrorMessageText,
-} from './CardModal.styled';
+} from './EditCard.styled';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
-// import { useDispatch } from 'react-redux';
-import { addCard } from 'services/board-servises';
+import { cards } from 'redux/board/boardSelector';
+
+import { formatISO } from 'date-fns';
+import { editCard } from 'services/board-servises';
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('Description is required'),
 });
 
-const CardModal = ({ isOpen, onClose, operationName, id }) => {
+const EditCard = ({ isOpen, onClose, operationName, id }) => {
   const dispatch = useDispatch();
-  const [errorMessage] = useState(null);
-  const [date, setDate] = useState(new Date());
+  const cardsArray = useSelector(cards);
+
+  const cardState = cardsArray.find(({ _id }) => _id === id);
+
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [date, setDate] = useState(Date.parse(cardState.deadline));
 
   if (!isOpen) {
     return null;
@@ -42,11 +48,17 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
   };
 
   const handleSubmit = async (value, { setSubmitting }) => {
-    value.deadline = date;
+    const isoDate = formatISO(date);
+    console.log(isoDate);
+    value.deadline = isoDate;
+
     setSubmitting(true);
-    // console.log(value);
-    dispatch(addCard({ id, value }));
-    onClose();
+    try {
+      dispatch(editCard({ id, value }));
+      onClose();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
   };
 
   return (
@@ -54,9 +66,8 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
       <TitleCard>{operationName} card</TitleCard>
       <Formik
         initialValues={{
-          title: '',
-          description: '',
-          // deadline: '',
+          title: cardState.title,
+          description: cardState.description,
         }}
         validationSchema={CommentSchema}
         onSubmit={handleSubmit}
@@ -96,4 +107,4 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
   );
 };
 
-export default CardModal;
+export { EditCard };

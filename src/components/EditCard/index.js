@@ -1,0 +1,1 @@
+export { EditCard } from './EditCard';
