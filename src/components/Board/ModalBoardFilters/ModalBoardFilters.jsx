@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from 'formik';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useState } from 'react';
+// import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { editBoard } from 'services/boardslist-services';
 import { bgs } from 'sourse/bgs';
@@ -38,11 +38,11 @@ const labels = [
 
 export const ModalBoardFilters = ({ title }) => {
   const dispatch = useDispatch();
-  const { boardId } = useParams();
+  // const { boardId } = useParams();
 
   const [labelColor, setlabel] = useState('');
   // const [background, setbackground] = useState('');
-
+  console.log(labelColor);
   // const value = { title, background };
 
   const handleSubmit = ({ boardId, title, background }) => {
