@@ -1,7 +1,8 @@
 import { Formik, Form, Field } from 'formik';
-import { useState } from 'react';
-// import { useParams } from 'react-router';
-import { useDispatch } from 'react-redux';
+// import { useState } from 'react';
+import { useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { editBoard } from 'services/boardslist-services';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
@@ -36,43 +37,42 @@ const labels = [
   { name: 'Hight ', value: 'hight', color: '#BEDBB0' },
 ];
 
-export const ModalBoardFilters = ({ title }) => {
+export const ModalBoardFilters = () => {
   const dispatch = useDispatch();
-  // const { boardId } = useParams();
+  const { boardId } = useParams();
 
-  const [labelColor, setlabel] = useState('');
+  const board = useSelector(state =>
+    state.boardsList.items.find(item => item._id === boardId)
+  );
+  // console.log(board);
+
+  // const [labelColor, setlabel] = useState('');
   // const [background, setbackground] = useState('');
-  console.log(labelColor);
+
+  // const value = { background };
+
   // const value = { title, background };
 
-  const handleSubmit = ({ boardId, title, background }) => {
-    console.log(boardId, title, background);
+  const handleSubmit = async background => {
+    const value = { title: board.title, background };
+    // console.log(boardId, value);
 
-    dispatch(editBoard(boardId, { title, background }));
+    await dispatch(editBoard({ id: board._id, value }));
   };
-
-  // console.log(background);
-
-  // useEffect(() => {
-  //   const value = { title, background };
-  //   // console.log('Mounting phase: same when componentDidMount runs');
-
-  //   return async () => {
-  //     console.log(boardId);
-  //     await dispatch(editBoard({ boardId, value }));
-  //   };
-  // }, []);
 
   return (
     <div>
       <FiltersTitle>Filters</FiltersTitle>
       <Formik
-        initialValues={{
-          background: '',
-        }}
-        onSubmit={handleSubmit}
+        initialValues={
+          {
+            // title: board.title,
+            // background: '',
+          }
+        }
+        // onChange={handleSubmit}
       >
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <div>
             <BackgroundTitle>Background</BackgroundTitle>
             <BackgroundContainer>
@@ -81,7 +81,7 @@ export const ModalBoardFilters = ({ title }) => {
                   name="background"
                   type="radio"
                   value="empty"
-                  // onChange={e => setbackground(e.target.value)}
+                  onChange={e => handleSubmit(e.target.value)}
                 />
                 <NoImgCont>
                   <SvgIcon width="16" height="16">
@@ -89,13 +89,13 @@ export const ModalBoardFilters = ({ title }) => {
                   </SvgIcon>
                 </NoImgCont>
               </label>
-              {bgs.map(({ id, bgname, URL }) => (
+              {bgs.slice(1).map(({ id, bgname, URL }) => (
                 <label key={id}>
                   <InputField
                     name="background"
                     type="radio"
                     value={id}
-                    // onChange={e => setbackground(e.target.value)}
+                    onChange={e => handleSubmit(e.target.value)}
                   />
                   <BackgroundImgCont>
                     <BackgroundImg alt={bgname} src={URL.icon} />
@@ -112,7 +112,9 @@ export const ModalBoardFilters = ({ title }) => {
                   name="labelColor"
                   type="radio"
                   value={labels[0].value}
-                  onChange={e => setlabel(e.target.value)}
+                  // onChange={e =>
+                  //   handleSubmit(board._id, board.title, e.target.value)
+                  // }
                 />
               </label>
             </LabelShowAllCont>
@@ -125,7 +127,7 @@ export const ModalBoardFilters = ({ title }) => {
                       name="labelColor"
                       type="radio"
                       value={value}
-                      onChange={e => setlabel(e.target.value)}
+                      // onChange={e => setlabel(e.target.value)}
                     />
                     <Checkmark buttoncolor={color}></Checkmark>
                   </RadioLabel>
@@ -133,7 +135,6 @@ export const ModalBoardFilters = ({ title }) => {
                 </div>
               ))}
             </RadioButCont>
-            <button type="submit">submit</button>
           </div>
         </Form>
       </Formik>

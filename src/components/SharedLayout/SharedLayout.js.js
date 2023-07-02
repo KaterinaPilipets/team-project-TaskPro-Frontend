@@ -17,7 +17,7 @@ export const SharedLayout = () => {
         <Sidebar />
       </div>
 
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         <Header />
         <Outlet />
       </div>
