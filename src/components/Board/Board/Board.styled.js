@@ -12,6 +12,9 @@ export const BoardContainer = styled.div`
 
   /* background-image: url(${bgs[0].URL.desktop}); */
 
+  //добавить изменение при смене разрешения экрана
+  background-image: url(${props => props.backgroundImg.URL.desktop});
+
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: 100%;
