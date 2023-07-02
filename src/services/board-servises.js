@@ -29,8 +29,10 @@ export const addCard = createAsyncThunk(
   }
 );
 
+
 export const editCard = createAsyncThunk(
   'board/editCard',
+
   async ({ id, value }, thunkAPI) => {
     try {
       const resp = await axios.patch(`/api/cards/${id}`, value);
