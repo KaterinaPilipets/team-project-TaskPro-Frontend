@@ -16,6 +16,7 @@ import { fetchBoardsList, deleteBoard } from 'services/boardslist-services';
 import icon from 'sourse/sprite.svg';
 import { useToggleModal } from 'hooks';
 import EditBoardModal from '../EditBoardModal';
+import { toast } from 'react-toastify';
 
 const BoardsList = () => {
   const [selectedBoardId, setSelectedBoardId] = useState('');
@@ -33,7 +34,14 @@ const BoardsList = () => {
     open();
   };
 
-  const handleDelete = id => dispatch(deleteBoard(id));
+  const handleDelete = async id => {
+    const response = await dispatch(deleteBoard(id));
+    if (response.error) {
+      toast.error(response.payload);
+    } else {
+      toast.success('Board deleted');
+    }
+  };
 
   return (
     <Container>
