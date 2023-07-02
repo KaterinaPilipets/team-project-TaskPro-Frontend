@@ -9,8 +9,8 @@ import { BsChevronDown } from 'react-icons/bs';
 
 import DatePicker from 'react-datepicker';
 
-const TaskCalendar = ({ dateChange }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+const TaskCalendar = ({ dateChange, initialDate }) => {
+  const [selectedDate, setSelectedDate] = useState(initialDate);
 
   const formatDate = date => {
     if (isToday(date)) {
@@ -25,7 +25,12 @@ const TaskCalendar = ({ dateChange }) => {
   };
 
   const InputOutputBtn = forwardRef(({ _, onClick }, ref) => (
-    <button className="input-output-date-btn" onClick={onClick} ref={ref}>
+    <button
+      type="button"
+      className="input-output-date-btn"
+      onClick={onClick}
+      ref={ref}
+    >
       <span className="date-button-text">{formatDate(selectedDate)}</span>
       <BsChevronDown className="date-picker-arrow" />
     </button>
