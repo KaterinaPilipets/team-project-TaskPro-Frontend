@@ -12,7 +12,6 @@ export const WindowContaier = styled.div`
   flex-direction: column;
 
   @media screen and (min-width: ${breakpoints.M}) {
-    width: 400px;
   }
 `;
 
