@@ -8,9 +8,9 @@ import { useSelector } from 'react-redux';
 import { board } from 'redux/board/boardSelector';
 
 // receive filter from filter component
-const filter = '';
+// const filter = '';
 
-export const MainDashboard = () => {
+export const MainDashboard = ({ filter }) => {
   const { isOpen, close, open } = useToggleModal();
   let result = useSelector(board);
 
@@ -29,30 +29,6 @@ export const MainDashboard = () => {
         // alignItems: 'flex-start',
       }}
     >
-      {/* render if don't have board: */}
-      {/* {!result && (
-        <div
-          style={{
-            margin: '281px auto 349px auto',
-            width: 486,
-            height: 72,
-            textAlign: 'center',
-            fontSize: '14px',
-          }}
-        >
-          <>
-            <p>
-              Before starting your project, it is essential{' '}
-              <a href="#1" style={{ color: '#BEDBB0' }}>
-                to create a board
-              </a>{' '}
-              to visualize and track all the necessary tasks and milestones.
-              This board serves as a powerful tool to organize the workflow and
-              ensure effective collaboration among team members.
-            </p>
-          </>
-        </div>
-      )} */}
       {/* render if have board: */}
       {result && (
         <div
@@ -82,33 +58,6 @@ export const MainDashboard = () => {
               );
             })}
           </ul>
-          {/* <button
-            type="button"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              margin: 'auto auto 568px 24px',
-              padding: '14px 78px',
-              width: 334,
-              height: 56,
-              backgroundColor: 'gray',
-              borderRadius: 8,
-              fontSize: 14,
-            }}
-          >
-            <svg
-              width="14"
-              height="14"
-              style={{
-                marginRight: 8,
-                // fill: 'black',
-                // textAlign: 'center',
-              }}
-            >
-              <use xlinkHref={`${icon}#icon-plus`}></use>
-            </svg>
-            Add another column
-          </button> */}
           <div
             style={{
               // display: 'flex',
@@ -123,7 +72,6 @@ export const MainDashboard = () => {
               Add another column
             </ButtonPrimary>
           </div>
-
           {isOpen && (
             <Modal onClose={close}>
               <AddColumnModal onClose={close} />

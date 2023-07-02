@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field } from 'formik';
+// import { Field } from 'formik';
 
 export const FiltersTitle = styled.h3`
   color: var(--filtersTitleColor);
@@ -26,8 +26,9 @@ export const BackgroundContainer = styled.div`
 export const SvgIcon = styled.svg`
   --color1: var(--createBoardIconsFill);
 `;
+// export const InputField = styled(Field)`
 
-export const InputField = styled(Field)`
+export const InputField = styled.input`
   position: fixed;
   opacity: 0;
   pointer-events: none;
@@ -63,8 +64,8 @@ export const RadioLabel = styled.label`
 export const Checkmark = styled.span`
   /* width: calc(100% - 4px);
   height: calc(100% - 4px); */
-  width: calc(100%);
-  height: calc(100%);
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: ${props => props.buttoncolor};
   display: inline-block;

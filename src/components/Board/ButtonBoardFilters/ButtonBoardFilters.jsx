@@ -6,7 +6,7 @@ import icon from 'sourse/sprite.svg';
 import { Modal } from '../../Modal/Modal';
 import { FilterButton, SvgIcon } from './ButtonBoardFilters.styled';
 
-export const ButtonBoardFilters = () => {
+export const ButtonBoardFilters = ({ handleFilterChange }) => {
   const { open, close, isOpen } = useToggleModal();
 
   return (
@@ -22,6 +22,7 @@ export const ButtonBoardFilters = () => {
           <ModalBoardFilters
             title={'111'}
             boardId={'64a152c1d874b931a608b6fe'}
+            handleFilterChange={handleFilterChange}
           />
         </Modal>
       )}
