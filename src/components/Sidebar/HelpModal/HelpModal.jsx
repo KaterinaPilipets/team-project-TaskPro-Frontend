@@ -13,6 +13,7 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { sendEmail } from 'services/help-services';
+import { toast } from 'react-toastify';
 
 const CommentSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -29,7 +30,7 @@ const HelpModal = ({ onClose }) => {
 
     try {
       await sendEmail(value);
-
+      toast.success('Email send');
       onClose();
     } catch (error) {
       setErrorMessage(error.response.data.message);
