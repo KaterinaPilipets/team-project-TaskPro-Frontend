@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://task-pro-backend-j82b.onrender.com';
 export const fetchBoard = createAsyncThunk(
   'board/fetchBoard',
   async ({ boardId }, thunkAPI) => {
-    console.log(boardId);
+    // console.log(boardId);
     try {
       const resp = await axios.get(`api/boards/${boardId}`);
       return resp.data;

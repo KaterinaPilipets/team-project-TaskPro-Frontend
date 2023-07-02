@@ -27,6 +27,11 @@ export const SvgIcon = styled.svg`
   --color1: var(--createBoardIconsFill);
 `;
 
+// export const InputField = styled.input`
+//   position: fixed;
+//   opacity: 0;
+//   pointer-events: none;
+// `;
 export const InputField = styled(Field)`
   position: fixed;
   opacity: 0;
@@ -39,18 +44,19 @@ export const RadioLabel = styled.label`
   width: 14px;
   height: 14px;
   margin-right: 8px;
-  border: 2px solid ${props => props.buttonColor};
-  /* background-color: ${props => props.buttonColor}; */
+  border: 2px solid ${props => props.buttoncolor};
+  /* background-color: ${props => props.buttoncolor}; */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   & input {
     display: none;
   }
   /* & input[type='radio']:checked + label {
     background-color: transparent;
-    border: 2px solid ${props => props.buttonColor};
+    border: 2px solid ${props => props.buttoncolor};
   } */
   & input:checked + span {
     opacity: 1;
@@ -60,13 +66,13 @@ export const RadioLabel = styled.label`
 // export const InputField2 = styled.input`
 //   &:checked + label {
 //     background-color: transparent;
-//     border: 2px solid ${props => props.buttonColor};
+//     border: 2px solid ${props => props.buttoncolor};
 //   }
 // `;
 
 // .labelColor:checked + .inputlabel {
 //     background-color: transparent;
-//     border: 2px solid ${props => props.buttonColor};
+//     border: 2px solid ${props => props.buttoncolor};
 //   }
 
 export const RadioButCont = styled.div`
@@ -80,7 +86,7 @@ export const Checkmark = styled.span`
   width: calc(100% - 4px);
   height: calc(100% - 4px);
   border-radius: 50%;
-  background-color: ${props => props.buttonColor};
+  background-color: ${props => props.buttoncolor};
   display: inline-block;
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -91,6 +97,7 @@ export const BackgroundImgCont = styled.div`
 `;
 
 export const NoImgCont = styled.div`
+  cursor: pointer;
   padding: 6px;
 `;
 
