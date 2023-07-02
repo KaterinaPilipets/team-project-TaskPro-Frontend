@@ -18,30 +18,37 @@ import {
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
 // import { useDispatch } from 'react-redux';
-// import { addCard } from 'services/board-servises';
+import { addCard } from 'services/board-servises';
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('Description is required'),
 });
 
-const CardModal = ({ isOpen, onClose, handleSubmit, operationName, id }) => {
-  // const dispatch = useDispatch();
+const CardModal = ({ isOpen, onClose, operationName, id }) => {
+  const dispatch = useDispatch();
   const [errorMessage] = useState(null);
+  const [date, setDate] = useState(new Date());
 
   if (!isOpen) {
     return null;
   }
 
-  // const handleSubmit = async ({ value }, { setSubmitting }) => {
-  //   setSubmitting(true);
-  //   console.log(id);
-  //   dispatch(addCard({ id, value }));
-  //   onClose();
-  // };
+  const onDateChange = selectDate => {
+    console.log(selectDate);
+    setDate(selectDate);
+  };
+
+  const handleSubmit = async (value, { setSubmitting }) => {
+    value.deadline = date;
+    setSubmitting(true);
+    // console.log(value);
+    dispatch(addCard({ id, value }));
+    onClose();
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -50,6 +57,7 @@ const CardModal = ({ isOpen, onClose, handleSubmit, operationName, id }) => {
         initialValues={{
           title: '',
           description: '',
+          // deadline: '',
         }}
         validationSchema={CommentSchema}
         onSubmit={handleSubmit}
@@ -79,7 +87,7 @@ const CardModal = ({ isOpen, onClose, handleSubmit, operationName, id }) => {
             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
-            <TaskCalendar />
+            <TaskCalendar dateChange={onDateChange} initialDate={date} />
             <ButtonCard type="submit" disabled={isSubmitting}>
               {operationName}
             </ButtonCard>

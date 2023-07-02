@@ -21,7 +21,7 @@ export const addCard = createAsyncThunk(
   'board/addCard',
   async ({ id, value }, thunkAPI) => {
     try {
-      const resp = await axios.post(`/api/cards/${id}`, { value });
+      const resp = await axios.post(`/api/cards/${id}`, value);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -24,17 +24,14 @@ export const StyledModal = styled.div`
     min-width: 50%;
   }
 
-@media (min-width: ${breakpoints.S}) {
-	width: 335px;
-}
+  @media (min-width: ${breakpoints.S}) {
+  }
 
-@media (min-width: ${breakpoints.M}) {
-	width: 350px;
-}
+  @media (min-width: ${breakpoints.M}) {
+  }
 
-@media (min-width: ${breakpoints.L}) {
-	width: 350px;
-}
+  @media (min-width: ${breakpoints.L}) {
+  }
 `;
 
 export const StyledCloseButton = styled.button`
