@@ -4,10 +4,10 @@ import sprite from '../../sourse/sprite.svg';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { register } from 'redux/auth/authOperations';
 import { Formik, Field } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'; // useSelector
 import * as Yup from 'yup';
 import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled";
-import { getError } from 'redux/auth/authSelectors';
+// import { getError } from 'redux/auth/authSelectors';
 import { toast } from 'react-toastify';
 
 const RegisterSchema = Yup.object().shape({
@@ -18,7 +18,7 @@ const RegisterSchema = Yup.object().shape({
 
 function RegistrationPage() {
   const navigate = useNavigate();
-  const errorMessage = useSelector(getError);
+  // const errorMessage = useSelector(getError);
   const dispatch = useDispatch();
 
 
@@ -73,8 +73,7 @@ function RegistrationPage() {
                 </PasswordToggle>
               </PasswordInput>
             </Inputs>
-            <RegisterBtn type='submit'>Register Now</RegisterBtn> 
-            {errorMessage}
+            <RegisterBtn type='submit'>Register Now</RegisterBtn>
           </Content>
         </Formik>
       </form>
