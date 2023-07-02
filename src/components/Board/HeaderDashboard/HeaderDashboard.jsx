@@ -1,13 +1,17 @@
 import { ButtonBoardFilters } from '../ButtonBoardFilters/ButtonBoardFilters';
 import { HeaderDashboardContainer, BoardTitle } from './HeaderDashboard.styled';
+import { useSelector } from 'react-redux';
 
 // title взять из редакса
 
-export const HeaderDashboard = ({ title }) => {
+export const HeaderDashboard = ({ boardId }) => {
+  const board = useSelector(state =>
+    state.boardsList.items.find(item => item._id === boardId)
+  );
+
   return (
     <HeaderDashboardContainer>
-      {/* <h3>{title}</h3> */}
-      <BoardTitle>Board name</BoardTitle>
+      <BoardTitle>{board.title}</BoardTitle>
       <ButtonBoardFilters />
     </HeaderDashboardContainer>
   );

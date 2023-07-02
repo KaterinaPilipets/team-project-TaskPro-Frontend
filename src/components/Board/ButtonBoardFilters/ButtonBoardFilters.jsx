@@ -19,7 +19,10 @@ export const ButtonBoardFilters = () => {
       </FilterButton>
       {isOpen && (
         <Modal onClose={close}>
-          <ModalBoardFilters />
+          <ModalBoardFilters
+            title={'111'}
+            boardId={'64a152c1d874b931a608b6fe'}
+          />
         </Modal>
       )}
     </>
