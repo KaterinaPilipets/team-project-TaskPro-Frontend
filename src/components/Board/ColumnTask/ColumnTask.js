@@ -42,7 +42,9 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-      {isOpen && <CardModal isOpen={isOpen} onClose={close} handleSubmit={onSubmit} operationName={"Add"}  />}
+
+      {isOpen && <CardModal id={id} isOpen={isOpen} onClose={close} handleSubmit={onSubmit} operationName={"Add"}  />}
+
     </Column>
   );
 };

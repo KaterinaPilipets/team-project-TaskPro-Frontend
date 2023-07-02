@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { EditPanelCard } from 'components/EditPanelCard/EditPanelCard';
 // import TaskCalendar from '../TaskCalendar/TaskCalendar';
 // import { TaskInputDate } from '../TaskCalendar/TaskInputDate';
@@ -20,6 +21,7 @@ export const Task = ({ task }) => {
   const { title, description, label, deadline, _id: idCard } = task;
 
   const priorityStyles = getPriorityStyles(label);
+  const formatedDeadline = format(new Date(deadline), 'dd/MM/yyyy');
 
   //  const [showDedline, setshowDedline] = useState(deadline);
   return (
@@ -37,10 +39,10 @@ export const Task = ({ task }) => {
         </div>
         <div>
           <SubTitle>Deadline</SubTitle>
-          <SubText>{deadline}</SubText>
+          <SubText>{formatedDeadline}</SubText>
         </div>
 
-        <EditPanelCard idCard={idCard} />
+        <EditPanelCard id={idCard} deadline={deadline} />
       </Wrap>
     </ListItem>
   );

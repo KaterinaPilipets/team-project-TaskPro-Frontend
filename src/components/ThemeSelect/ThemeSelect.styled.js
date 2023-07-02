@@ -20,7 +20,7 @@ export const StyledList = styled.ul`
 
 position: absolute;
 opacity: ${(props) => (props.isOpen ? '1' : '0')};
-transform: translateY(${(props) => (props.isOpen ? '4px' : '-150px')});
+transform: translateY(${(props) => (props.isOpen ? '70px' : '-150px')});
 transition-property: opacity, transform;
 transition: opacity var(--transition), transform var(--transition);
 display: inline-flex;

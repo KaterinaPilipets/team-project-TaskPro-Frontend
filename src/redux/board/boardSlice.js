@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchBoard,
-  addTask,
-  deleteTask,
+  addCard,
+  deleteCard,
   addColumn,
   deleteColumn,
   patchColumn,
@@ -37,11 +37,11 @@ const boardSlice = createSlice({
         );
         state.columns.splice(index, 1);
       })
-      .addCase(addTask.fulfilled, (state, { payload }) => {
+      .addCase(addCard.fulfilled, (state, { payload }) => {
         state.cards.push(payload);
       })
-      .addCase(deleteTask.fulfilled, (state, { payload }) => {
-        const index = state.tasks.findIndex(task => task.id === payload.id);
+      .addCase(deleteCard.fulfilled, (state, { payload }) => {
+        const index = state.cards.findIndex(card => card.id === payload.id);
         state.cards.splice(index, 1);
       }),
   // .addMatcher(
