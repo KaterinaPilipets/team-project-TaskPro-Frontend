@@ -38,7 +38,6 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
   }
 
   const onDateChange = selectDate => {
-    console.log(selectDate);
     setDate(selectDate);
   };
 
@@ -76,14 +75,10 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-              <LabelRadiobutton
-                type="radio"
-                name="label"
-                value="Without priority"
-              />
-              <LabelRadiobutton type="radio" name="label" value="Low" />
-              <LabelRadiobutton type="radio" name="label" value="Medium" />
-              <LabelRadiobutton type="radio" name="label" value="High" />
+              <LabelRadiobutton type="radio" name="label" value="without" />
+              <LabelRadiobutton type="radio" name="label" value="low" />
+              <LabelRadiobutton type="radio" name="label" value="medium" />
+              <LabelRadiobutton type="radio" name="label" value="high" />
             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>

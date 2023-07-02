@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
 import { cards } from 'redux/board/boardSelector';
 
+import { formatISO } from 'date-fns';
 import { editCard } from 'services/board-servises';
 
 const CommentSchema = Yup.object().shape({
@@ -47,7 +48,10 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
   };
 
   const handleSubmit = async (value, { setSubmitting }) => {
-    value.deadline = date;
+    const isoDate = formatISO(date);
+    console.log(isoDate);
+    value.deadline = isoDate;
+
     setSubmitting(true);
     try {
       dispatch(editCard({ id, value }));
@@ -82,14 +86,10 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-              <LabelRadiobutton
-                type="radio"
-                name="label"
-                value="Without priority"
-              />
-              <LabelRadiobutton type="radio" name="label" value="Low" />
-              <LabelRadiobutton type="radio" name="label" value="Medium" />
-              <LabelRadiobutton type="radio" name="label" value="High" />
+              <LabelRadiobutton type="radio" name="label" value="without" />
+              <LabelRadiobutton type="radio" name="label" value="low" />
+              <LabelRadiobutton type="radio" name="label" value="medium" />
+              <LabelRadiobutton type="radio" name="label" value="high" />
             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>

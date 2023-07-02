@@ -50,7 +50,7 @@ export const Labels = styled.div`
   gap: 14px;
 `;
 
-export const LabelRadiobutton = styled.input``;
+export const LabelRadiobutton = styled(Field)``;
 
 export const DedlineTitle = styled.p`
   color: rgba(255, 255, 255, 0.5);

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { EditCard } from 'components/EditCard';
 
 import icon from '../../sourse/sprite.svg';
@@ -17,11 +16,9 @@ import { differenceInHours } from 'date-fns';
 
 export const EditPanelCard = ({ id, deadline }) => {
   const { isOpen, close, open } = useToggleModal();
-  const [setErrorMessage] = useState(null);
   // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const onDelete = id => {
-    console.log(id);
     dispatch(deleteCard({ id }));
     // сохранить в стейт /перерендерить страницу
     close();
