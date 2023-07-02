@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from 'components/Modal';
+import { toast } from 'react-toastify';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -58,6 +59,7 @@ const AddBoardModal = ({ onClose }) => {
       setErrorMessage(response.payload);
     } else {
       navigate(response.payload._id);
+      toast.success('Board created');
       onClose();
     }
   };
