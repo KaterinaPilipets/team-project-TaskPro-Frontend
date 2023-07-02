@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { editBoard } from 'services/boardslist-services';
 
@@ -64,6 +65,7 @@ const EditBoardModal = ({ id, onClose }) => {
     if (response.error) {
       setErrorMessage(response.payload);
     } else {
+      toast.success('Board updated');
       onClose();
     }
   };
