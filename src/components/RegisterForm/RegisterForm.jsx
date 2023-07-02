@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, PasswordIcon, Content, Svg, RegisterBtn, StyledRegistrationLink, StyledLink } from "./RegisterForm.styled";
 import { getError } from 'redux/auth/authSelectors';
+import { toast } from 'react-toastify';
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -37,9 +38,11 @@ function RegistrationPage() {
       password: event.target.elements.password.value,
     };
 
+    const response = await dispatch(register(newUser));
 
-    if (newUser) {
-      dispatch(register(newUser));
+    if (response.error) {
+      toast(response.payload);
+    } else {
       navigate('/home');
     }
   }
