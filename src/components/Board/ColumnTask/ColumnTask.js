@@ -28,7 +28,7 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-      {isOpen && <CardModal isOpen={isOpen} onClose={close} />}
+      {isOpen && <CardModal id={id} isOpen={isOpen} onClose={close} />}
     </Column>
   );
 };
