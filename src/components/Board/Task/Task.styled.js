@@ -104,6 +104,7 @@ import styled from '@emotion/styled';
 // `;
 
 export const ListItem = styled.li`
+  
   border-left: 4px solid;
   border-radius: 8px;
   width: 100%;
@@ -145,9 +146,9 @@ export const TextHidden = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.14;
-  margin-top:8 px;
+  margin-top: 8 px;
   height: 38px;
-  width:290px;
+  width: 290px;
 `;
 export const Span = styled.span`
   display: block;
