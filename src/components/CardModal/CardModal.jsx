@@ -13,39 +13,35 @@ import {
   ButtonCard,
   Textarea,
   ErrorText,
-  ErrorMessageText
+  ErrorMessageText,
 } from './CardModal.styled';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 // import { useDispatch } from 'react-redux';
 import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
-import { useDispatch } from 'react-redux';
-import { addCard } from 'services/board-servises';
+// import { useDispatch } from 'react-redux';
+// import { addCard } from 'services/board-servises';
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('Description is required'),
 });
 
-
-const CardModal = ({ isOpen, onClose, handleSubmit, operationName,id }) => {
-  const dispatch = useDispatch();
+const CardModal = ({ isOpen, onClose, handleSubmit, operationName, id }) => {
+  // const dispatch = useDispatch();
   const [errorMessage] = useState(null);
 
   if (!isOpen) {
     return null;
   }
 
-
-
-//   const handleSubmit = async ({ value }, { setSubmitting }) => {
-//     setSubmitting(true);
-//     console.log(id);
-//     dispatch(addCard({ id, value }));
-//     onClose();
-//   };
-
+  // const handleSubmit = async ({ value }, { setSubmitting }) => {
+  //   setSubmitting(true);
+  //   console.log(id);
+  //   dispatch(addCard({ id, value }));
+  //   onClose();
+  // };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -85,7 +81,7 @@ const CardModal = ({ isOpen, onClose, handleSubmit, operationName,id }) => {
             <DedlineTitle>Deadline</DedlineTitle>
             <TaskCalendar />
             <ButtonCard type="submit" disabled={isSubmitting}>
-            {operationName}
+              {operationName}
             </ButtonCard>
             {errorMessage && (
               <ErrorMessageText>{errorMessage}</ErrorMessageText>

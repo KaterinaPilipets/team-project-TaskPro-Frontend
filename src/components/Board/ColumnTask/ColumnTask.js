@@ -11,7 +11,7 @@ import {
 import { useToggleModal } from '../../../hooks';
 import CardModal from 'components/CardModal';
 import { EditPanelColumn } from 'components/EditPanelColumn/EditPanelColumn';
-import { addTask } from 'services/board-servises';
+import { addCard } from 'services/board-servises';
 
 export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
   const { open, close, isOpen } = useToggleModal();
@@ -19,14 +19,14 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
   const dispatch = useDispatch();
 
   const onSubmit = async (value, { setSubmitting }) => {
-      setSubmitting(true);
-      try {
-        dispatch(addTask({ value, id }));
-        close();
-      } catch (error) {
-        setErrorMessage(error.response.data.message);
-      }
-    };
+    setSubmitting(true);
+    try {
+      dispatch(addCard({ value, id }));
+      close();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
+  };
 
   return (
     <Column>
@@ -42,9 +42,15 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-
-      {isOpen && <CardModal id={id} isOpen={isOpen} onClose={close} handleSubmit={onSubmit} operationName={"Add"}  />}
-
+      {isOpen && (
+        <CardModal
+          id={id}
+          isOpen={isOpen}
+          onClose={close}
+          handleSubmit={onSubmit}
+          operationName={'Add'}
+        />
+      )}
     </Column>
   );
 };

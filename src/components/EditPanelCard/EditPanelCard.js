@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import  CardModal  from 'components/CardModal';
+import CardModal from 'components/CardModal';
 
 import icon from '../../sourse/sprite.svg';
 import {
@@ -15,7 +15,6 @@ import { useDispatch } from 'react-redux';
 import { deleteCard } from 'services/board-servises';
 import { differenceInHours } from 'date-fns';
 
-
 export const EditPanelCard = ({ id, deadline }) => {
   const { isOpen, close, open } = useToggleModal();
   const [setErrorMessage] = useState(null);
@@ -28,17 +27,15 @@ export const EditPanelCard = ({ id, deadline }) => {
     close();
   };
 
-//   const onSubmit = async (value, { setSubmitting }) => {
-//     setSubmitting(true);
-//     try {
-//       // dispatch(editTask({ value, id }));
-//       close();
-//     } catch (error) {
-//       setErrorMessage(error.response.data.message);
-//     }
-//   };
-
-
+  const onSubmit = async (value, { setSubmitting }) => {
+    setSubmitting(true);
+    try {
+      // dispatch(editTask({ value, id }));
+      close();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
+  };
 
   const is24Hours = differenceInHours(new Date(deadline), Date.now()) < 24;
   return (
@@ -56,8 +53,14 @@ export const EditPanelCard = ({ id, deadline }) => {
         <SvgBtn idIcon={'icon-pencil'} onClick={open} />
 
         <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
-        {isOpen && <CardModal isOpen={isOpen} onClose={close} handleSubmit={onSubmit} operationName={"Edit"}/>}
-
+        {isOpen && (
+          <CardModal
+            isOpen={isOpen}
+            onClose={close}
+            handleSubmit={onSubmit}
+            operationName={'Edit'}
+          />
+        )}
       </Wrap>
     </>
   );
