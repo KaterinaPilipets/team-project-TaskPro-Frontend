@@ -18,23 +18,21 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 // import { useDispatch } from 'react-redux';
 import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
+import { useDispatch } from 'react-redux';
+import { addCard } from 'services/board-servises';
 
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('Description is required'),
 });
 
-const CardModal = ({ isOpen, onClose }) => {
-  // const dispatch = useDispatch();
+const CardModal = ({ isOpen, onClose, id }) => {
+  const dispatch = useDispatch();
 
-  if (!isOpen) {
-    return null;
-  }
-  const handleSubmit = async (value, { setSubmitting }) => {
+  const handleSubmit = async ({ value }, { setSubmitting }) => {
     setSubmitting(true);
-
-    alert('Submit');
-
+    console.log(id);
+    dispatch(addCard({ id, value }));
     onClose();
   };
 

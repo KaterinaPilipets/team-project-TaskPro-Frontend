@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://task-pro-backend-j82b.onrender.com';
 export const fetchBoard = createAsyncThunk(
   'board/fetchBoard',
   async ({ boardId }, thunkAPI) => {
-    console.log(boardId);
+    // console.log(boardId);
     try {
       const resp = await axios.get(`api/boards/${boardId}`);
       return resp.data;
@@ -17,11 +17,11 @@ export const fetchBoard = createAsyncThunk(
   }
 );
 
-export const addTask = createAsyncThunk(
-  'board/addtask',
-  async ({ id }, thunkAPI) => {
+export const addCard = createAsyncThunk(
+  'board/addCard',
+  async ({ id, value }, thunkAPI) => {
     try {
-      const resp = await axios.post('/board', { id });
+      const resp = await axios.post(`/api/cards/${id}`, { value });
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -29,11 +29,11 @@ export const addTask = createAsyncThunk(
   }
 );
 
-export const deleteTask = createAsyncThunk(
-  'board/deleteTask',
-  async (taskId, thunkAPI) => {
+export const deleteCard = createAsyncThunk(
+  'board/deleteCard',
+  async ({ id }, thunkAPI) => {
     try {
-      const resp = await axios.delete(`/board/${taskId}`);
+      const resp = await axios.delete(`/api/cards/${id}`);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
