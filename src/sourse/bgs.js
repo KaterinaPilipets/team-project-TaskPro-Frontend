@@ -1,5 +1,16 @@
 export const bgs = [
   {
+    id: 'empty',
+    bgname: 'empty',
+    alt: 'empty',
+    URL: {
+      desktop: '',
+      tablet: '',
+      mobile: '',
+      icon: '',
+    },
+  },
+  {
     id: '1ADApriYKw4F7',
     bgname: 'sakura-tree',
     alt: 'blooming sakura tree growing on an island in the middle of the lake',

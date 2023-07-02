@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchBoard } from 'services/board-servises';
 import { useSelector, useDispatch } from 'react-redux';
+import { bgs } from 'sourse/bgs';
 
 export const Board = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,12 @@ export const Board = () => {
 
   // console.log(board);
 
+  const bkgImg = bgs.find(bg => board.background === bg.id);
+
   return (
     <>
       {board ? (
-        <BoardContainer>
+        <BoardContainer backgroundImg={bkgImg}>
           <HeaderDashboard boardId={boardId} />
           <MainDashboard />
         </BoardContainer>
