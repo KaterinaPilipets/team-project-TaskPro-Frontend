@@ -30,7 +30,7 @@ export const MainDashboard = () => {
       }}
     >
       {/* render if don't have board: */}
-      {!result && (
+      {/* {!result && (
         <div
           style={{
             margin: '281px auto 349px auto',
@@ -52,7 +52,7 @@ export const MainDashboard = () => {
             </p>
           </>
         </div>
-      )}
+      )} */}
       {/* render if have board: */}
       {result && (
         <div

@@ -84,3 +84,8 @@ export const ErrorText = styled(ErrorMessage)`
   font-size: 12px;
   color: var(--createBoardInputTextFocus);
 `;
+
+export const ErrorMessageText = styled.div`
+  color: var(--createBoardInputTextFocus);
+  margin-top: 10px;
+`;

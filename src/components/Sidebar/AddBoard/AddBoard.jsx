@@ -1,9 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux';
 import AddBoardModal from '../AddBoardModal';
 import { Container, Text, AddButton, AddButtonIcon } from './AddBoard.styled';
-import { useToggleModal } from 'hooks';
+import {
+  closeAddBoardModal,
+  openAddBoardModal,
+} from 'redux/sidebar/sidebarSlice';
 
 const AddBoard = () => {
-  const { open, close, isOpen } = useToggleModal();
+  const dispatch = useDispatch();
+  const modalOpen = useSelector(state => state.sidebar.showAddBoardModal);
+
+  const open = () => {
+    dispatch(openAddBoardModal());
+  };
+
+  const close = () => {
+    dispatch(closeAddBoardModal());
+  };
 
   return (
     <Container>
@@ -12,7 +25,7 @@ const AddBoard = () => {
         <AddButtonIcon />
       </AddButton>
 
-      {isOpen && <AddBoardModal onClose={close} />}
+      {modalOpen && <AddBoardModal onClose={close} />}
     </Container>
   );
 };

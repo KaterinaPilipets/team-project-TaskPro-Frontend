@@ -1,4 +1,6 @@
+import { useState } from 'react';
 // import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
+import { useDispatch } from 'react-redux';
 import { Task } from '../Task/Task';
 import {
   ButtonPrimaryStyled,
@@ -8,11 +10,23 @@ import {
 } from './ColumnTask.Styled';
 import { useToggleModal } from '../../../hooks';
 import CardModal from 'components/CardModal';
-// import { Modal } from 'components/Modal';
 import { EditPanelColumn } from 'components/EditPanelColumn/EditPanelColumn';
+import { addCard } from 'services/board-servises';
 
 export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
   const { open, close, isOpen } = useToggleModal();
+  const [setErrorMessage] = useState(null);
+  const dispatch = useDispatch();
+
+  const onSubmit = async (value, { setSubmitting }) => {
+    setSubmitting(true);
+    try {
+      dispatch(addCard({ value, id }));
+      close();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
+  };
 
   return (
     <Column>
@@ -28,7 +42,15 @@ export const ColumnTask = ({ tasksArray, titleColumn, id }) => {
 
       <ButtonPrimaryStyled onClick={open}>Add another card</ButtonPrimaryStyled>
 
-      {isOpen && <CardModal isOpen={isOpen} onClose={close} />}
+      {isOpen && (
+        <CardModal
+          id={id}
+          isOpen={isOpen}
+          onClose={close}
+          handleSubmit={onSubmit}
+          operationName={'Add'}
+        />
+      )}
     </Column>
   );
 };

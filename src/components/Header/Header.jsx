@@ -1,6 +1,4 @@
 import { useToggleModal } from '../../hooks';
-// import { Modal } from 'components/Modal';
-// import { useSelector } from 'react-redux';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 import userPlaceholder from '../../sourse/userPlaceholders.json';
 

@@ -39,35 +39,38 @@ export const RadioLabel = styled.label`
   width: 14px;
   height: 14px;
   margin-right: 8px;
-  border: 2px solid ${props => props.buttonColor};
-  /* background-color: ${props => props.buttonColor}; */
+  border: 2px solid ${props => props.buttoncolor};
+  /* background-color: ${props => props.buttoncolor}; */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   & input {
     display: none;
   }
   /* & input[type='radio']:checked + label {
     background-color: transparent;
-    border: 2px solid ${props => props.buttonColor};
+    border: 2px solid ${props => props.buttoncolor};
   } */
   & input:checked + span {
-    opacity: 1;
+    /* opacity: 1; */
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
   }
 `;
 
-// export const InputField2 = styled.input`
-//   &:checked + label {
-//     background-color: transparent;
-//     border: 2px solid ${props => props.buttonColor};
-//   }
-// `;
-
-// .labelColor:checked + .inputlabel {
-//     background-color: transparent;
-//     border: 2px solid ${props => props.buttonColor};
-//   }
+export const Checkmark = styled.span`
+  /* width: calc(100% - 4px);
+  height: calc(100% - 4px); */
+  width: calc(100%);
+  height: calc(100%);
+  border-radius: 50%;
+  background-color: ${props => props.buttoncolor};
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+`;
 
 export const RadioButCont = styled.div`
   display: flex;
@@ -76,21 +79,24 @@ export const RadioButCont = styled.div`
   gap: 8px;
 `;
 
-export const Checkmark = styled.span`
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
-  border-radius: 50%;
-  background-color: ${props => props.buttonColor};
-  display: inline-block;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-`;
+// export const InputField2 = styled.input`
+//   &:checked + label {
+//     background-color: transparent;
+//     border: 2px solid ${props => props.buttoncolor};
+//   }
+// `;
+
+// .labelColor:checked + .inputlabel {
+//     background-color: transparent;
+//     border: 2px solid ${props => props.buttoncolor};
+//   }
 
 export const BackgroundImgCont = styled.div`
   cursor: pointer;
 `;
 
 export const NoImgCont = styled.div`
+  cursor: pointer;
   padding: 6px;
 `;
 

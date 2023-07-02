@@ -42,7 +42,9 @@ export const Task = ({ task }) => {
           <SubText>{formatedDeadline}</SubText>
         </div>
 
-        <EditPanelCard idCard={idCard} deadline={deadline} />
+
+        <EditPanelCard id={idCard} deadline={deadline} />
+
       </Wrap>
     </ListItem>
   );

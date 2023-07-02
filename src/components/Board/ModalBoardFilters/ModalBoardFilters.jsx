@@ -1,5 +1,9 @@
 import { Formik, Form, Field } from 'formik';
-// import { useDispatch } from 'react-redux';
+// import { useState } from 'react';
+import { useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { editBoard } from 'services/boardslist-services';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
 
@@ -34,35 +38,65 @@ const labels = [
 ];
 
 export const ModalBoardFilters = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { boardId } = useParams();
 
-  // const handleSubmit = dispatch();
+  const board = useSelector(state =>
+    state.boardsList.items.find(item => item._id === boardId)
+  );
+  // console.log(board);
+
+  // const [labelColor, setlabel] = useState('');
+  // const [background, setbackground] = useState('');
+
+  // const value = { background };
+
+  // const value = { title, background };
+
+  const handleSubmit = async background => {
+    const value = { title: board.title, background };
+    // console.log(boardId, value);
+
+    await dispatch(editBoard({ id: board._id, value }));
+  };
 
   return (
     <div>
       <FiltersTitle>Filters</FiltersTitle>
       <Formik
-        initialValues={{
-          labelColor: '',
-          background: '',
-        }}
-        // onSubmit={handleSubmit}
+        initialValues={
+          {
+            // title: board.title,
+            // background: '',
+          }
+        }
+        // onChange={handleSubmit}
       >
         <Form>
           <div>
             <BackgroundTitle>Background</BackgroundTitle>
             <BackgroundContainer>
               <label>
-                <InputField name="background" type="radio" value="" />
+                <InputField
+                  name="background"
+                  type="radio"
+                  value="empty"
+                  onChange={e => handleSubmit(e.target.value)}
+                />
                 <NoImgCont>
                   <SvgIcon width="16" height="16">
                     <use xlinkHref={`${icon}#icon-bgplaceholder`}></use>
                   </SvgIcon>
                 </NoImgCont>
               </label>
-              {bgs.map(({ id, bgname, URL }) => (
+              {bgs.slice(1).map(({ id, bgname, URL }) => (
                 <label key={id}>
-                  <InputField name="background" type="radio" value={id} />
+                  <InputField
+                    name="background"
+                    type="radio"
+                    value={id}
+                    onChange={e => handleSubmit(e.target.value)}
+                  />
                   <BackgroundImgCont>
                     <BackgroundImg alt={bgname} src={URL.icon} />
                   </BackgroundImgCont>
@@ -74,20 +108,28 @@ export const ModalBoardFilters = () => {
             <LabelShowAllCont>
               <LabelTitle>Label color</LabelTitle>
               <label htmlFor="">
-                <input name="labelColor" type="radio" value={labels[0].value} />
+                <Field
+                  name="labelColor"
+                  type="radio"
+                  value={labels[0].value}
+                  // onChange={e =>
+                  //   handleSubmit(board._id, board.title, e.target.value)
+                  // }
+                />
               </label>
             </LabelShowAllCont>
             <RadioButCont>
               {labels.slice(1).map(({ name, value, color }) => (
                 <div style={{ display: 'flex' }} key={value}>
-                  <RadioLabel buttonColor={color} className="inputlabel">
+                  <RadioLabel buttoncolor={color} className="inputlabel">
                     <Field
-                      buttonColor={color}
+                      buttoncolor={color}
                       name="labelColor"
                       type="radio"
                       value={value}
+                      // onChange={e => setlabel(e.target.value)}
                     />
-                    <Checkmark buttonColor={color}></Checkmark>
+                    <Checkmark buttoncolor={color}></Checkmark>
                   </RadioLabel>
                   <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
                 </div>
