@@ -52,6 +52,39 @@ export const Labels = styled.div`
 
 export const LabelRadiobutton = styled(Field)``;
 
+export const RadioLabel = styled.label`
+
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  border: 2px solid ${props => props.buttoncolor};
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  & input {
+    display: none;
+  }
+
+  & input:checked + span {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+  }
+`;
+
+export const Checkmark = styled.span`
+
+  width: calc(100%);
+  height: calc(100%);
+  border-radius: 50%;
+  background-color: ${props => props.buttoncolor};
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+`;
+
 export const DedlineTitle = styled.p`
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
