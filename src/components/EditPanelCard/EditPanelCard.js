@@ -1,7 +1,5 @@
-
 import { useState } from 'react';
 import CardModal from 'components/CardModal';
-
 
 import icon from '../../sourse/sprite.svg';
 import {
@@ -59,21 +57,17 @@ export const EditPanelCard = ({ id, deadline }) => {
         )}
 
         <BtnWrapper>
-          {' '}
           <SvgBtn
             idIcon={'icon-move'}
             onClick={() => setShowColumnChanger(true)}
           />
           <SvgBtn idIcon={'icon-pencil'} onClick={open} />
-          <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)}
+          <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
           {showColumnChanger && (
-          <ColumnChanger onClose={() => setShowColumnChanger(false)} />
-        )}
+            <ColumnChanger onClose={() => setShowColumnChanger(false)} />
+          )}
         </BtnWrapper>
 
-        
-
-              
         {isOpen && (
           <CardModal
             isOpen={isOpen}
@@ -82,7 +76,6 @@ export const EditPanelCard = ({ id, deadline }) => {
             operationName={'Edit'}
           />
         )}
-
       </Wrap>
     </>
   );
