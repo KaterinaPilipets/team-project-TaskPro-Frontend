@@ -7,11 +7,12 @@ import { getTheme } from 'redux/auth/authSelectors';
 
 const HomePage = () => {
   const boards = useSelector(state => state.boardsList.items);
+  // const activeBoard = useSelector(getActiveBoard);
   const theme = useSelector(getTheme);
 
-  let isShow = true;
+  let isShow = false;
   if (boards.length === 0) {
-    isShow = false;
+    isShow = true;
   }
   console.log(isShow);
 
