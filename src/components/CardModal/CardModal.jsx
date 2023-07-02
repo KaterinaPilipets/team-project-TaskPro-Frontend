@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react';
 import { Modal } from 'components/Modal';
 import {
@@ -12,6 +13,7 @@ import {
   ButtonCard,
   Textarea,
   ErrorText,
+  ErrorMessageText
 } from './CardModal.styled';
 
 import { Formik } from 'formik';
@@ -24,23 +26,17 @@ const CommentSchema = Yup.object().shape({
   description: Yup.string().required('Description is required'),
 });
 
-const CardModal = ({ isOpen, onClose }) => {
+const CardModal = ({ isOpen, onClose, handleSubmit, operationName }) => {
   // const dispatch = useDispatch();
+  const [errorMessage] = useState(null);
 
   if (!isOpen) {
     return null;
   }
-  const handleSubmit = async (value, { setSubmitting }) => {
-    setSubmitting(true);
-
-    alert('Submit');
-
-    onClose();
-  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <TitleCard>Add card</TitleCard>
+      <TitleCard>{operationName} card</TitleCard>
       <Formik
         initialValues={{
           title: '',
@@ -74,11 +70,13 @@ const CardModal = ({ isOpen, onClose }) => {
             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
-            {/* <DedlineDataField type="text" name="date" value="30.06.2023" /> */}
             <TaskCalendar />
             <ButtonCard type="submit" disabled={isSubmitting}>
-              Add
+            {operationName}
             </ButtonCard>
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>

@@ -1,14 +1,16 @@
-import { Modal } from 'components/Modal';
-// import { useState } from 'react';
+import { useState } from 'react';
+import  CardModal  from 'components/CardModal';
+
 import icon from '../../sourse/sprite.svg';
 import { Wrap } from './EditPanelCard.Styled';
 import { SvgBtn } from 'components/SvgBtn/SvgBtn';
 import { useToggleModal } from 'hooks';
 import { useDispatch } from 'react-redux';
-import { deleteTask } from 'services/board-servises';
+import { deleteTask} from 'services/board-servises';
 
 export const EditPanelCard = ({ id }) => {
   const { isOpen, close, open } = useToggleModal();
+  const [setErrorMessage] = useState(null);
   // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const onDelete = id => {
@@ -16,6 +18,16 @@ export const EditPanelCard = ({ id }) => {
     // сохранить в стейт /перерендерить страницу
     close();
   };
+  const onSubmit = async (value, { setSubmitting }) => {
+    setSubmitting(true);
+    try {
+      // dispatch(editTask({ value, id }));
+      close();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
+  };
+
   return (
     <>
       <Wrap>
@@ -25,7 +37,7 @@ export const EditPanelCard = ({ id }) => {
         <SvgBtn idIcon={'icon-move'} onClick={() => {}} />
         <SvgBtn idIcon={'icon-pencil'} onClick={open} />
         <SvgBtn idIcon={'icon-trash'} onClick={onDelete} />
-        {isOpen && <Modal onClose={close}>"edit card"</Modal>}
+        {isOpen && <CardModal isOpen={isOpen} onClose={close} handleSubmit={onSubmit} operationName={"Edit"}/>}
       </Wrap>
     </>
   );
