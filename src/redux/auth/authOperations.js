@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );

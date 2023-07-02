@@ -8,6 +8,7 @@ import { ErrorText, PasswordToggle, Menu, Inputs, Container, PasswordInput, Pass
 import { setToken } from 'redux/auth/authSelectors';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().min(6, 'Password must be at least 6 characters').email('Invalid email').required('Email is required'),
@@ -31,11 +32,12 @@ function LoginPage() {
       password: event.target.elements.password.value,
     }
 
-    if(currentUser) {
-      dispatch(login(currentUser, setToken));
-      navigate('/home');
+    const response = await dispatch(login(currentUser, setToken));
+
+    if (response.error) {
+      toast.error(response.payload);
     } else {
-      navigate('/auth/login');
+      navigate('/home');
     }
   }
 
