@@ -54,7 +54,7 @@ export const Header = () => {
         </HeaderBtnWrap>
       </ContainerStyled>
       {isOpen && (
-        <Modal style={{ width: 335 }} onClose={close}>
+        <Modal onClose={close}>
           <EditProfile onClose={close} stockAvatar={stockAvatar} />
         </Modal>
       )}

@@ -25,12 +25,15 @@ export const StyledModal = styled.div`
   }
 
   @media (min-width: ${breakpoints.S}) {
+    min-width: 335px;
   }
 
   @media (min-width: ${breakpoints.M}) {
+    min-width: 350px;
   }
 
   @media (min-width: ${breakpoints.L}) {
+    min-width: 350px;
   }
 `;
 
