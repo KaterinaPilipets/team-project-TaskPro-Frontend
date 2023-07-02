@@ -5,19 +5,19 @@ export const getPriorityStyles = priority => {
 
     switch (priority) {
       case 'without':
-        color = '#FFFFFF4D';
+        color = "var(--defaultPriorityColor)"
         labelText = 'Without';
         break;
       case 'low':
-        color = '#8FA1D0';
+        color = 'var(--lowPriorityColor)';
         labelText = 'Low';
         break;
       case 'medium':
-        color = '#E09CB5';
+        color = 'var(--mediumPriorityColor)';
         labelText = 'Medium';
         break;
       case 'high':
-        color = '#BEDBB0';
+        color = 'var(--highPriorityColor)';
         labelText = 'High';
         break;
       default:

@@ -145,6 +145,9 @@ export const TextHidden = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.14;
+  margin-top:8 px;
+  height: 38px;
+  width:290px;
 `;
 export const Span = styled.span`
   display: block;
@@ -158,6 +161,7 @@ export const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 14px;
+  margin-top: auto;
 `;
 
 // [
