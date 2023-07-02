@@ -7,8 +7,10 @@ import {
   StyledField,
   LabelTitle,
   Labels,
+  RadioLabel,
   LabelRadiobutton,
-  // DedlineDataField,
+  Checkmark,
+
   DedlineTitle,
   ButtonCard,
   Textarea,
@@ -23,6 +25,13 @@ import TaskCalendar from 'components/Board/TaskCalendar/TaskCalendar';
 // import { useDispatch } from 'react-redux';
 import { addCard } from 'services/board-servises';
 
+const labels = [
+  { value: 'without', color: '#FFFFFF4D' },
+  { value: 'low', color: '#8FA1D0' },
+  { value: 'medium', color: '#E09CB5' },
+  { value: 'high', color: '#BEDBB0' },
+];
+
 const CommentSchema = Yup.object().shape({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('Description is required'),
@@ -30,7 +39,7 @@ const CommentSchema = Yup.object().shape({
 
 const CardModal = ({ isOpen, onClose, operationName, id }) => {
   const dispatch = useDispatch();
-  const [errorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [date, setDate] = useState(new Date());
 
   if (!isOpen) {
@@ -44,9 +53,13 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
   const handleSubmit = async (value, { setSubmitting }) => {
     value.deadline = date;
     setSubmitting(true);
-    // console.log(value);
-    dispatch(addCard({ id, value }));
-    onClose();
+
+    try {
+      dispatch(addCard({ id, value }));
+      onClose();
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
   };
 
   return (
@@ -56,7 +69,8 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
         initialValues={{
           title: '',
           description: '',
-          // deadline: '',
+          label: '',
+          deadline: '',
         }}
         validationSchema={CommentSchema}
         onSubmit={handleSubmit}
@@ -75,11 +89,21 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-              <LabelRadiobutton type="radio" name="label" value="without" />
-              <LabelRadiobutton type="radio" name="label" value="low" />
-              <LabelRadiobutton type="radio" name="label" value="medium" />
-              <LabelRadiobutton type="radio" name="label" value="high" />
-            </Labels>
+            {labels.slice().map(({ name, value, color }) => (
+                <div style={{ display: 'flex' }} key={value}>
+                  <RadioLabel buttoncolor={color} className="inputlabel">
+                    <LabelRadiobutton
+                      buttoncolor={color}
+                      name="label"
+                      type="radio"
+                      value={value}
+                    />
+                    <Checkmark buttoncolor={color}></Checkmark>
+                  </RadioLabel>
+                  <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
+                </div>
+              ))}
+             </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
             <TaskCalendar dateChange={onDateChange} initialDate={date} />
