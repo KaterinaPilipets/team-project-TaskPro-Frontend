@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/team-project-TaskPro-Frontend/static/css/main.c0a33a8e.css",
-    "main.js": "/team-project-TaskPro-Frontend/static/js/main.1f4bd33e.js",
+    "main.js": "/team-project-TaskPro-Frontend/static/js/main.a56dfcb8.js",
     "static/js/927.9917686a.chunk.js": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js",
     "static/js/804.e9bc5ad6.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.e9bc5ad6.chunk.js",
-    "static/js/760.2454587d.chunk.js": "/team-project-TaskPro-Frontend/static/js/760.2454587d.chunk.js",
+    "static/js/760.167ff274.chunk.js": "/team-project-TaskPro-Frontend/static/js/760.167ff274.chunk.js",
     "static/js/905.81039d72.chunk.js": "/team-project-TaskPro-Frontend/static/js/905.81039d72.chunk.js",
     "static/media/Poppins-Regular.ttf": "/team-project-TaskPro-Frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/team-project-TaskPro-Frontend/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
@@ -12,14 +12,14 @@
     "static/media/sprite.svg": "/team-project-TaskPro-Frontend/static/media/sprite.1d2944f7cbeb3f3d1520d77f26a10fbc.svg",
     "index.html": "/team-project-TaskPro-Frontend/index.html",
     "main.c0a33a8e.css.map": "/team-project-TaskPro-Frontend/static/css/main.c0a33a8e.css.map",
-    "main.1f4bd33e.js.map": "/team-project-TaskPro-Frontend/static/js/main.1f4bd33e.js.map",
+    "main.a56dfcb8.js.map": "/team-project-TaskPro-Frontend/static/js/main.a56dfcb8.js.map",
     "927.9917686a.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js.map",
     "804.e9bc5ad6.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.e9bc5ad6.chunk.js.map",
-    "760.2454587d.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/760.2454587d.chunk.js.map",
+    "760.167ff274.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/760.167ff274.chunk.js.map",
     "905.81039d72.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/905.81039d72.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c0a33a8e.css",
-    "static/js/main.1f4bd33e.js"
+    "static/js/main.a56dfcb8.js"
   ]
 }
