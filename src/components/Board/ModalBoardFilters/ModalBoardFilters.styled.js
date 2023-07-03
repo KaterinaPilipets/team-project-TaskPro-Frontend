@@ -35,7 +35,6 @@ export const Line = styled.span`
   height: 1px;
   width: 100%;
   background-color: var(--lineColor);
-  /* margin: 21px 0 14px 0; */
 `;
 
 export const InputField = styled.input`
@@ -48,14 +47,6 @@ export const RadioLabelShowAll = styled.label`
   font-size: var(--fontSize12);
   color: var(--filtersTextColor);
   text-decoration-line: underline;
-  /* width: 14px;
-  height: 14px;
-  margin-right: 8px;
-  border: 2px solid ${props => props.buttoncolor};
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
   cursor: pointer;
   & input {
     display: none;
@@ -63,13 +54,8 @@ export const RadioLabelShowAll = styled.label`
 `;
 
 export const RadioLabel = styled.label`
-  /* font-size: var(--fontSize12); */
-  /* color: var(--filtersTextColor); */
-  width: 14px;
-  height: 14px;
-  margin-right: 8px;
-  border: 2px solid ${props => props.buttoncolor};
-  border-radius: 50%;
+  font-size: var(--fontSize12);
+  color: var(--filtersTextColor);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,27 +63,44 @@ export const RadioLabel = styled.label`
   & input {
     display: none;
   }
-
-  & input:checked + span {
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
+  & input:checked + span::before {
+    opacity: 1;
   }
-`;
-
-export const Checkmark = styled.span`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: ${props => props.buttoncolor};
-  display: inline-block;
-  opacity: 1;
-  transition: opacity 0.25s ease;
 `;
 
 export const RadioButCont = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`;
+
+export const LabelCont = styled.div`
+  display: flex;
+`;
+
+export const Checkmark = styled.span`
+  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: ${props => props.buttoncolor};
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--boardBgColor);
+    opacity: 0;
+  }
 `;
 
 export const BackgroundImgCont = styled.div`

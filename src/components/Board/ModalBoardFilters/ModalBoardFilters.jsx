@@ -9,19 +9,18 @@ import {
   BackgroundTitle,
   BackgroundContainer,
   InputField,
-  // InputField2,
   BackgroundImg,
   LabelTitle,
   BackgroundImgCont,
   SvgIcon,
   NoImgCont,
-  // InputRadio,
   LabelShowAllCont,
   RadioButCont,
   RadioLabel,
   Checkmark,
   RadioLabelShowAll,
   Line,
+  LabelCont,
 } from './ModalBoardFilters.styled';
 
 // #1616164D для светлой темы
@@ -98,7 +97,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
           </LabelShowAllCont>
           <RadioButCont>
             {labels.slice(1).map(({ name, value, color }) => (
-              <div style={{ display: 'flex' }} key={value}>
+              <LabelCont key={value}>
                 <RadioLabel buttoncolor={color} className="inputlabel">
                   <input
                     buttoncolor={color}
@@ -108,9 +107,9 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                     onChange={e => handleFilterChange(e.target.value)}
                   />
                   <Checkmark buttoncolor={color}></Checkmark>
+                  {name}
                 </RadioLabel>
-                <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
-              </div>
+              </LabelCont>
             ))}
           </RadioButCont>
         </div>
