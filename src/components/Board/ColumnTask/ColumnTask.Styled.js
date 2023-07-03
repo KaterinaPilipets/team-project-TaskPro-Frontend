@@ -7,6 +7,10 @@ export const List = styled.ul`
   margin: 0;
   padding: 0;
   gap: 8px;
+
+  max-heigth: 500px;
+  // overflow-x: hidden;
+  overflow-y: auto;
 `;
 export const HeaderColumn = styled.div`
   border-radius: 8px;

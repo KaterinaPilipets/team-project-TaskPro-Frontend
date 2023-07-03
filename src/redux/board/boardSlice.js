@@ -41,7 +41,7 @@ const boardSlice = createSlice({
         state.cards.push(payload);
       })
       .addCase(deleteCard.fulfilled, (state, { payload }) => {
-        const index = state.cards.findIndex(card => card.id === payload.id);
+        const index = state.cards.findIndex(card => card._id === payload._id);
         state.cards.splice(index, 1);
       }),
   // .addMatcher(
