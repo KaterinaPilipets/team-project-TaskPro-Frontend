@@ -20,7 +20,7 @@ const ColumnChanger = ({ onClose, id }) => {
   const moveCard = columnId => {
     const value = { cardOwner: columnId };
 
-    dispatch(editCard({ id }, value));
+    dispatch(editCard({ id, value }));
   };
   return (
     <>
