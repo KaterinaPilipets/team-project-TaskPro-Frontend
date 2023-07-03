@@ -12,7 +12,6 @@ export const Board = () => {
   const { boardId } = useParams();
 
   const [filter, setfilter] = useState('');
-  console.log(filter);
 
   const handleFilterChange = newData => {
     setfilter(newData);
@@ -29,23 +28,25 @@ export const Board = () => {
     state.boardsList.items.find(item => item._id === boardId)
   );
 
-  // console.log(board);
-
-  const bkgImg = bgs.find(bg => board.background === bg.id);
+  const bkgImg = () => {
+    if (board) {
+      const result = bgs.find(bg => board.background === bg.id);
+      return result;
+    }
+    return bgs[0];
+  };
+  // console.log(bkgImg());
 
   return (
     <>
-      {board ? (
-        <BoardContainer backgroundImg={bkgImg}>
+      {board && (
+        <BoardContainer backgroundImg={bkgImg()}>
           <HeaderDashboard
             boardId={boardId}
             handleFilterChange={handleFilterChange}
           />
           <MainDashboard filter={filter} />
         </BoardContainer>
-      ) : (
-        <div></div>
-        // create board
       )}
     </>
   );

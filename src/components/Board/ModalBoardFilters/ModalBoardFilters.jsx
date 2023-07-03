@@ -1,8 +1,5 @@
-// import { Formik, Form, Field } from 'formik';
-// import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { editBoard } from 'services/boardslist-services';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
@@ -23,6 +20,8 @@ import {
   RadioButCont,
   RadioLabel,
   Checkmark,
+  RadioLabelShowAll,
+  Line,
 } from './ModalBoardFilters.styled';
 
 // #1616164D для светлой темы
@@ -50,6 +49,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
   return (
     <div>
       <FiltersTitle>Filters</FiltersTitle>
+      <Line></Line>
       <form>
         <div>
           <BackgroundTitle>Background</BackgroundTitle>
@@ -81,18 +81,20 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
               </label>
             ))}
           </BackgroundContainer>
+          <Line></Line>
         </div>
         <div>
           <LabelShowAllCont>
             <LabelTitle>Label color</LabelTitle>
-            <label htmlFor="">
+            <RadioLabelShowAll>
               <input
                 name="labelColor"
                 type="radio"
                 value={labels[0].value}
                 onChange={e => handleFilterChange(e.target.value)}
               />
-            </label>
+              Show all
+            </RadioLabelShowAll>
           </LabelShowAllCont>
           <RadioButCont>
             {labels.slice(1).map(({ name, value, color }) => (
