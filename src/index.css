@@ -167,7 +167,11 @@ body[data-theme='dark'] {
   --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
+
+  --boardTitleText: #FFFFFF;
+
   --boardBgColor: #1f1f1f;
+
   --defaultText: rgba(255, 255, 255, 0.5);
   --defaultAccentText: #bedbb0;
   --filterText: rgba(255, 255, 255, 0.8);
@@ -336,7 +340,10 @@ body[data-theme='light'] {
   --userNameText: #161616;
 
   /** Board */
-  --boardBgColor: #f6f6f7;
+
+  --boardBgColor: #F6F6F7;
+  --boardTitleText: #161616;
+
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #bedbb0;
   --filterText: rgba(22, 22, 22, 0.8);
@@ -505,7 +512,10 @@ body[data-theme='violet'] {
   --userNameText: #161616;
 
   /** Board */
-  --boardBgColor: #ecedfd;
+
+  --boardBgColor: #ECEDFD;
+  --boardTitleText: #161616;
+
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #5255bc;
   --filterText: rgba(22, 22, 22, 0.8);
