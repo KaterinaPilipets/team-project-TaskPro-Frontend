@@ -159,6 +159,7 @@ body[data-theme='dark'] {
   --helpText: #ffffff;
   --helpTextAccentColor: #bedbb0;
   --helpBgColor: #1f1f1f;
+  --helpIconColor: #ffffff;
 
   --iconLogOutColor: #bedbb0;
 
@@ -316,6 +317,7 @@ body[data-theme='light'] {
   --helpText: #161616;
   --helpTextAccentColor: #bedbb0;
   --helpBgColor: #f6f6f7;
+  --helpIconColor: #161616;
 
   --iconLogOutColor: #bedbb0;
 
@@ -484,6 +486,7 @@ body[data-theme='violet'] {
   --helpText: #ffffff;
   --helpTextAccentColor: #5255bc;
   --helpBgColor: rgb(236, 237, 253, 0.5);
+  --helpIconColor: #ffffff;
 
   --iconLogOutColor: #ffffff;
 

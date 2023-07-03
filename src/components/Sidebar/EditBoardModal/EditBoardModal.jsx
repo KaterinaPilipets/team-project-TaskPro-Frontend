@@ -115,7 +115,7 @@ const EditBoardModal = ({ id, onClose }) => {
                 </RadioLabel>
               </label>
 
-              {bgs.map(({ id, alt, URL }) => (
+              {bgs.slice(1).map(({ id, alt, URL }) => (
                 <label key={id}>
                   <RadioField name="background" type="radio" value={id} />
                   <RadioLabel className="background-label">
