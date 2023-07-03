@@ -4,11 +4,7 @@ import { useToggleModal } from 'hooks';
 import { AddColumnModal } from '../AddColumnModal';
 import { Modal } from 'components/Modal';
 import { useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
 import { board } from 'redux/board/boardSelector';
-
-// receive filter from filter component
-// const filter = '';
 
 export const MainDashboard = ({ filter }) => {
   const { isOpen, close, open } = useToggleModal();
