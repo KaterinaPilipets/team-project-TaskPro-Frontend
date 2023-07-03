@@ -317,6 +317,7 @@ body[data-theme='light'] {
   --helpText: #161616;
   --helpTextAccentColor: #bedbb0;
   --helpBgColor: #f6f6f7;
+  --helpIconColor: #161616;
 
   --iconLogOutColor: #bedbb0;
 
