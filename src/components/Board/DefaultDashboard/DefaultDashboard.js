@@ -16,7 +16,7 @@ export const DefaultDashboard = () => {
     <StyledContainer>
       <StyledText>
         Before starting your project, it is essential &nbsp;
-        <StyledLink href="#1" onClick={open} style={{ color: '#BEDBB0' }}>
+        <StyledLink href="#1" onClick={open}>
           to create a board
         </StyledLink>
         &nbsp; to visualize and track all the necessary tasks and milestones.

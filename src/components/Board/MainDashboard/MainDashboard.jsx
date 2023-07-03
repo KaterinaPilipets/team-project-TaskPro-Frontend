@@ -1,11 +1,19 @@
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
-import { ButtonPrimary } from 'components/ButtonPrimary';
+// import { ButtonPrimary } from 'components/ButtonPrimary';
 import { useToggleModal } from 'hooks';
 import { AddColumnModal } from '../AddColumnModal';
 import { Modal } from 'components/Modal';
 import { useSelector } from 'react-redux';
 import { board } from 'redux/board/boardSelector';
-import { List, BoardContainer } from './MainDashboard.styled';
+import {
+  List,
+  BoardContainer,
+  BoardContent,
+  StyledButtonAddColumn,
+  StyledIconAddColumn,
+  StyledSvgAddColumn,
+} from './MainDashboard.styled';
+import icon from '../../../sourse/sprite.svg';
 
 export const MainDashboard = ({ filter }) => {
   const { isOpen, close, open } = useToggleModal();
@@ -19,15 +27,10 @@ export const MainDashboard = ({ filter }) => {
   });
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        // alignItems: 'flex-start',
-      }}
-    >
+    <BoardContainer>
       {/* render if have board: */}
       {result && (
-        <BoardContainer>
+        <BoardContent>
           <List>
             {result.columns.map(column => {
               const columnCards = filteredCards.filter(card => {
@@ -43,27 +46,21 @@ export const MainDashboard = ({ filter }) => {
               );
             })}
           </List>
-          <div
-            style={{
-              // display: 'flex',
-              // alignItems: 'center',
-              // margin: 'auto auto 568px 24px',
-              // padding: '14px 78px',
-              width: 334,
-              height: 56,
-            }}
-          >
-            <ButtonPrimary onClick={open} type="button">
-              Add another column
-            </ButtonPrimary>
-          </div>
-        </BoardContainer>
+          <StyledButtonAddColumn type="button" onClick={open}>
+            <StyledIconAddColumn>
+              <StyledSvgAddColumn width="14" height="14">
+                <use xlinkHref={`${icon}#icon-plus`} />
+              </StyledSvgAddColumn>
+            </StyledIconAddColumn>
+            <span>Add another colum</span>
+          </StyledButtonAddColumn>
+        </BoardContent>
       )}
       {isOpen && (
         <Modal onClose={close}>
           <AddColumnModal onClose={close} />
         </Modal>
       )}
-    </div>
+    </BoardContainer>
   );
 };

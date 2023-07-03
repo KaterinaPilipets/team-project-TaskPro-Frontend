@@ -123,7 +123,9 @@ button {
 body[data-theme='dark'] {
   /* * Icon Close Modal */
   --iconCloseModal: #ffffff;
-
+  --scrollThumbColor: #121212;
+  --scrollAccentColor: #151515;
+  --scrollTrackColor: rgba(255, 255, 255, 0.5);
   /** Header */
   --headerBgColor: #161616;
 
@@ -296,7 +298,9 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
-
+  --scrollThumbColor: #E8E8E8;
+  --scrollTrackColor: rgba(22, 22, 22, 0.1);
+  --scrollAccentColor: rgba(22, 22, 22, 0.5);
   /** Sidebar light*/
   --logoColor: #161616;
   --logoBgColor: #1f1f1f;
@@ -468,7 +472,9 @@ body[data-theme='light'] {
 body[data-theme='violet'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
-
+  --scrollThumbColor: #ffffff;
+  --scrollTrackColor: #B8BCFD;
+  --scrollAccentColor: #5255bc;
   /** Sidebar*/
   --logoColor: #ffffff;
   --logoBgColor: #ecedfd;
