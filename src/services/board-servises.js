@@ -29,7 +29,6 @@ export const addCard = createAsyncThunk(
   }
 );
 
-
 export const editCard = createAsyncThunk(
   'board/editCard',
 
@@ -47,8 +46,8 @@ export const deleteCard = createAsyncThunk(
   'board/deleteCard',
   async ({ id }, thunkAPI) => {
     try {
-      const resp = await axios.delete(`/api/cards/${id}`);
-      return resp.data;
+      await axios.delete(`/api/cards/${id}`);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
