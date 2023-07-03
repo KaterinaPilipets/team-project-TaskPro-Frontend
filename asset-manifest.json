@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/team-project-TaskPro-Frontend/static/css/main.c0a33a8e.css",
-    "main.js": "/team-project-TaskPro-Frontend/static/js/main.16161370.js",
+    "main.css": "/team-project-TaskPro-Frontend/static/css/main.4941e3aa.css",
+    "main.js": "/team-project-TaskPro-Frontend/static/js/main.cb549591.js",
     "static/js/927.9917686a.chunk.js": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js",
     "static/js/804.a92e8312.chunk.js": "/team-project-TaskPro-Frontend/static/js/804.a92e8312.chunk.js",
     "static/js/760.ebff2daf.chunk.js": "/team-project-TaskPro-Frontend/static/js/760.ebff2daf.chunk.js",
@@ -11,15 +11,15 @@
     "static/media/Poppins-SemiBold.ttf": "/team-project-TaskPro-Frontend/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "static/media/sprite.svg": "/team-project-TaskPro-Frontend/static/media/sprite.1d2944f7cbeb3f3d1520d77f26a10fbc.svg",
     "index.html": "/team-project-TaskPro-Frontend/index.html",
-    "main.c0a33a8e.css.map": "/team-project-TaskPro-Frontend/static/css/main.c0a33a8e.css.map",
-    "main.16161370.js.map": "/team-project-TaskPro-Frontend/static/js/main.16161370.js.map",
+    "main.4941e3aa.css.map": "/team-project-TaskPro-Frontend/static/css/main.4941e3aa.css.map",
+    "main.cb549591.js.map": "/team-project-TaskPro-Frontend/static/js/main.cb549591.js.map",
     "927.9917686a.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/927.9917686a.chunk.js.map",
     "804.a92e8312.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/804.a92e8312.chunk.js.map",
     "760.ebff2daf.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/760.ebff2daf.chunk.js.map",
     "905.81039d72.chunk.js.map": "/team-project-TaskPro-Frontend/static/js/905.81039d72.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0a33a8e.css",
-    "static/js/main.16161370.js"
+    "static/css/main.4941e3aa.css",
+    "static/js/main.cb549591.js"
   ]
 }
