@@ -42,6 +42,8 @@ export const UserInfoBox = styled.div`
 
 export const UserAvatar = styled.img`
   border-radius: 8px;
+  width: 32px;
+  height: 32px;
 `;
 
 export const BurgerIcon = styled(MenuIcon)`
