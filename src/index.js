@@ -16,9 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={baseTheme}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/team-project-TaskPro-Frontend">
-          <App />
-        </BrowserRouter>
+          <BrowserRouter basename="/team-project-TaskPro-Frontend">
+            <App />
+          </BrowserRouter>
         </PersistGate>
       </Provider>
     </ThemeProvider>
