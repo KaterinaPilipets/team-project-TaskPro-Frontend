@@ -10,7 +10,6 @@ import {
   RadioLabel,
   LabelRadiobutton,
   Checkmark,
-
   DedlineTitle,
   ButtonCard,
   Textarea,
@@ -69,7 +68,7 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
         initialValues={{
           title: '',
           description: '',
-          label: '',
+          label: 'without',
           deadline: '',
         }}
         validationSchema={CommentSchema}
@@ -89,7 +88,7 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-            {labels.slice().map(({ name, value, color }) => (
+              {labels.slice().map(({ name, value, color }) => (
                 <div style={{ display: 'flex' }} key={value}>
                   <RadioLabel buttoncolor={color} className="inputlabel">
                     <LabelRadiobutton
@@ -103,7 +102,7 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
                   <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
                 </div>
               ))}
-             </Labels>
+            </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
             <TaskCalendar dateChange={onDateChange} initialDate={date} />
