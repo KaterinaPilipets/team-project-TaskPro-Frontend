@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 
 export const ListItem = styled.li`
-  
   border-left: 4px solid;
   border-radius: 8px;
-  width: 100%;
+  width: 334px;
   height: 154px;
   padding: 14px 24px;
   background-color: var(--bgColor);

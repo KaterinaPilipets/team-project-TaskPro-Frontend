@@ -6,6 +6,7 @@ import { Modal } from 'components/Modal';
 import { useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import { board } from 'redux/board/boardSelector';
+import { List, BoardContainer } from './MainDashboard.styled';
 
 // receive filter from filter component
 // const filter = '';
@@ -24,26 +25,14 @@ export const MainDashboard = ({ filter }) => {
   return (
     <div
       style={{
-        width: '100%',
         display: 'flex',
         // alignItems: 'flex-start',
       }}
     >
       {/* render if have board: */}
       {result && (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-          }}
-        >
-          <ul
-            style={{
-              display: 'flex',
-              gap: 18,
-              marginLeft: 24,
-            }}
-          >
+        <BoardContainer>
+          <List>
             {result.columns.map(column => {
               const columnCards = filteredCards.filter(card => {
                 return card.cardOwner === column._id;
@@ -57,12 +46,12 @@ export const MainDashboard = ({ filter }) => {
                 />
               );
             })}
-          </ul>
+          </List>
           <div
             style={{
               // display: 'flex',
               // alignItems: 'center',
-              margin: 'auto auto 568px 24px',
+              // margin: 'auto auto 568px 24px',
               // padding: '14px 78px',
               width: 334,
               height: 56,
@@ -72,12 +61,12 @@ export const MainDashboard = ({ filter }) => {
               Add another column
             </ButtonPrimary>
           </div>
-          {isOpen && (
-            <Modal onClose={close}>
-              <AddColumnModal onClose={close} />
-            </Modal>
-          )}
-        </div>
+        </BoardContainer>
+      )}
+      {isOpen && (
+        <Modal onClose={close}>
+          <AddColumnModal onClose={close} />
+        </Modal>
       )}
     </div>
   );

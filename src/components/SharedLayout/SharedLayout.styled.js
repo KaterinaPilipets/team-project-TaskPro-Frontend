@@ -3,7 +3,7 @@ export const Container = styled.div`
   width: 100vw;
   heigth: 100vh;
   display: flex;
-
+  overflow: hidden;
   @media (min-width: 375px) {
   }
   @media (min-width: 768px) {
