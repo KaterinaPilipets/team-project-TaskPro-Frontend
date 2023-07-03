@@ -164,6 +164,7 @@ body[data-theme='dark'] {
   --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
+  --boardTitleText: #FFFFFF;
   --boardBgColor: #1F1F1F;
   --defaultText: rgba(255, 255, 255, 0.5);
   --defaultAccentText: #BEDBB0;
@@ -344,6 +345,7 @@ body[data-theme='light'] {
 
   /** Board */
   --boardBgColor: #F6F6F7;
+  --boardTitleText: #161616;
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #BEDBB0;
   --filterText: rgba(22, 22, 22, 0.8);
@@ -525,6 +527,7 @@ body[data-theme='violet'] {
 
   /** Board */
   --boardBgColor: #ECEDFD;
+  --boardTitleText: #161616;
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #5255BC;
   --filterText: rgba(22, 22, 22, 0.8);
