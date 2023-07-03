@@ -9,29 +9,19 @@ import {
   BackgroundTitle,
   BackgroundContainer,
   InputField,
-  // InputField2,
   BackgroundImg,
   LabelTitle,
   BackgroundImgCont,
   SvgIcon,
   NoImgCont,
-  // InputRadio,
   LabelShowAllCont,
   RadioButCont,
   RadioLabel,
   Checkmark,
   RadioLabelShowAll,
   Line,
+  LabelCont,
 } from './ModalBoardFilters.styled';
-
-// #1616164D для светлой темы
-const labels = [
-  { name: 'Show all', value: '', color: '' },
-  { name: 'Without priority', value: 'without', color: '#FFFFFF4D' },
-  { name: 'Low', value: 'low', color: '#8FA1D0' },
-  { name: 'Medium ', value: 'medium', color: '#E09CB5' },
-  { name: 'Hight ', value: 'high', color: '#BEDBB0' },
-];
 
 export const ModalBoardFilters = ({ handleFilterChange }) => {
   const dispatch = useDispatch();
@@ -90,28 +80,61 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
               <input
                 name="labelColor"
                 type="radio"
-                value={labels[0].value}
+                value=""
                 onChange={e => handleFilterChange(e.target.value)}
               />
               Show all
             </RadioLabelShowAll>
           </LabelShowAllCont>
           <RadioButCont>
-            {labels.slice(1).map(({ name, value, color }) => (
-              <div style={{ display: 'flex' }} key={value}>
-                <RadioLabel buttoncolor={color} className="inputlabel">
-                  <input
-                    buttoncolor={color}
-                    name="labelColor"
-                    type="radio"
-                    value={value}
-                    onChange={e => handleFilterChange(e.target.value)}
-                  />
-                  <Checkmark buttoncolor={color}></Checkmark>
-                </RadioLabel>
-                <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
-              </div>
-            ))}
+            <LabelCont>
+              <RadioLabel>
+                <input
+                  name="labelColor"
+                  type="radio"
+                  value="without"
+                  onChange={e => handleFilterChange(e.target.value)}
+                />
+                <Checkmark value="without"></Checkmark>
+                Without priority
+              </RadioLabel>
+            </LabelCont>
+            <LabelCont>
+              <RadioLabel>
+                <input
+                  name="labelColor"
+                  type="radio"
+                  value="low"
+                  onChange={e => handleFilterChange(e.target.value)}
+                />
+                <Checkmark value="low"></Checkmark>
+                Low
+              </RadioLabel>
+            </LabelCont>
+            <LabelCont>
+              <RadioLabel>
+                <input
+                  name="labelColor"
+                  type="radio"
+                  value="medium"
+                  onChange={e => handleFilterChange(e.target.value)}
+                />
+                <Checkmark value="medium"></Checkmark>
+                Medium
+              </RadioLabel>
+            </LabelCont>
+            <LabelCont>
+              <RadioLabel>
+                <input
+                  name="labelColor"
+                  type="radio"
+                  value="high"
+                  onChange={e => handleFilterChange(e.target.value)}
+                />
+                <Checkmark value="high"></Checkmark>
+                Hight
+              </RadioLabel>
+            </LabelCont>
           </RadioButCont>
         </div>
       </form>
