@@ -1,7 +1,19 @@
+
 import { StyledContainer, StyledLink, StyledText } from "./DefaultDashboard.styled";
 
+import { useDispatch } from 'react-redux';
+import { openAddBoardModal } from 'redux/sidebar/sidebarSlice';
+
+
 export const DefaultDashboard = () => {
+  const dispatch = useDispatch();
+
+  const open = () => {
+    dispatch(openAddBoardModal());
+  };
+
   return (
+
     <StyledContainer>
       <StyledText>
         Before starting your project, it is essential &nbsp;
@@ -13,5 +25,7 @@ export const DefaultDashboard = () => {
         effective collaboration among team members.
       </StyledText>
     </StyledContainer>
+
+   
   );
 };

@@ -24,6 +24,7 @@ export const StyledModal = styled.div`
     min-width: 50%;
   }
 
+
 @media (min-width: ${breakpoints.S}) {
 	min-width: 335px;
 }
@@ -35,7 +36,6 @@ export const StyledModal = styled.div`
 @media (min-width: ${breakpoints.L}) {
 	min-width: 350px;
 }
-`;
 
 export const StyledCloseButton = styled.button`
   position: absolute;

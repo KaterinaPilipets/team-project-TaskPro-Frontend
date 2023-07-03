@@ -26,7 +26,8 @@ const HomePage = () => {
 
   return (
     <div>
-      {isShow && <DefaultDashboard />}
+      {/* {isShow && <DefaultDashboard />}  эта траница показывается пока не выбрана/создана доска*/}
+      <DefaultDashboard />
       <Outlet />
     </div>
   );

@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { breakpoints } from 'constants';
 
 export const ContainerStyled = styled.div`
+  // position: fixed;
   width: 100%;
   padding: 14px 20px;
   display: flex;
@@ -42,6 +43,8 @@ export const UserInfoBox = styled.div`
 
 export const UserAvatar = styled.img`
   border-radius: 8px;
+  width: 32px;
+  height: 32px;
 `;
 
 export const BurgerIcon = styled(MenuIcon)`

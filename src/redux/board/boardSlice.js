@@ -6,6 +6,7 @@ import {
   addColumn,
   deleteColumn,
   patchColumn,
+  editCard,
 } from '../../services/board-servises';
 const boardSlice = createSlice({
   name: 'board',
@@ -32,17 +33,22 @@ const boardSlice = createSlice({
         });
       })
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
-        const index = state.columns.findIndex(
-          column => column._id === payload._id
-        );
-        state.columns.splice(index, 1);
+        state.columns = state.columns.filter(column => column._id !== payload);
       })
       .addCase(addCard.fulfilled, (state, { payload }) => {
         state.cards.push(payload);
       })
       .addCase(deleteCard.fulfilled, (state, { payload }) => {
-        const index = state.cards.findIndex(card => card.id === payload.id);
-        state.cards.splice(index, 1);
+        state.cards = state.cards.filter(card => card._id !== payload);
+      })
+      .addCase(editCard.fulfilled, (state, { payload }) => {
+        state.cards = state.cards.map(card => {
+          if (card._id === payload._id) {
+            return payload;
+          }
+
+          return card;
+        });
       }),
   // .addMatcher(
   //   isAnyOf(fetchBoard.pending, addTask.pending, deleteTask.pending),

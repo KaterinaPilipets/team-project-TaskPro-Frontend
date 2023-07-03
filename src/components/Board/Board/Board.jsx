@@ -2,13 +2,20 @@ import { MainDashboard } from '../MainDashboard/MainDashboard';
 import { HeaderDashboard } from '../HeaderDashboard/HeaderDashboard';
 import { BoardContainer } from './Board.styled';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchBoard } from 'services/board-servises';
 import { useSelector, useDispatch } from 'react-redux';
+import { bgs } from 'sourse/bgs';
 
 export const Board = () => {
   const dispatch = useDispatch();
   const { boardId } = useParams();
+
+  const [filter, setfilter] = useState('');
+
+  const handleFilterChange = newData => {
+    setfilter(newData);
+  };
 
   useEffect(() => {
     if (!boardId) {
@@ -21,18 +28,25 @@ export const Board = () => {
     state.boardsList.items.find(item => item._id === boardId)
   );
 
-  // console.log(board);
+  const bkgImg = () => {
+    if (board) {
+      const result = bgs.find(bg => board.background === bg.id);
+      return result;
+    }
+    return bgs[0];
+  };
+  // console.log(bkgImg());
 
   return (
     <>
-      {board ? (
-        <BoardContainer>
-          <HeaderDashboard boardId={boardId} />
-          <MainDashboard />
+      {board && (
+        <BoardContainer backgroundImg={bkgImg()}>
+          <HeaderDashboard
+            boardId={boardId}
+            handleFilterChange={handleFilterChange}
+          />
+          <MainDashboard filter={filter} />
         </BoardContainer>
-      ) : (
-        <div></div>
-        // create board
       )}
     </>
   );

@@ -21,7 +21,20 @@ export const addCard = createAsyncThunk(
   'board/addCard',
   async ({ id, value }, thunkAPI) => {
     try {
-      const resp = await axios.post(`/api/cards/${id}`, { value });
+      const resp = await axios.post(`/api/cards/${id}`, value);
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editCard = createAsyncThunk(
+  'board/editCard',
+
+  async ({ id, value }, thunkAPI) => {
+    try {
+      const resp = await axios.patch(`/api/cards/${id}`, value);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -33,8 +46,8 @@ export const deleteCard = createAsyncThunk(
   'board/deleteCard',
   async ({ id }, thunkAPI) => {
     try {
-      const resp = await axios.delete(`/api/cards/${id}`);
-      return resp.data;
+      await axios.delete(`/api/cards/${id}`);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -70,8 +83,8 @@ export const deleteColumn = createAsyncThunk(
   'board/deleteColumn',
   async (columnId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/api/columns/${columnId}`);
-      return data;
+      await axios.delete(`/api/columns/${columnId}`);
+      return columnId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
