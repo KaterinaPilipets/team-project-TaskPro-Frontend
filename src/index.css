@@ -18,12 +18,10 @@
   --transition: 0.25s;
   --darkColor: #161616;
   --lightColor: #ffffff;
-  --welcomeBgColor: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 25%,
-    #bedbb0 92.19%
-  );
+  --welcomeBgColor: linear-gradient(180deg,
+      #ffffff 0%,
+      #ffffff 25%,
+      #bedbb0 92.19%);
 
   /**Register, LogIn */
   --bgColorAuth: #151515;

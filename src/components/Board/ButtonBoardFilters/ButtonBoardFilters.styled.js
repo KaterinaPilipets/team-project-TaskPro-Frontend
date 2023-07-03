@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const FilterButton = styled.button`
-  color: var(--filterText);
+  color: var(--createBoardInputTextFocus);
   display: flex;
   align-items: center;
   font-size: var(--fontSize14);
@@ -9,5 +9,5 @@ export const FilterButton = styled.button`
 
 export const SvgIcon = styled.svg`
   margin-right: 8px;
-  stroke: var(--filterText);
+  --color1: var(--createBoardIconsFill);
 `;
