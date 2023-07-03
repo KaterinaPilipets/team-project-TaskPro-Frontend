@@ -1,19 +1,21 @@
 import styled from '@emotion/styled';
-// import { Field } from 'formik';
 
 export const FiltersTitle = styled.h3`
   color: var(--filtersTitleColor);
   font-size: var(--fontSize18);
+  margin-bottom: 14px;
 `;
 
 export const BackgroundTitle = styled.h4`
   color: var(--filtersTitleColor);
   font-size: var(--fontSize14);
+  margin-top: 14px;
 `;
 
 export const LabelTitle = styled.h4`
   color: var(--filtersTitleColor);
   font-size: var(--fontSize14);
+  margin-top: 24px;
 `;
 
 export const BackgroundContainer = styled.div`
@@ -21,17 +23,43 @@ export const BackgroundContainer = styled.div`
   flex-wrap: wrap;
   gap: 4px;
   width: calc(8 * 28px + 7 * 4px);
+  margin-bottom: 14px;
 `;
 
 export const SvgIcon = styled.svg`
   --color1: var(--createBoardIconsFill);
 `;
-// export const InputField = styled(Field)`
+
+export const Line = styled.span`
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--lineColor);
+  /* margin: 21px 0 14px 0; */
+`;
 
 export const InputField = styled.input`
   position: fixed;
   opacity: 0;
   pointer-events: none;
+`;
+
+export const RadioLabelShowAll = styled.label`
+  font-size: var(--fontSize12);
+  color: var(--filtersTextColor);
+  text-decoration-line: underline;
+  /* width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  border: 2px solid ${props => props.buttoncolor};
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+  cursor: pointer;
+  & input {
+    display: none;
+  }
 `;
 
 export const RadioLabel = styled.label`
@@ -41,7 +69,6 @@ export const RadioLabel = styled.label`
   height: 14px;
   margin-right: 8px;
   border: 2px solid ${props => props.buttoncolor};
-  /* background-color: ${props => props.buttoncolor}; */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -50,20 +77,14 @@ export const RadioLabel = styled.label`
   & input {
     display: none;
   }
-  /* & input[type='radio']:checked + label {
-    background-color: transparent;
-    border: 2px solid ${props => props.buttoncolor};
-  } */
+
   & input:checked + span {
-    /* opacity: 1; */
     width: calc(100% - 4px);
     height: calc(100% - 4px);
   }
 `;
 
 export const Checkmark = styled.span`
-  /* width: calc(100% - 4px);
-  height: calc(100% - 4px); */
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -76,21 +97,8 @@ export const Checkmark = styled.span`
 export const RadioButCont = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 8px;
 `;
-
-// export const InputField2 = styled.input`
-//   &:checked + label {
-//     background-color: transparent;
-//     border: 2px solid ${props => props.buttoncolor};
-//   }
-// `;
-
-// .labelColor:checked + .inputlabel {
-//     background-color: transparent;
-//     border: 2px solid ${props => props.buttoncolor};
-//   }
 
 export const BackgroundImgCont = styled.div`
   cursor: pointer;
@@ -111,8 +119,3 @@ export const LabelShowAllCont = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-// export const  = styled.a`
-//   width: 28px;
-//   height: 28px;
-// `;
