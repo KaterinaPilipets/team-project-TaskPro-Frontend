@@ -4,7 +4,8 @@ export const Wrap = styled.div`
   display: flex;
   gap: 8px;
   margin-left: auto;
-  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const DeadlineWrapper = styled.div`

@@ -20,30 +20,36 @@ export const ListItem = styled.li`
 
 export const Title = styled.p`
   font-size: var(--fontSize14);
-  font-weight: var(--fontWeight500);
+  font-weight: var(--fontWeight600);
+  line-height: 1.5;
   margin-bottom: 8px;
   letter-spacing: -0.28px;
   color: var(--titleColor);
 `;
 export const SubTitle = styled.p`
   color: var(--subTitleColor);
+  font-weight: var(--fontWeight400);
   font-size: var(--fontSize8);
+  line-height: 1.5;
   margin-bottom: 4px;
 `;
 export const SubText = styled.p`
   color: var(--subTextColor);
+  font-weight: var(--fontWeight400);
+
   font-size: var(--fontSize10);
 `;
 export const TextHidden = styled.p`
   font-size: var(--fontSize12);
+  line-height: 1.33;
   letter-spacing: -0.24px;
   display: -webkit-box;
   -webkit-line-clamp: 2; // количество строк
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.14;
+
   margin-top: 8 px;
-  height: 38px;
+  height: 34px;
   width: 290px;
 `;
 export const Span = styled.span`
