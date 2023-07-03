@@ -1,4 +1,13 @@
+import { useDispatch } from 'react-redux';
+import { openAddBoardModal } from 'redux/sidebar/sidebarSlice';
+
 export const DefaultDashboard = () => {
+  const dispatch = useDispatch();
+
+  const open = () => {
+    dispatch(openAddBoardModal());
+  };
+
   return (
     <div
       style={{
@@ -12,7 +21,7 @@ export const DefaultDashboard = () => {
       <>
         <p>
           Before starting your project, it is essential{' '}
-          <a href="#1" style={{ color: '#BEDBB0' }}>
+          <a href="#1" onClick={open} style={{ color: '#BEDBB0' }}>
             to create a board
           </a>{' '}
           to visualize and track all the necessary tasks and milestones. This

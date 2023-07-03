@@ -2,13 +2,12 @@
 /* bring in normalize.css styles */
 
 @font-face {
-  font-family: "Poppins";
-  src: local("Poppins-Regular"),
-    local("Poppins-Medium"),
-    local("Poppins-SemiBold"),
-    url("./fonts/Poppins-Regular.ttf") format("truetype"),
-    url("./fonts/Poppins-Medium.ttf") format("truetype"),
-    url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-family: 'Poppins';
+  src: local('Poppins-Regular'), local('Poppins-Medium'),
+    local('Poppins-SemiBold'),
+    url('./fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
 :root {
@@ -18,26 +17,29 @@
   --borderRadius6: 6px;
   --transition: 0.25s;
   --darkColor: #161616;
-  --lightColor: #FFFFFF;
-  --welcomeBgColor: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #BEDBB0 92.19%);
+  --lightColor: #ffffff;
+  --welcomeBgColor: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 25%,
+    #bedbb0 92.19%
+  );
 
   /**Register, LogIn */
   --bgColorAuth: #151515;
-  --inputBgColor: #1F1F1F;
+  --inputBgColor: #1f1f1f;
   --inputTextColor: rgba(255, 255, 255, 0.3);
-  --inputTextFocus: #FFFFFF;
+  --inputTextFocus: #ffffff;
   --inputBorderColor: rgb(190, 219, 176, 0.5);
-  --inputBorderFocus: #BEDBB0;
-  --buttonBgColor: #BEDBB0;
+  --inputBorderFocus: #bedbb0;
+  --buttonBgColor: #bedbb0;
   --buttonColor: #161616;
   --passwordColor: #737373;
 
-
   /** Priority Colors*/
-  --lowPriorityColor: #8FA1D0;
-  --mediumPriorityColor: #E09CB5;
-  --highPriorityColor: #BEDBB0;
-
+  --lowPriorityColor: #8fa1d0;
+  --mediumPriorityColor: #e09cb5;
+  --highPriorityColor: #bedbb0;
 
   /** fontSize*/
   --fontSize8: 8px;
@@ -122,243 +124,231 @@ button {
 
 body[data-theme='dark'] {
   /* * Icon Close Modal */
-  --iconCloseModal: #FFFFFF;
+  --iconCloseModal: #ffffff;
 
   /** Header */
   --headerBgColor: #161616;
 
   --themeText: rgba(255, 255, 255, 0.8);
   --themeBgColor: #151515;
-  --themeBorderColor: #BEDBB0;
+  --themeBorderColor: #bedbb0;
   --themeSelectText: rgba(255, 255, 255, 0.5);
-  --themeSelectTextAccent: #BEDBB0;
+  --themeSelectTextAccent: #bedbb0;
 
-  --userNameText: #FFFFFF;
+  --userNameText: #ffffff;
 
   /** Sidebar */
-  --logoColor: #FFFFFF;
-  --logoBgColor: #1F1F1F;
-  --logoIconFill: #FFFFFF;
+  --logoColor: #ffffff;
+  --logoBgColor: #1f1f1f;
+  --logoIconFill: #ffffff;
 
   --sidebarBgColor: #121212;
 
   --inputText: rgba(255, 255, 255, 0.5);
   --inputBorder: rgba(255, 255, 255, 0.1);
 
-  --buttonPlusBgColor: #BEDBB0;
+  --buttonPlusBgColor: #bedbb0;
   --buttonPlusFill: #121212;
 
-  --blockEditBgColor: #1F1F1F;
-  --blockEditBorderAccent: #BEDBB0;
+  --blockEditBgColor: #1f1f1f;
+  --blockEditBorderAccent: #bedbb0;
 
   --iconFill: rgba(255, 255, 255, 0.5);
-  --iconSelectFill: #FFFFFF;
+  --iconSelectFill: #ffffff;
 
-  --helpText: #FFFFFF;
-  --helpTextAccentColor: #BEDBB0;
-  --helpBgColor: #1F1F1F;
-  --helpIconColor: #FFFFFF;
+  --helpText: #ffffff;
+  --helpTextAccentColor: #bedbb0;
+  --helpBgColor: #1f1f1f;
+  --helpIconColor: #ffffff;
 
-  --iconLogOutColor: #BEDBB0;
+  --iconLogOutColor: #bedbb0;
 
-  --sidebarPrimaryTextColor: #FFFFFF;
+  --sidebarPrimaryTextColor: #ffffff;
   --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
-  --boardBgColor: #1F1F1F;
+  --boardBgColor: #1f1f1f;
   --defaultText: rgba(255, 255, 255, 0.5);
-  --defaultAccentText: #BEDBB0;
+  --defaultAccentText: #bedbb0;
   --filterText: rgba(255, 255, 255, 0.8);
 
   --buttonAddColumnBgColor: #121212;
-  --buttonAddColumnColor: #FFFFFF;
-  --buttonAddColumnIconBgColor: #FFFFFF;
+  --buttonAddColumnColor: #ffffff;
+  --buttonAddColumnIconBgColor: #ffffff;
   --buttonAddColumnIconFill: #121212;
-
 
   /** Column, Card */
   --bgColor: #121212;
   --iconsColor: rgba(255, 255, 255, 0.5);
-  --iconDeadlineColor: #BEDBB0;
+  --iconDeadlineColor: #bedbb0;
 
-  --titleColor: #FFFFFF;
+  --titleColor: #ffffff;
   --textColor: rgba(255, 255, 255, 0.5);
   --lineColor: rgba(255, 255, 255, 0.1);
 
   --subTitleColor: rgba(255, 255, 255, 0.5);
-  --subTextColor: #FFFFFF;
+  --subTextColor: #ffffff;
 
-  --buttonAddCardBgColor: #BEDBB0;
+  --buttonAddCardBgColor: #bedbb0;
   --buttonAddCardColor: #161616;
   --buttonAddCardIconBgColor: #161616;
-  --buttonAddCardIconFill: #FFFFFF;
-
+  --buttonAddCardIconFill: #ffffff;
 
   /** Priority Colors*/
   --defaultPriorityColor: rgba(255, 255, 255, 0.3);
 
-
   /* *Filters */
   --filtersBgColor: #151515;
-  --filtersTitleColor: #FFFFFF;
+  --filtersTitleColor: #ffffff;
   --filtersLineColor: rgba(255, 255, 255, 0.1);
   --filtersTextColor: rgba(255, 255, 255, 0.5);
-  --filtersSelectTextColor: #FFFFFF;
-
+  --filtersSelectTextColor: #ffffff;
+  /* --filtersWithoutPriorityColor: #ffffff4d; */
 
   /* * Calendar */
-  --calendarBgColor: #1F1F1F;
-  --calendarBorderColor: #BEDBB0;
+  --calendarBgColor: #1f1f1f;
+  --calendarBorderColor: #bedbb0;
   --calendarLineColor: rgba(255, 255, 255, 0.2);
   --calendarDayColor: rgba(255, 255, 255, 0.5);
   --calendarArrowColor: rgba(255, 255, 255, 0.8);
 
-  --calendarNumberColor: #FFFFFF;
+  --calendarNumberColor: #ffffff;
   --calendarNumberLastColor: rgba(255, 255, 255, 0.2);
-  --calendarNumberAccentColor: #1F1F1F;
-  --calendarNumberAccentBgColor: #BEDBB0;
-
+  --calendarNumberAccentColor: #1f1f1f;
+  --calendarNumberAccentBgColor: #bedbb0;
 
   /* * Pop up In progress */
-  --inProgressBgColor: #1F1F1F;
+  --inProgressBgColor: #1f1f1f;
   --inProgressColor: rgba(255, 255, 255, 0.5);
-  --inProgressSelectColor: #BEDBB0;
-
+  --inProgressSelectColor: #bedbb0;
 
   /* * Pop up Edit Profile */
   --profileBgColor: #151515;
-  --profileColor: #FFFFFF;
-  --profileInputBgColor: #1F1F1F;
+  --profileColor: #ffffff;
+  --profileInputBgColor: #1f1f1f;
   --profileInputTextColor: rgba(255, 255, 255, 0.3);
-  --profileInputTextFocus: #FFFFFF;
+  --profileInputTextFocus: #ffffff;
   --profileInputBorderColor: rgb(190, 219, 176, 0.5);
-  --profileInputBorderFocus: #BEDBB0;
+  --profileInputBorderFocus: #bedbb0;
 
-  --profileButtonBgColor: #BEDBB0;
+  --profileButtonBgColor: #bedbb0;
 
-  --profileIconBgColor: #BEDBB0;
+  --profileIconBgColor: #bedbb0;
   --profileIconFill: #161616;
 
-  --profileUserIconBgColor: #1F1F1F;
+  --profileUserIconBgColor: #1f1f1f;
   --profileUserIconFill: #151515;
-
 
   /* * Pop up Add card and Edit card*/
   --addCardBgColor: #151515;
-  --addCardColor: #FFFFFF;
+  --addCardColor: #ffffff;
 
-  --addCardInputBgColor: #1F1F1F;
+  --addCardInputBgColor: #1f1f1f;
   --addCardInputTextColor: rgba(255, 255, 255, 0.3);
-  --addCardInputTextFocus: #FFFFFF;
+  --addCardInputTextFocus: #ffffff;
   --addCardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --addCardInputBorderFocus: #BEDBB0;
+  --addCardInputBorderFocus: #bedbb0;
 
-  --addCardButtonBgColor: #BEDBB0;
+  --addCardButtonBgColor: #bedbb0;
   --addCardButtonColor: #161616;
   --addCardIconBgColor: #161616;
-  --addCardIconFill: #FFFFFF;
+  --addCardIconFill: #ffffff;
 
   --addCardTextColor: rgba(255, 255, 255, 0.5);
-  --addCardTextAccentColor: #BEDBB0;
-
+  --addCardTextAccentColor: #bedbb0;
 
   /* * Pop up Create board and Edit board*/
   --createBoardBgColor: #151515;
-  --createBoardColor: #FFFFFF;
+  --createBoardColor: #ffffff;
 
-  --createBoardInputBgColor: #1F1F1F;
+  --createBoardInputBgColor: #1f1f1f;
   --createBoardInputTextColor: rgba(255, 255, 255, 0.3);
-  --createBoardInputTextFocus: #FFFFFF;
+  --createBoardInputTextFocus: #ffffff;
   --createBoardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --createBoardInputBorderFocus: #BEDBB0;
+  --createBoardInputBorderFocus: #bedbb0;
 
-  --createBoardButtonBgColor: #BEDBB0;
+  --createBoardButtonBgColor: #bedbb0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
-  --createBoardButtonIconFill: #FFFFFF;
+  --createBoardButtonIconFill: #ffffff;
 
   --createBoardIconsFill: rgba(255, 255, 255, 0.5);
-  --createBoardSelectIconsFill: #FFFFFF;
-  --defaultBgImageColor: #1F1F1F;
+  --createBoardSelectIconsFill: #ffffff;
+  --defaultBgImageColor: #1f1f1f;
   --defaultBgImageFill: rgba(255, 255, 255, 0.1);
-
 
   /* * Pop up Email, Comments*/
   --createBoardBgColor: #151515;
-  --createBoardColor: #FFFFFF;
+  --createBoardColor: #ffffff;
 
-  --createBoardInputBgColor: #1F1F1F;
+  --createBoardInputBgColor: #1f1f1f;
   --createBoardInputTextColor: rgba(255, 255, 255, 0.3);
-  --createBoardInputTextFocus: #FFFFFF;
+  --createBoardInputTextFocus: #ffffff;
   --createBoardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --createBoardInputBorderFocus: #BEDBB0;
+  --createBoardInputBorderFocus: #bedbb0;
 
-  --createBoardButtonBgColor: #BEDBB0;
+  --createBoardButtonBgColor: #bedbb0;
   --helpModalButtonColor: #161616;
 }
-
 
 body[data-theme='light'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
 
-
   /** Sidebar light*/
   --logoColor: #161616;
-  --logoBgColor: #1F1F1F;
-  --logoIconFill: #FFFFFF;
+  --logoBgColor: #1f1f1f;
+  --logoIconFill: #ffffff;
 
-  --sidebarBgColor: #FFFFFF;
+  --sidebarBgColor: #ffffff;
 
   --inputText: rgba(22, 22, 22, 0.5);
   --inputBorder: rgba(22, 22, 22, 0.1);
 
-  --buttonPlusBgColor: #BEDBB0;
+  --buttonPlusBgColor: #bedbb0;
   --buttonPlusFill: #121212;
 
-  --blockEditBgColor: #F6F6F7;
-  --blockEditBorderAccent: #BEDBB0;
+  --blockEditBgColor: #f6f6f7;
+  --blockEditBorderAccent: #bedbb0;
 
   --iconFill: rgba(22, 22, 22, 0.5);
   --iconSelectFill: #161616;
 
   --helpText: #161616;
-  --helpTextAccentColor: #BEDBB0;
-  --helpBgColor: #F6F6F7;
-  --helpIconColor: #161616;
+  --helpTextAccentColor: #bedbb0;
+  --helpBgColor: #f6f6f7;
 
-  --iconLogOutColor: #BEDBB0;
+  --iconLogOutColor: #bedbb0;
 
   --sidebarPrimaryTextColor: #161616;
   --sidebarSecondaryTextColor: rgba(22, 22, 22, 0.5);
 
   /** Header */
-  --headerBgColor: #FCFCFC;
+  --headerBgColor: #fcfcfc;
 
   --themeText: rgba(22, 22, 22, 0.8);
-  --themeBgColor: #FCFCFC;
-  --themeBorderColor: #BEDBB0;
+  --themeBgColor: #fcfcfc;
+  --themeBorderColor: #bedbb0;
   --themeSelectText: #161616;
-  --themeSelectTextAccent: #BEDBB0;
+  --themeSelectTextAccent: #bedbb0;
 
   --userNameText: #161616;
 
-
   /** Board */
-  --boardBgColor: #F6F6F7;
+  --boardBgColor: #f6f6f7;
   --defaultText: rgba(22, 22, 22, 0.7);
-  --defaultAccentText: #BEDBB0;
+  --defaultAccentText: #bedbb0;
   --filterText: rgba(22, 22, 22, 0.8);
 
-  --buttonAddColumnBgColor: #FFFFFF;
+  --buttonAddColumnBgColor: #ffffff;
   --buttonAddColumnColor: #161616;
   --buttonAddColumnIconBgColor: #161616;
-  --buttonAddColumnIconFill: #FFFFFF;
+  --buttonAddColumnIconFill: #ffffff;
 
   /** Column, Card */
-  --bgColor: #FFFFFF;
+  --bgColor: #ffffff;
   --iconsColor: rgba(22, 22, 22, 0.5);
-  --iconDeadlineColor: #BEDBB0;
+  --iconDeadlineColor: #bedbb0;
 
   --titleColor: #161616;
   --textColor: rgba(22, 22, 22, 0.7);
@@ -367,27 +357,24 @@ body[data-theme='light'] {
   --subTitleColor: rgba(22, 22, 22, 0.5);
   --subTextColor: #161616;
 
-  --buttonAddCardBgColor: #BEDBB0;
+  --buttonAddCardBgColor: #bedbb0;
   --buttonAddCardColor: #161616;
   --buttonAddCardIconBgColor: #161616;
-  --buttonAddCardIconFill: #FFFFFF;
-
+  --buttonAddCardIconFill: #ffffff;
 
   /** Priority Colors*/
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
-
   /* *Filters */
-  --filtersBgColor: #FCFCFC;
+  --filtersBgColor: #fcfcfc;
   --filtersTitleColor: #161616;
   --filtersLineColor: rgba(22, 22, 22, 0.1);
   --filtersTextColor: rgba(22, 22, 22, 0.5);
   --filtersSelectTextColor: #161616;
 
-
   /* * Calendar */
-  --calendarBgColor: #E5E5E5;
-  --calendarBorderColor: #BEDBB0;
+  --calendarBgColor: #e5e5e5;
+  --calendarBorderColor: #bedbb0;
   --calendarLineColor: rgba(22, 22, 22, 0.2);
   --calendarDayColor: rgba(22, 22, 22, 0.5);
   --calendarArrowColor: rgba(22, 22, 22, 0.8);
@@ -395,153 +382,142 @@ body[data-theme='light'] {
   --calendarNumberColor: #161616;
   --calendarNumberLastColor: rgba(22, 22, 22, 0.2);
   --calendarNumberAccentColor: #161616;
-  --calendarNumberAccentBgColor: #BEDBB0;
-
+  --calendarNumberAccentBgColor: #bedbb0;
 
   /* * Pop up In progress */
-  --inProgressBgColor: #E5E5E5;
+  --inProgressBgColor: #e5e5e5;
   --inProgressColor: #161616;
-  --inProgressSelectColor: #BEDBB0;
-
+  --inProgressSelectColor: #bedbb0;
 
   /* * Pop up Edit Profile */
-  --profileBgColor: #FCFCFC;
+  --profileBgColor: #fcfcfc;
   --profileColor: #161616;
 
-  --profileInputBgColor: #FCFCFC;
+  --profileInputBgColor: #fcfcfc;
   --profileInputTextColor: rgba(22, 22, 22, 0.3);
   --profileInputTextFocus: #161616;
 
   --profileInputBorderColor: rgb(190, 219, 176, 0.5);
-  --profileInputBorderFocus: #BEDBB0;
+  --profileInputBorderFocus: #bedbb0;
 
-  --profileButtonBgColor: #BEDBB0;
+  --profileButtonBgColor: #bedbb0;
 
-  --profileIconBgColor: #BEDBB0;
+  --profileIconBgColor: #bedbb0;
   --profileIconFill: #161616;
 
-  --profileUserIconBgColor: #F6F6F7;
-  --profileUserIconFill: #FFFFFF;
-
+  --profileUserIconBgColor: #f6f6f7;
+  --profileUserIconFill: #ffffff;
 
   /* * Pop up Add card and Edit card*/
-  --addCardBgColor: #FCFCFC;
+  --addCardBgColor: #fcfcfc;
   --addCardColor: #161616;
 
-  --addCardInputBgColor: #FCFCFC;
+  --addCardInputBgColor: #fcfcfc;
   --addCardInputTextColor: rgba(22, 22, 22, 0.3);
   --addCardInputTextFocus: #161616;
   --addCardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --addCardInputBorderFocus: #BEDBB0;
+  --addCardInputBorderFocus: #bedbb0;
 
-  --addCardButtonBgColor: #BEDBB0;
+  --addCardButtonBgColor: #bedbb0;
   --addCardButtonColor: #161616;
   --addCardIconBgColor: #161616;
-  --addCardIconFill: #FFFFFF;
+  --addCardIconFill: #ffffff;
 
   --addCardTextColor: rgba(22, 22, 22, 0.5);
-  --addCardTextAccentColor: #BEDBB0;
-
+  --addCardTextAccentColor: #bedbb0;
 
   /* * Pop up Create board and Edit board*/
-  --createBoardBgColor: #FCFCFC;
+  --createBoardBgColor: #fcfcfc;
   --createBoardColor: #161616;
 
-  --createBoardInputBgColor: #FCFCFC;
+  --createBoardInputBgColor: #fcfcfc;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
   --createBoardInputTextFocus: #161616;
   --createBoardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --createBoardInputBorderFocus: #BEDBB0;
+  --createBoardInputBorderFocus: #bedbb0;
 
-  --createBoardButtonBgColor: #BEDBB0;
+  --createBoardButtonBgColor: #bedbb0;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
   --createBoardButtonIconFill: rgba(22, 22, 22, 1);
-  ;
-
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
-  --defaultBgImageColor: #F6F6F7;
+  --defaultBgImageColor: #f6f6f7;
   --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
-
   /* * Pop up Email, Comments*/
-  --createBoardBgColor: #FCFCFC;
+  --createBoardBgColor: #fcfcfc;
   --createBoardColor: #161616;
 
-  --createBoardInputBgColor: #FCFCFC;
+  --createBoardInputBgColor: #fcfcfc;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
   --createBoardInputTextFocus: #161616;
   --createBoardInputBorderColor: rgb(190, 219, 176, 0.5);
-  --createBoardInputBorderFocus: #BEDBB0;
+  --createBoardInputBorderFocus: #bedbb0;
 
-  --createBoardButtonBgColor: #BEDBB0;
+  --createBoardButtonBgColor: #bedbb0;
   --helpModalButtonColor: #161616;
 }
-
 
 body[data-theme='violet'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
 
-
   /** Sidebar*/
-  --logoColor: #FFFFFF;
-  --logoBgColor: #ECEDFD;
-  --logoIconFill: #5255BC;
+  --logoColor: #ffffff;
+  --logoBgColor: #ecedfd;
+  --logoIconFill: #5255bc;
 
-  --sidebarBgColor: #5255BC;
+  --sidebarBgColor: #5255bc;
 
   --inputText: rgba(225, 225, 225, 0.5);
   --inputBorder: rgba(225, 225, 225, 0.1);
 
-  --buttonPlusBgColor: #B8BCFD;
-  --buttonPlusFill: #FFFFFF;
+  --buttonPlusBgColor: #b8bcfd;
+  --buttonPlusFill: #ffffff;
 
-  --blockEditBgColor: #ECEDFD;
-  --blockEditBorderAccent: #FFFFFF;
+  --blockEditBgColor: #ecedfd;
+  --blockEditBorderAccent: #ffffff;
 
   --iconFill: rgba(225, 225, 225, 0.5);
-  --iconSelectFill: #FFFFFF;
+  --iconSelectFill: #ffffff;
 
-  --helpText: #FFFFFF;
-  --helpTextAccentColor: #5255BC;
+  --helpText: #ffffff;
+  --helpTextAccentColor: #5255bc;
   --helpBgColor: rgb(236, 237, 253, 0.5);
-  --helpIconColor: #FFFFFF;
+  --helpIconColor: #ffffff;
 
-  --iconLogOutColor: #FFFFFF;
+  --iconLogOutColor: #ffffff;
 
   --sidebarPrimaryTextColor: #ffffff;
   --sidebarSecondaryTextColor: rgba(225, 225, 225, 0.5);
 
   /** Header */
-  --headerBgColor: #FFFFFF;
+  --headerBgColor: #ffffff;
 
   --themeText: rgba(22, 22, 22, 0.8);
-  --themeBgColor: #FCFCFC;
-  --themeBorderColor: #ECEDFD;
+  --themeBgColor: #fcfcfc;
+  --themeBorderColor: #ecedfd;
   --themeSelectText: #161616;
-  --themeSelectTextAccent: #5255BC;
+  --themeSelectTextAccent: #5255bc;
 
   --userNameText: #161616;
 
-
   /** Board */
-  --boardBgColor: #ECEDFD;
+  --boardBgColor: #ecedfd;
   --defaultText: rgba(22, 22, 22, 0.7);
-  --defaultAccentText: #5255BC;
+  --defaultAccentText: #5255bc;
   --filterText: rgba(22, 22, 22, 0.8);
 
-  --buttonAddColumnBgColor: #FFFFFF;
+  --buttonAddColumnBgColor: #ffffff;
   --buttonAddColumnColor: #161616;
-  --buttonAddColumnIconBgColor: #5255BC;
-  --buttonAddColumnIconFill: #FFFFFF;
-
+  --buttonAddColumnIconBgColor: #5255bc;
+  --buttonAddColumnIconFill: #ffffff;
 
   /** Column, Card */
-  --bgColor: #FFFFFF;
+  --bgColor: #ffffff;
   --iconsColor: rgba(22, 22, 22, 0.5);
-  --iconDeadlineColor: #5255BC;
+  --iconDeadlineColor: #5255bc;
 
   --titleColor: #161616;
   --textColor: rgba(22, 22, 22, 0.7);
@@ -550,114 +526,105 @@ body[data-theme='violet'] {
   --subTitleColor: rgba(22, 22, 22, 0.5);
   --subTextColor: #161616;
 
-  --buttonAddCardBgColor: #5255BC;
-  --buttonAddCardColor: #FFFFFF;
-  --buttonAddCardIconBgColor: #FFFFFF;
+  --buttonAddCardBgColor: #5255bc;
+  --buttonAddCardColor: #ffffff;
+  --buttonAddCardIconBgColor: #ffffff;
   --buttonAddCardIconFill: #161616;
-
 
   /** Priority Colors*/
   --defaultPriorityColor: rgba(22, 22, 22, 0.3);
 
-
   /* *Filters */
-  --filtersBgColor: #FCFCFC;
+  --filtersBgColor: #fcfcfc;
   --filtersTitleColor: #161616;
   --filtersLineColor: rgba(22, 22, 22, 0.1);
   --filtersTextColor: rgba(22, 22, 22, 0.5);
   --filtersSelectTextColor: #161616;
 
-
   /* * Calendar */
-  --calendarBgColor: #FFFFFF;
-  --calendarBorderColor: #5255BC;
+  --calendarBgColor: #ffffff;
+  --calendarBorderColor: #5255bc;
   --calendarLineColor: rgba(22, 22, 22, 0.2);
   --calendarDayColor: rgba(22, 22, 22, 0.5);
   --calendarArrowColor: rgba(22, 22, 22, 0.8);
 
   --calendarNumberColor: #161616;
   --calendarNumberLastColor: rgba(22, 22, 22, 0.2);
-  --calendarNumberAccentColor: #FCFCFC;
-  --calendarNumberAccentBgColor: #5255BC;
-
+  --calendarNumberAccentColor: #fcfcfc;
+  --calendarNumberAccentBgColor: #5255bc;
 
   /* * Pop up In progress */
-  --inProgressBgColor: #FCFCFC;
+  --inProgressBgColor: #fcfcfc;
   --inProgressColor: #161616;
-  --inProgressSelectColor: #5255BC;
-
+  --inProgressSelectColor: #5255bc;
 
   /* * Pop up Edit Profile */
-  --profileBgColor: #FCFCFC;
+  --profileBgColor: #fcfcfc;
   --profileColor: #161616;
 
-  --profileInputBgColor: #FCFCFC;
+  --profileInputBgColor: #fcfcfc;
   --profileInputTextColor: rgba(22, 22, 22, 0.3);
   --profileInputTextFocus: #161616;
 
   --profileInputBorderColor: rgb(82, 85, 188, 0.5);
-  --profileInputBorderFocus: #5255BC;
+  --profileInputBorderFocus: #5255bc;
 
-  --profileButtonBgColor: #5255BC;
+  --profileButtonBgColor: #5255bc;
 
-  --profileIconBgColor: #ECEDFD;
+  --profileIconBgColor: #ecedfd;
   --profileIconFill: #161616;
 
-  --profileUserIconBgColor: #ECEDFD;
-  --profileUserIconFill: #FFFFFF;
-
+  --profileUserIconBgColor: #ecedfd;
+  --profileUserIconFill: #ffffff;
 
   /* * Pop up Add card and Edit card*/
-  --addCardBgColor: #FCFCFC;
+  --addCardBgColor: #fcfcfc;
   --addCardColor: #161616;
 
-  --addCardInputBgColor: #FCFCFC;
+  --addCardInputBgColor: #fcfcfc;
   --addCardInputTextColor: rgba(22, 22, 22, 0.3);
   --addCardInputTextFocus: #161616;
   --addCardInputBorderColor: rgb(82, 85, 188, 0.5);
-  --addCardInputBorderFocus: #5255BC;
+  --addCardInputBorderFocus: #5255bc;
 
-  --addCardButtonBgColor: #5255BC;
-  --addCardButtonColor: #FFFFFF;
-  --addCardIconBgColor: #FFFFFF;
+  --addCardButtonBgColor: #5255bc;
+  --addCardButtonColor: #ffffff;
+  --addCardIconBgColor: #ffffff;
   --addCardIconFill: #161616;
 
   --addCardTextColor: rgba(22, 22, 22, 0.5);
-  --addCardTextAccentColor: #5255BC;
-
+  --addCardTextAccentColor: #5255bc;
 
   /* * Pop up Create board and Edit board*/
-  --createBoardBgColor: #FCFCFC;
+  --createBoardBgColor: #fcfcfc;
   --createBoardColor: #161616;
 
-  --createBoardInputBgColor: #FCFCFC;
+  --createBoardInputBgColor: #fcfcfc;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
   --createBoardInputTextFocus: #161616;
   --createBoardInputBorderColor: rgb(82, 85, 188, 0.5);
-  --createBoardInputBorderFocus: #5255BC;
+  --createBoardInputBorderFocus: #5255bc;
 
-  --createBoardButtonBgColor: #5255BC;
+  --createBoardButtonBgColor: #5255bc;
   --createBoardButtonColor: #161616;
   --createBoardButtonIconBgColor: #161616;
   --createBoardButtonIconFill: rgba(22, 22, 22, 1);
 
   --createBoardIconsFill: rgba(22, 22, 22, 0.5);
   --createBoardSelectIconsFill: #161616;
-  --defaultBgImageColor: #ECEDFD;
+  --defaultBgImageColor: #ecedfd;
   --defaultBgImageFill: rgba(22, 22, 22, 0.1);
 
-
   /* * Pop up Email, Comments*/
-  --createBoardBgColor: #FCFCFC;
+  --createBoardBgColor: #fcfcfc;
   --createBoardColor: #161616;
 
-  --createBoardInputBgColor: #FCFCFC;
+  --createBoardInputBgColor: #fcfcfc;
   --createBoardInputTextColor: rgba(22, 22, 22, 0.3);
   --createBoardInputTextFocus: #161616;
   --createBoardInputBorderColor: rgb(82, 85, 188, 0.5);
-  --createBoardInputBorderFocus: #5255BC;
+  --createBoardInputBorderFocus: #5255bc;
 
-  --createBoardButtonBgColor: #5255BC;
+  --createBoardButtonBgColor: #5255bc;
   --helpModalButtonColor: #ffffff;
-
 }

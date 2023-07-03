@@ -1,6 +1,4 @@
 import { useToggleModal } from '../../hooks';
-// import { Modal } from 'components/Modal';
-// import { useSelector } from 'react-redux';
 import ThemeSelect from 'components/ThemeSelect/ThemeSelect';
 import userPlaceholder from '../../sourse/userPlaceholders.json';
 
@@ -56,7 +54,7 @@ export const Header = () => {
         </HeaderBtnWrap>
       </ContainerStyled>
       {isOpen && (
-        <Modal style={{ width: 335 }} onClose={close}>
+        <Modal onClose={close}>
           <EditProfile onClose={close} stockAvatar={stockAvatar} />
         </Modal>
       )}

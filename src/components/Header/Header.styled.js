@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { breakpoints } from 'constants';
 
 export const ContainerStyled = styled.div`
+  // position: fixed;
   width: 100%;
   padding: 14px 20px;
   display: flex;
