@@ -24,6 +24,20 @@ export const BackgroundContainer = styled.div`
   gap: 4px;
   width: calc(8 * 28px + 7 * 4px);
   margin-bottom: 14px;
+  & label {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition-property: outline;
+    transition-duration: 0.25s;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: 2px solid var(--iconDeadlineColor);
+    }
+  }
 `;
 
 export const SvgIcon = styled.svg`
@@ -48,6 +62,12 @@ export const RadioLabelShowAll = styled.label`
   color: var(--filtersTextColor);
   text-decoration-line: underline;
   cursor: pointer;
+  transition-property: color;
+  transition-duration: 0.25s;
+  &:hover,
+  &:focus {
+    color: var(--filtersTitleColor);
+  }
   & input {
     display: none;
   }
@@ -59,7 +79,13 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: color;
+  transition-duration: 0.25s;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--filtersTitleColor);
+  }
   & input {
     display: none;
   }
@@ -83,11 +109,22 @@ export const Checkmark = styled.span`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: ${props => props.buttoncolor};
   display: inline-block;
   opacity: 1;
   transition: opacity 0.25s ease;
   position: relative;
+  background-color: ${props => {
+    if (props.value === 'without') {
+      return 'var(--defaultPriorityColor)';
+    } else if (props.value === 'low') {
+      return 'var(--lowPriorityColor)';
+    } else if (props.value === 'medium') {
+      return 'var(--mediumPriorityColor)';
+    } else if (props.value === 'high') {
+      return 'var(--highPriorityColor)';
+    }
+  }};
+
   &::before {
     position: absolute;
     top: 50%;
