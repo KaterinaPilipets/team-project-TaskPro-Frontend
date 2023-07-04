@@ -6,15 +6,14 @@ import { Outlet } from 'react-router-dom';
 import { getTheme } from 'redux/auth/authSelectors';
 
 const HomePage = () => {
-  const boards = useSelector(state => state.boardsList.items);
+  // const boards = useSelector(state => state.boardsList.items);
   // const activeBoard = useSelector(getActiveBoard);
   const theme = useSelector(getTheme);
 
-  let isShow = false;
-  if (boards.length === 0) {
-    isShow = true;
-  }
-  console.log(isShow);
+  // let isShow = false;
+  // if (boards.length === 0) {
+  //   isShow = true;
+  // }
 
   useEffect(() => {
     if (theme) {
