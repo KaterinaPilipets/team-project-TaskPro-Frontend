@@ -4,8 +4,8 @@ import { breakpoints } from 'constants';
 
 export const ContainerStyled = styled.div`
   // position: fixed;
-  width: 100%;
-  padding: 14px 20px;
+  width: 100vw;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,6 +15,8 @@ export const ContainerStyled = styled.div`
   }
   @media screen and (min-width: ${breakpoints.L}) {
     justify-content: flex-end;
+    padding: 18px 24px;
+    width: calc(100vw - 260px);
   }
 `;
 

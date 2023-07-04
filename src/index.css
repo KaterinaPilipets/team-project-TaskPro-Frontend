@@ -18,12 +18,10 @@
   --transition: 0.25s;
   --darkColor: #161616;
   --lightColor: #ffffff;
-  --welcomeBgColor: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 25%,
-    #bedbb0 92.19%
-  );
+  --welcomeBgColor: linear-gradient(180deg,
+      #ffffff 0%,
+      #ffffff 25%,
+      #bedbb0 92.19%);
 
   /**Register, LogIn */
   --bgColorAuth: #151515;
@@ -125,7 +123,9 @@ button {
 body[data-theme='dark'] {
   /* * Icon Close Modal */
   --iconCloseModal: #ffffff;
-
+  --scrollThumbColor: #121212;
+  --scrollAccentColor: #151515;
+  --scrollTrackColor: rgba(255, 255, 255, 0.5);
   /** Header */
   --headerBgColor: #161616;
 
@@ -167,7 +167,11 @@ body[data-theme='dark'] {
   --sidebarSecondaryTextColor: rgba(255, 255, 255, 0.5);
 
   /** Board */
+
+  --boardTitleText: #FFFFFF;
+
   --boardBgColor: #1f1f1f;
+
   --defaultText: rgba(255, 255, 255, 0.5);
   --defaultAccentText: #bedbb0;
   --filterText: rgba(255, 255, 255, 0.8);
@@ -294,7 +298,9 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
-
+  --scrollThumbColor: #E8E8E8;
+  --scrollTrackColor: rgba(22, 22, 22, 0.1);
+  --scrollAccentColor: rgba(22, 22, 22, 0.5);
   /** Sidebar light*/
   --logoColor: #161616;
   --logoBgColor: #1f1f1f;
@@ -336,7 +342,10 @@ body[data-theme='light'] {
   --userNameText: #161616;
 
   /** Board */
-  --boardBgColor: #f6f6f7;
+
+  --boardBgColor: #F6F6F7;
+  --boardTitleText: #161616;
+
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #bedbb0;
   --filterText: rgba(22, 22, 22, 0.8);
@@ -463,7 +472,9 @@ body[data-theme='light'] {
 body[data-theme='violet'] {
   /* * Icon Close Modal*/
   --iconCloseModal: #161616;
-
+  --scrollThumbColor: #ffffff;
+  --scrollTrackColor: #B8BCFD;
+  --scrollAccentColor: #5255bc;
   /** Sidebar*/
   --logoColor: #ffffff;
   --logoBgColor: #ecedfd;
@@ -505,7 +516,10 @@ body[data-theme='violet'] {
   --userNameText: #161616;
 
   /** Board */
-  --boardBgColor: #ecedfd;
+
+  --boardBgColor: #ECEDFD;
+  --boardTitleText: #161616;
+
   --defaultText: rgba(22, 22, 22, 0.7);
   --defaultAccentText: #5255bc;
   --filterText: rgba(22, 22, 22, 0.8);
@@ -526,6 +540,7 @@ body[data-theme='violet'] {
 
   --subTitleColor: rgba(22, 22, 22, 0.5);
   --subTextColor: #161616;
+
 
   --buttonAddCardBgColor: #5255bc;
   --buttonAddCardColor: #ffffff;

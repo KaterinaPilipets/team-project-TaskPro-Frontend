@@ -33,10 +33,7 @@ const boardSlice = createSlice({
         });
       })
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
-        const index = state.columns.findIndex(
-          column => column._id === payload._id
-        );
-        state.columns.splice(index, 1);
+        state.columns = state.columns.filter(column => column._id !== payload);
       })
       .addCase(addCard.fulfilled, (state, { payload }) => {
         state.cards.push(payload);
