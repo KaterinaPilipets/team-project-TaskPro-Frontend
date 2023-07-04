@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { openAddBoardModal } from 'redux/sidebar/sidebarSlice';
+// import { FIlterButton } from '../FIlterButton/FIlterButton';
 import {
   StyledContainer,
   StyledLink,
@@ -14,9 +15,19 @@ export const DefaultDashboard = () => {
 
   return (
     <StyledContainer>
+      {/* <div
+        style={{
+          width: '100%',
+          displey: 'flex',
+          justifyContent: 'right',
+        }}
+      >
+        <FIlterButton />
+      </div> */}
+
       <StyledText>
         Before starting your project, it is essential &nbsp;
-        <StyledLink href="#1" onClick={open}>
+        <StyledLink href="#" onClick={open}>
           to create a board
         </StyledLink>
         &nbsp; to visualize and track all the necessary tasks and milestones.
@@ -26,3 +37,5 @@ export const DefaultDashboard = () => {
     </StyledContainer>
   );
 };
+
+//add filterchange

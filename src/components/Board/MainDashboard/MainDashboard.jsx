@@ -45,15 +45,17 @@ export const MainDashboard = ({ filter }) => {
                 />
               );
             })}
+            <li>
+              <StyledButtonAddColumn type="button" onClick={open}>
+                <StyledIconAddColumn>
+                  <StyledSvgAddColumn width="14" height="14">
+                    <use xlinkHref={`${icon}#icon-plus`} />
+                  </StyledSvgAddColumn>
+                </StyledIconAddColumn>
+                <span>Add another colum</span>
+              </StyledButtonAddColumn>
+            </li>
           </List>
-          <StyledButtonAddColumn type="button" onClick={open}>
-            <StyledIconAddColumn>
-              <StyledSvgAddColumn width="14" height="14">
-                <use xlinkHref={`${icon}#icon-plus`} />
-              </StyledSvgAddColumn>
-            </StyledIconAddColumn>
-            <span>Add another colum</span>
-          </StyledButtonAddColumn>
         </BoardContent>
       )}
       {isOpen && (

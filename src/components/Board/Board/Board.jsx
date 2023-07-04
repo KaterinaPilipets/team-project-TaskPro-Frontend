@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { fetchBoard } from 'services/board-servises';
 import { useSelector, useDispatch } from 'react-redux';
 import { bgs } from 'sourse/bgs';
+// import { refreshUser } from 'redux/auth/authOperations.js';
 
 export const Board = () => {
   const dispatch = useDispatch();
+
   const { boardId } = useParams();
 
   const [filter, setfilter] = useState('');
@@ -35,7 +37,6 @@ export const Board = () => {
     }
     return bgs[0];
   };
-  // console.log(bkgImg());
 
   return (
     <>

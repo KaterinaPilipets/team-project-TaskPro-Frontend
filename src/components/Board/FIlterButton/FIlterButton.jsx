@@ -1,20 +1,20 @@
 import { useToggleModal } from 'hooks';
 import { ModalBoardFilters } from '../ModalBoardFilters/ModalBoardFilters.jsx';
 import icon from 'sourse/sprite.svg';
-import { BoardModal } from '../BoardModal/BoardModal';
-import { FilterButton, SvgIcon } from './ButtonBoardFilters.styled';
+import { BoardModal } from '../BoardModal/BoardModal.jsx';
+import { Button, SvgIcon } from './FIlterButton.styled.js';
 
-export const ButtonBoardFilters = ({ handleFilterChange }) => {
+export const FIlterButton = ({ handleFilterChange }) => {
   const { open, close, isOpen } = useToggleModal();
 
   return (
     <>
-      <FilterButton type="button" onClick={open}>
+      <Button type="button" onClick={open}>
         <SvgIcon width="16" height="16">
           <use xlinkHref={`${icon}#icon-filter`}></use>
         </SvgIcon>
         Filters
-      </FilterButton>
+      </Button>
       {isOpen && (
         <BoardModal onClose={close}>
           <ModalBoardFilters
@@ -27,3 +27,5 @@ export const ButtonBoardFilters = ({ handleFilterChange }) => {
     </>
   );
 };
+
+// ButtonBoardFilters

@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { breakpoints } from 'constants';
 
 export const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   text-align: center;
 

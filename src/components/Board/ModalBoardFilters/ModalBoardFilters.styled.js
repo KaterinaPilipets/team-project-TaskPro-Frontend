@@ -30,8 +30,6 @@ export const BackgroundContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    transition-property: outline;
-    transition-duration: 0.25s;
     &:hover,
     &:focus,
     &:active {
@@ -97,7 +95,7 @@ export const RadioLabel = styled.label`
 export const RadioButCont = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 `;
 
 export const LabelCont = styled.div`
