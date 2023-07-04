@@ -53,11 +53,11 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
     value.deadline = date;
     setSubmitting(true);
 
-    try {
-      dispatch(addCard({ id, value }));
+    const response = await dispatch(addCard({ id, value }));
+    if (response.error) {
+      setErrorMessage(response.payload);
+    } else {
       onClose();
-    } catch (error) {
-      setErrorMessage(error.response.data.message);
     }
   };
 

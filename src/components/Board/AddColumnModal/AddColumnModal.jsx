@@ -10,8 +10,11 @@ import {
   StyledErrorMessage,
   StyledForm,
   StyledFormField,
+  ErrorMessageText,
 } from './AddColumnModal.styled';
 import { useParams } from 'react-router';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   title: '',
@@ -24,13 +27,17 @@ const columnSchema = Yup.object().shape({
 export const AddColumnModal = ({ onClose }) => {
   const dispatch = useDispatch();
   const { boardId } = useParams();
-
-  const handleSubmit = ({ title }, { setSubmitting }) => {
+  const [errorMessage, setErrorMessage] = useState(null);
+  const handleSubmit = async ({ title }, { setSubmitting }) => {
     setSubmitting(true);
 
-    dispatch(addColumn({ title, boardId }));
-
-    onClose();
+    const response = await dispatch(addColumn({ title, boardId }));
+    if (response.error) {
+      setErrorMessage(response.payload);
+    } else {
+      toast.success('Column created');
+      onClose();
+    }
   };
 
   return (
@@ -48,6 +55,9 @@ export const AddColumnModal = ({ onClose }) => {
             <StyledButton type="submit" disabled={isSubmitting}>
               Add
             </StyledButton>
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>

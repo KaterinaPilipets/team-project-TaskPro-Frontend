@@ -24,7 +24,7 @@ export const addCard = createAsyncThunk(
       const resp = await axios.post(`/api/cards/${id}`, value);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -37,7 +37,7 @@ export const editCard = createAsyncThunk(
       const resp = await axios.patch(`/api/cards/${id}`, value);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -61,7 +61,7 @@ export const addColumn = createAsyncThunk(
       const { data } = await axios.post(`/api/columns/${boardId}`, { title });
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -69,12 +69,11 @@ export const addColumn = createAsyncThunk(
 export const patchColumn = createAsyncThunk(
   'board/patchColumn',
   async ({ title, columnId }, thunkAPI) => {
-    console.log(columnId);
     try {
       const { data } = await axios.patch(`/api/columns/${columnId}`, { title });
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );

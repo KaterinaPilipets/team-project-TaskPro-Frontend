@@ -53,7 +53,10 @@ export const EditPanelCard = ({ id, deadline }) => {
           <SvgBtn idIcon={'icon-pencil'} onClick={open} />
           <SvgBtn idIcon={'icon-trash'} onClick={() => onDelete(id)} />
           {showColumnChanger && (
-            <ColumnChanger id={id} onClose={() => setShowColumnChanger(false)} />
+            <ColumnChanger
+              id={id}
+              onClose={() => setShowColumnChanger(false)}
+            />
           )}
         </BtnWrapper>
 

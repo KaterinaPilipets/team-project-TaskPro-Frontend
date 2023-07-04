@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 12px;
   margin-left: auto;
   justify-content: center;
   align-items: center;
