@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { fetchBoard } from 'services/board-servises';
 import { useSelector, useDispatch } from 'react-redux';
 import { bgs } from 'sourse/bgs';
+import { patchBoard } from 'redux/auth/authOperations';
+import { getActiveBoard } from 'redux/auth/authSelectors';
 // import { refreshUser } from 'redux/auth/authOperations.js';
 
 export const Board = () => {
@@ -18,13 +20,13 @@ export const Board = () => {
   const handleFilterChange = newData => {
     setfilter(newData);
   };
-
+  const activeBoard = useSelector(getActiveBoard);
   useEffect(() => {
-    if (!boardId) {
-      return;
+    if (activeBoard !== boardId) {
+      dispatch(patchBoard({ boardId }));
+      dispatch(fetchBoard({ boardId }));
     }
-    dispatch(fetchBoard({ boardId }));
-  }, [boardId, dispatch]);
+  }, [activeBoard, boardId, dispatch]);
 
   const board = useSelector(state =>
     state.boardsList.items.find(item => item._id === boardId)

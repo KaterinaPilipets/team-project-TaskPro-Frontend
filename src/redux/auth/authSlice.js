@@ -8,6 +8,7 @@ import {
   refreshUser,
   updateTheme,
   updateUserData,
+  patchBoard,
 } from './authOperations';
 export const authSlice = createSlice({
   name: 'auth',
@@ -62,7 +63,7 @@ export const authSlice = createSlice({
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;
       })
-      .addCase(updateUserData.fulfilled, (state, { payload }) => {
+           .addCase(updateUserData.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.theme = payload.theme;
@@ -78,7 +79,10 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = payload;
         toast.error(payload);
-      }),
+      })
+      .addCase(patchBoard.fulfilled, (state, { payload }) => {
+        state.user.activeBoard = payload.activeBoard;
+      }),    
 });
 
 export const authReducer = authSlice.reducer;

@@ -50,25 +50,5 @@ const boardSlice = createSlice({
           return card;
         });
       }),
-  // .addMatcher(
-  //   isAnyOf(fetchBoard.pending, addTask.pending, deleteTask.pending),
-  //   state => {
-  //     state.isLoading = true;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(fetchBoard.rejected, addTask.rejected, deleteTask.rejected),
-  //   (state, { payload }) => {
-  //     state.isLoading = false;
-  //     state.error = payload;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(fetchBoard.fulfilled, addTask.fulfilled, deleteTask.fulfilled),
-  //   state => {
-  //     state.isLoading = false;
-  //     state.error = null;
-  //   }
-  // ),
 });
 export const boardReducer = boardSlice.reducer;
