@@ -32,7 +32,7 @@ export const Header = () => {
     dispatch(toggleSidebar());
   };
 
-  // console.log(isOpen);
+
   return (
     <>
       <ContainerStyled>

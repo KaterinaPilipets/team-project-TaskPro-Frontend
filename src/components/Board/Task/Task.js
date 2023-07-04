@@ -23,7 +23,6 @@ export const Task = ({ task }) => {
   const priorityStyles = getPriorityStyles(label);
   const formatedDeadline = format(new Date(deadline), 'dd/MM/yyyy');
 
-  //  const [showDedline, setshowDedline] = useState(deadline);
   return (
     <ListItem color={priorityStyles.color}>
       <Title>{title}</Title>
@@ -41,7 +40,7 @@ export const Task = ({ task }) => {
           <SubTitle>Deadline</SubTitle>
           <SubText>{formatedDeadline}</SubText>
         </div>
-        {/* {console.log(idCard)} */}
+
 
         <EditPanelCard id={idCard} deadline={deadline} />
       </Wrap>

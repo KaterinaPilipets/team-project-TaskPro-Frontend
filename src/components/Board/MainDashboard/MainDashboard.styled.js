@@ -18,15 +18,7 @@ export const BoardContent = styled.div`
   display: flex;
   gap: 18px;
 
-  @media (min-width: 375px) {
-    max-width: 768px;
-  }
-  @media (min-width: 768px) {
-    max-width: 1440px;
-  }
-  @media (min-width: 1440px) {
-    // height: 770px;
-  }
+
 `;
 export const BoardContainer = styled.div`
   padding: 0 20px;
