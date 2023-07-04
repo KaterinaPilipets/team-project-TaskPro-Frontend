@@ -5,10 +5,10 @@ import {
   Svg,
   StyledButton,
 } from 'components/ButtonPrimary/ButtonPrimary.styled';
+
 export const List = styled.ul`
   display: flex;
   gap: 18px;
-  //   margin-left: 24px;
 `;
 export const BoardContent = styled.div`
   overflow-y: hidden;
@@ -18,16 +18,7 @@ export const BoardContent = styled.div`
   display: flex;
   gap: 18px;
 
-  //  align-items: flex-start;
-  // @media (min-width: 375px) {
-  //   max-width: 768px;
-  // }
-  // @media (min-width: 768px) {
-  //   max-width: 1440px;
-  // }
-  // @media (min-width: 1440px) {
-  //   // height: 770px;
-  // }
+
 `;
 export const BoardContainer = styled.div`
   padding: 0 20px;

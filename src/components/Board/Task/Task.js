@@ -41,6 +41,7 @@ export const Task = ({ task }) => {
           <SubText>{formatedDeadline}</SubText>
         </div>
 
+
         <EditPanelCard id={idCard} deadline={deadline} />
       </Wrap>
     </ListItem>

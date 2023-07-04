@@ -21,7 +21,7 @@ const persistConfig = {
   key: 'root',
   // key: 'auth',
   storage,
-  whitelist: ['auth'], // Specify the reducers to be persisted
+  // whitelist: ['auth'], // Specify the reducers to be persisted
   // whitelist: ['token'],
 };
 

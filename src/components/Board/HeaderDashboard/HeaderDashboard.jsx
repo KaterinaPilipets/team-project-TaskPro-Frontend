@@ -1,5 +1,5 @@
 // import { useParams } from 'react-router';
-import { ButtonBoardFilters } from '../ButtonBoardFilters/ButtonBoardFilters';
+import { FIlterButton } from '../FIlterButton/FIlterButton';
 import { HeaderDashboardContainer, BoardTitle } from './HeaderDashboard.styled';
 import { useSelector } from 'react-redux';
 
@@ -15,7 +15,7 @@ export const HeaderDashboard = ({ boardId, handleFilterChange }) => {
   return (
     <HeaderDashboardContainer>
       <BoardTitle>{board.title}</BoardTitle>
-      <ButtonBoardFilters handleFilterChange={handleFilterChange} />
+      <FIlterButton handleFilterChange={handleFilterChange} />
     </HeaderDashboardContainer>
   );
 };
