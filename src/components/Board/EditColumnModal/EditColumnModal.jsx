@@ -11,6 +11,8 @@ import {
   StyledForm,
   StyledFormField,
 } from '../AddColumnModal/AddColumnModal.styled';
+import { useState } from 'react';
+import { ErrorMessageText } from './EditColumnModal.styled';
 // import { useToggleModal } from 'hooks';
 // import { useParams } from 'react-router';
 
@@ -24,19 +26,26 @@ const columnSchema = Yup.object().shape({
 
 export const EditColumnModal = ({ columnId, onClose }) => {
   const dispatch = useDispatch();
-  // const { close } = useToggleModal();
+
   const column = useSelector(state =>
     state.board.columns.find(item => item._id === columnId)
   );
+  const [errorMessage, setErrorMessage] = useState(null);
+
   if (!column) {
     return null;
   }
- 
-  const handleSubmit = ({ title }, { setSubmitting }) => {
+
+  const handleSubmit = async ({ title }, { setSubmitting }) => {
     setSubmitting(true);
-    
-    dispatch(patchColumn({ title, columnId }));
-    onClose();
+
+    const response = await dispatch(patchColumn({ title, columnId }));
+
+    if (response.error) {
+      setErrorMessage(response.payload);
+    } else {
+      onClose();
+    }
   };
 
   return (
@@ -54,6 +63,9 @@ export const EditColumnModal = ({ columnId, onClose }) => {
             <StyledButton type="submit" disabled={isSubmitting}>
               Edit
             </StyledButton>
+            {errorMessage && (
+              <ErrorMessageText>{errorMessage}</ErrorMessageText>
+            )}
           </StyledForm>
         )}
       </Formik>

@@ -41,7 +41,7 @@ export const SubText = styled.p`
 `;
 export const TextHidden = styled.p`
   font-size: var(--fontSize12);
-  line-height: 1.33;
+  line-height: 1.5;
   letter-spacing: -0.24px;
   display: -webkit-box;
   -webkit-line-clamp: 2; // количество строк
