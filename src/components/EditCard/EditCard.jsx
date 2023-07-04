@@ -58,7 +58,7 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
 
   const handleSubmit = async (value, { setSubmitting }) => {
     const isoDate = formatISO(date);
-    console.log(isoDate);
+
     value.deadline = isoDate;
 
     setSubmitting(true);

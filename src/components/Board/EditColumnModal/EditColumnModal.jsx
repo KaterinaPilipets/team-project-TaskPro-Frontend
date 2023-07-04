@@ -31,10 +31,10 @@ export const EditColumnModal = ({ columnId, onClose }) => {
   if (!column) {
     return null;
   }
-  console.log(columnId);
+ 
   const handleSubmit = ({ title }, { setSubmitting }) => {
     setSubmitting(true);
-    console.log(columnId);
+    
     dispatch(patchColumn({ title, columnId }));
     onClose();
   };
