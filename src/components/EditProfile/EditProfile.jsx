@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import sprite from '../../sourse/sprite.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   AvatarImg,
   AvatarWrapper,
@@ -13,10 +14,16 @@ import {
 } from './EditProfile.styled';
 import { StyledButton } from 'components/ButtonPrimary/ButtonPrimary.styled';
 import { updateUserData } from 'redux/auth/authOperations';
+import {
+  PasswordToggle,
+  Svg,
+} from 'components/RegisterForm/RegisterForm.styled';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export const EditProfile = ({ stockAvatar, onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -93,8 +100,26 @@ export const EditProfile = ({ stockAvatar, onClose }) => {
           placeholder={userData.email}
           required
         />
-        <ProfileInput type="passward" name="password" placeholder="*******" />
-        <StyledButton style={{ marginTop: '14px' }}>Send</StyledButton>
+        <label style={{ position: 'relative' }}>
+          <ProfileInput
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            placeholder="*******"
+          />
+          <PasswordToggle onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? (
+              <FontAwesomeIcon icon={faEyeSlash} width="18px" />
+            ) : (
+              <Svg>
+                <use stroke="gray" xlinkHref={`${sprite}#icon-eye`} />
+              </Svg>
+            )}
+          </PasswordToggle>
+        </label>
+
+        <StyledButton style={{ marginTop: '14px', fontWeight: 600 }}>
+          Send
+        </StyledButton>
       </ProfileForm>
     </WindowContaier>
   );
