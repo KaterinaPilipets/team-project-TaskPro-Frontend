@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { ButtonPrimary } from 'components/ButtonPrimary/ButtonPrimary';
+import { breakpoints } from 'constants';
+
 export const List = styled.ul`
   width: 100%;
 
@@ -9,10 +11,17 @@ export const List = styled.ul`
   padding: 0;
   gap: 8px;
   padding-right: 8px;
-  height: calc(100vh - 286px);
+  height: calc(100vh - 318px);
   // max-heigth: calc(100vh-250px);
   // overflow-x: hidden;
   overflow-y: auto;
+
+  @media screen and (min-width: ${breakpoints.M}) {
+    height: calc(100vh - 378px);
+  }
+  @media screen and (min-width: ${breakpoints.L}) {
+    height: calc(100vh - 286px);
+  }
 `;
 export const HeaderColumn = styled.div`
   border-radius: 8px;
