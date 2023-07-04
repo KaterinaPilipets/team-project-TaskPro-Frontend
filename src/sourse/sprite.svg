@@ -23,8 +23,8 @@
 </symbol>
 
 <symbol id="icon-eye" viewBox="0 0 32 32" fill="none">
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M1.333 16c0 0 5.333-10.667 14.667-10.667s14.667 10.667 14.667 10.667c0 0-5.333 10.667-14.667 10.667s-14.667-10.667-14.667-10.667z"></path>
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M16 20c2.209 0 4-1.791 4-4s-1.791-4-4-4c-2.209 0-4 1.791-4 4s1.791 4 4 4z"></path>
+<path fill="none"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M1.333 16c0 0 5.333-10.667 14.667-10.667s14.667 10.667 14.667 10.667c0 0-5.333 10.667-14.667 10.667s-14.667-10.667-14.667-10.667z"></path>
+<path fill="none"   stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M16 20c2.209 0 4-1.791 4-4s-1.791-4-4-4c-2.209 0-4 1.791-4 4s1.791 4 4 4z"></path>
 </symbol>
 
 <symbol id="icon-filter" viewBox="0 0 32 32">
