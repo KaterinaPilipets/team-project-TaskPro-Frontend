@@ -20,8 +20,6 @@ export const TextContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  justify-content: center;
   align-items: center;
 `;
 
@@ -29,21 +27,22 @@ export const StyledText = styled.p`
   text-align: center;
   display: block;
   color: var(--defaultText);
+  padding-top: 280px;
 
   @media screen and (min-width: ${breakpoints.S}) {
-    /* padding-top: 250px; */
+    padding-top: 250px;
     max-width: 355px;
     font-size: var(--fontSize12);
   }
 
   @media screen and (min-width: ${breakpoints.M}) {
-    /* padding-top: 476px; */
+    padding-top: 476px;
     max-width: 580px;
     font-size: var(--fontSize14);
   }
 
   @media screen and (min-width: ${breakpoints.L}) {
-    /* padding-top: 350px; */
+    padding-top: 350px;
     max-width: 505px;
   }
 `;
