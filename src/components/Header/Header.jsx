@@ -16,22 +16,21 @@ import { EditProfile } from 'components/EditProfile';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from 'redux/sidebar/sidebarSlice';
-import { setName } from 'redux/auth/authSelectors';
+import { avatarURL, getTheme, setName } from 'redux/auth/authSelectors';
 import { Modal } from 'components/Modal';
 
 export const Header = () => {
   const { open, close, isOpen } = useToggleModal();
 
-  const currentTheme = useSelector(state => state.theme);
+  const currentTheme = useSelector(getTheme);
   const username = useSelector(setName);
-  const userAvatar = useSelector(state => state.auth.user.avatarURL);
+  const userAvatar = useSelector(avatarURL);
   const dispatch = useDispatch();
 
-  const stockAvatar = userPlaceholder.URL[currentTheme.themeColor];
+  const stockAvatar = userPlaceholder.URL[currentTheme];
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
   };
-
 
   return (
     <>
