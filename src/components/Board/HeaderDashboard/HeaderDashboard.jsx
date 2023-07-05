@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 // title взять из редакса
 
-export const HeaderDashboard = ({ boardId, handleFilterChange }) => {
+export const HeaderDashboard = ({ boardId, handleFilterChange, filter }) => {
   // const { bId } = useParams();
 
   const board = useSelector(state =>
@@ -15,7 +15,7 @@ export const HeaderDashboard = ({ boardId, handleFilterChange }) => {
   return (
     <HeaderDashboardContainer>
       <BoardTitle>{board.title}</BoardTitle>
-      <FIlterButton handleFilterChange={handleFilterChange} />
+      <FIlterButton handleFilterChange={handleFilterChange} filter={filter} />
     </HeaderDashboardContainer>
   );
 };
