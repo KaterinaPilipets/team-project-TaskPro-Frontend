@@ -14,8 +14,8 @@ import themeReducer from './theme/theme-slice';
 import { authReducer } from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
 import { boardsListReducer } from './boards-list/boardsListSlice';
-
 import { boardReducer } from './board/boardSlice';
+import { filterReducer } from './board/filterSlice';
 
 const persistConfig = {
   key: 'root',
@@ -31,6 +31,7 @@ const persistedReducer = persistReducer(
     theme: themeReducer,
     auth: authReducer,
     sidebar: sidebarReducer,
+    filter: filterReducer,
     boardsList: boardsListReducer,
     board: boardReducer,
   })

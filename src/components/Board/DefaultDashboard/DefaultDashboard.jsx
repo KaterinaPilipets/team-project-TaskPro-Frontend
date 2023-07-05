@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getActiveBoard } from 'redux/auth/authSelectors';
 import { openAddBoardModal } from 'redux/sidebar/sidebarSlice';
-// import { FIlterButton } from '../FIlterButton/FIlterButton';
 import {
   StyledContainer,
   StyledLink,
   StyledText,
 } from './DefaultDashboard.styled';
+
 export const DefaultDashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const activeBoard = useSelector(getActiveBoard);
+
   useEffect(() => {
     if (activeBoard) {
       navigate(`${activeBoard}`);
@@ -39,5 +40,3 @@ export const DefaultDashboard = () => {
     )
   );
 };
-
-//add filterchange
