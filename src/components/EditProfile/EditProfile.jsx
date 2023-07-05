@@ -88,16 +88,11 @@ export const EditProfile = ({ stockAvatar, onClose }) => {
         </FileInputWrapper>
       </AvatarWrapper>
       <ProfileForm onSubmit={handleSubmit}>
-        <ProfileInput
-          type="text"
-          name="name"
-          placeholder={userData.name}
-          required
-        />
+        <ProfileInput type="text" name="name" value={userData.name} required />
         <ProfileInput
           type="text"
           name="email"
-          placeholder={userData.email}
+          value={userData.email}
           required
         />
         <label style={{ position: 'relative' }}>
