@@ -25,12 +25,13 @@ import { cards } from 'redux/board/boardSelector';
 
 import { formatISO } from 'date-fns';
 import { editCard } from 'services/board-servises';
+import { getPriorityStyles } from 'helpers';
 
 const labels = [
-  { value: 'without', color: '#FFFFFF4D' },
-  { value: 'low', color: '#8FA1D0' },
-  { value: 'medium', color: '#E09CB5' },
-  { value: 'high', color: '#BEDBB0' },
+  { value: 'low' },
+  { value: 'medium' },
+  { value: 'high' },
+  { value: 'without' },
 ];
 
 const CommentSchema = Yup.object().shape({
@@ -100,18 +101,22 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-              {labels.slice().map(({ name, value, color }) => (
+              {labels.slice().map(({ value }) => (
                 <div style={{ display: 'flex' }} key={value}>
-                  <RadioLabel buttoncolor={color} className="inputlabel">
+                  <RadioLabel
+                    buttoncolor={getPriorityStyles(value)}
+                    className="inputlabel"
+                  >
                     <LabelRadiobutton
-                      buttoncolor={color}
+                      buttoncolor={getPriorityStyles(value)}
                       name="label"
                       type="radio"
                       value={value}
                     />
-                    <Checkmark buttoncolor={color}></Checkmark>
+                    <Checkmark
+                      buttoncolor={getPriorityStyles(value)}
+                    ></Checkmark>
                   </RadioLabel>
-                  <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
                 </div>
               ))}
             </Labels>
