@@ -215,7 +215,7 @@ body[data-theme='dark'] {
   --calendarLineColor: rgba(255, 255, 255, 0.2);
   --calendarDayColor: rgba(255, 255, 255, 0.5);
   --calendarArrowColor: rgba(255, 255, 255, 0.8);
-
+  --calendarMonthColor: #ffffff;
   --calendarNumberColor: #ffffff;
   --calendarNumberLastColor: rgba(255, 255, 255, 0.2);
   --calendarNumberAccentColor: #1f1f1f;
@@ -388,7 +388,7 @@ body[data-theme='light'] {
   --calendarLineColor: rgba(22, 22, 22, 0.2);
   --calendarDayColor: rgba(22, 22, 22, 0.5);
   --calendarArrowColor: rgba(22, 22, 22, 0.8);
-
+  --calendarMonthColor: rgb(16, 16, 16);
   --calendarNumberColor: #161616;
   --calendarNumberLastColor: rgba(22, 22, 22, 0.2);
   --calendarNumberAccentColor: #161616;
@@ -563,7 +563,7 @@ body[data-theme='violet'] {
   --calendarLineColor: rgba(22, 22, 22, 0.2);
   --calendarDayColor: rgba(22, 22, 22, 0.5);
   --calendarArrowColor: rgba(22, 22, 22, 0.8);
-
+  --calendarMonthColor: rgb(16, 16, 16);
   --calendarNumberColor: #161616;
   --calendarNumberLastColor: rgba(22, 22, 22, 0.2);
   --calendarNumberAccentColor: #fcfcfc;

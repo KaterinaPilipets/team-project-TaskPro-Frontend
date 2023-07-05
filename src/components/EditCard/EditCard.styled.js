@@ -36,7 +36,7 @@ export const Textarea = styled(StyledField)`
 `;
 
 export const LabelTitle = styled.p`
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--addCardTextColor);
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 12px;
   font-family: Poppins;
