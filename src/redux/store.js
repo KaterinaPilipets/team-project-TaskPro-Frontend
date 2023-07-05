@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist/es/constants';
-import themeReducer from './theme/theme-slice';
+// import themeReducer from './theme/theme-slice';
 // import setTheme from '../redux/auth/authSlice';
 import { authReducer } from './auth/authSlice';
 import sidebarReducer from './sidebar/sidebarSlice';
@@ -28,7 +28,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
-    theme: themeReducer,
+    // theme: themeReducer,
     auth: authReducer,
     sidebar: sidebarReducer,
     boardsList: boardsListReducer,
