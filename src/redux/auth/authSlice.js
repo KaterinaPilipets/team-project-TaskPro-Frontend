@@ -13,7 +13,13 @@ import {
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { email: '', name: '', avatarURL: '', theme: '', activeBoard: '' },
+    user: {
+      email: '',
+      name: '',
+      avatarURL: '',
+      theme: 'dark',
+      activeBoard: '',
+    },
     token: '',
     isLoggedIn: false,
     isRefreshing: false,
@@ -63,7 +69,7 @@ export const authSlice = createSlice({
       .addCase(updateTheme.fulfilled, (state, { payload }) => {
         state.user.theme = payload.theme;
       })
-           .addCase(updateUserData.fulfilled, (state, { payload }) => {
+      .addCase(updateUserData.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.theme = payload.theme;
@@ -82,7 +88,7 @@ export const authSlice = createSlice({
       })
       .addCase(patchBoard.fulfilled, (state, { payload }) => {
         state.user.activeBoard = payload.activeBoard;
-      }),    
+      }),
 });
 
 export const authReducer = authSlice.reducer;
