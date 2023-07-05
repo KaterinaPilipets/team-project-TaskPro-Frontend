@@ -26,14 +26,17 @@ export const StyledModal = styled.div`
 
   @media (min-width: ${breakpoints.S}) {
     min-width: 335px;
+    max-width: 400px;
   }
 
   @media (min-width: ${breakpoints.M}) {
     min-width: 350px;
+    max-width: 400px;
   }
 
   @media (min-width: ${breakpoints.L}) {
     min-width: 350px;
+    max-width: 400px;
   }
 `;
 
