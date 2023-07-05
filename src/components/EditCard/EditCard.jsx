@@ -10,7 +10,6 @@ import {
   RadioLabel,
   LabelRadiobutton,
   Checkmark,
-
   DedlineTitle,
   ButtonCard,
   Textarea,
@@ -84,7 +83,12 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
       >
         {({ isSubmitting }) => (
           <StyledForm>
-            <StyledField name="title" type="text" placeholder="Title" />
+            <StyledField
+              autoFocus
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
             <ErrorText name="title" component="div" />
 
             <Textarea
@@ -96,7 +100,7 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
 
             <LabelTitle>Label color</LabelTitle>
             <Labels>
-            {labels.slice().map(({ name, value, color }) => (
+              {labels.slice().map(({ name, value, color }) => (
                 <div style={{ display: 'flex' }} key={value}>
                   <RadioLabel buttoncolor={color} className="inputlabel">
                     <LabelRadiobutton
@@ -110,7 +114,7 @@ const EditCard = ({ isOpen, onClose, operationName, id }) => {
                   <p style={{ fontSize: 'var(--fontSize12)' }}>{name}</p>
                 </div>
               ))}
-             </Labels>
+            </Labels>
 
             <DedlineTitle>Deadline</DedlineTitle>
             <TaskCalendar dateChange={onDateChange} initialDate={date} />

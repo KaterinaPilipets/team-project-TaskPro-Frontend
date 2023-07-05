@@ -58,7 +58,12 @@ export const EditColumnModal = ({ columnId, onClose }) => {
       >
         {({ isSubmitting }) => (
           <StyledForm>
-            <StyledFormField type="text" name="title" placeholder="Title" />
+            <StyledFormField
+              autoFocus
+              type="text"
+              name="title"
+              placeholder="Title"
+            />
             <StyledErrorMessage name="title" component="div" />
             <StyledButton type="submit" disabled={isSubmitting}>
               Edit

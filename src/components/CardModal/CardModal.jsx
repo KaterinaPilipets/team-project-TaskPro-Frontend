@@ -76,7 +76,12 @@ const CardModal = ({ isOpen, onClose, operationName, id }) => {
       >
         {({ isSubmitting }) => (
           <StyledForm>
-            <StyledField name="title" type="text" placeholder="Title" />
+            <StyledField
+              autoFocus
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
             <ErrorText name="title" component="div" />
 
             <Textarea

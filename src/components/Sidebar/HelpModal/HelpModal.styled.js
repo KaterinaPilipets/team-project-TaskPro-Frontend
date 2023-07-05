@@ -35,6 +35,7 @@ export const StyledField = styled(Field)`
 
 export const Textarea = styled(StyledField)`
   height: 120px;
+  resize: none;
 `;
 
 export const ButtonHelp = styled.button`

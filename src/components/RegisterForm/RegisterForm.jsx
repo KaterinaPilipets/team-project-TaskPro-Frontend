@@ -79,7 +79,7 @@ function RegistrationPage() {
               </StyledLink>
             </Menu>
             <Inputs>
-              <Field name="name" type="text" placeholder="Name" />
+              <Field autoFocus name="name" type="text" placeholder="Name" />
               <ErrorText name="name" component="div" />
               <Field name="email" type="email" placeholder="Email" />
               <ErrorText name="email" component="div" />

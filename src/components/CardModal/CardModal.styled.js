@@ -32,6 +32,7 @@ export const StyledField = styled(Field)`
 
 export const Textarea = styled(StyledField)`
   height: 120px;
+  resize: none;
 `;
 
 export const LabelTitle = styled.p`
@@ -53,7 +54,6 @@ export const Labels = styled.div`
 export const LabelRadiobutton = styled(Field)``;
 
 export const RadioLabel = styled.label`
-
   width: 14px;
   height: 14px;
   margin-right: 8px;
@@ -75,7 +75,6 @@ export const RadioLabel = styled.label`
 `;
 
 export const Checkmark = styled.span`
-
   width: calc(100%);
   height: calc(100%);
   border-radius: 50%;
