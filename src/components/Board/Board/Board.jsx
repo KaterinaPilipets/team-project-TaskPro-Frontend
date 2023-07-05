@@ -47,6 +47,7 @@ export const Board = () => {
           <HeaderDashboard
             boardId={boardId}
             handleFilterChange={handleFilterChange}
+            filter={filter}
           />
           <MainDashboard filter={filter} />
         </BoardContainer>

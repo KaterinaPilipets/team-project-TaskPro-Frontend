@@ -23,7 +23,7 @@ import {
   LabelCont,
 } from './ModalBoardFilters.styled';
 
-export const ModalBoardFilters = ({ handleFilterChange }) => {
+export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
@@ -82,6 +82,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                 type="radio"
                 value=""
                 onChange={e => handleFilterChange(e.target.value)}
+                checked={filter === ''}
               />
               Show all
             </RadioLabelShowAll>
@@ -94,6 +95,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                   type="radio"
                   value="without"
                   onChange={e => handleFilterChange(e.target.value)}
+                  checked={filter === 'without'}
                 />
                 <Checkmark value="without"></Checkmark>
                 Without priority
@@ -106,6 +108,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                   type="radio"
                   value="low"
                   onChange={e => handleFilterChange(e.target.value)}
+                  checked={filter === 'low'}
                 />
                 <Checkmark value="low"></Checkmark>
                 Low
@@ -118,6 +121,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                   type="radio"
                   value="medium"
                   onChange={e => handleFilterChange(e.target.value)}
+                  checked={filter === 'medium'}
                 />
                 <Checkmark value="medium"></Checkmark>
                 Medium
@@ -130,6 +134,7 @@ export const ModalBoardFilters = ({ handleFilterChange }) => {
                   type="radio"
                   value="high"
                   onChange={e => handleFilterChange(e.target.value)}
+                  checked={filter === 'high'}
                 />
                 <Checkmark value="high"></Checkmark>
                 Hight
