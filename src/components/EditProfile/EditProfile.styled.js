@@ -68,13 +68,14 @@ export const ProfileInput = styled.input`
   border-radius: 8px;
   border: 1px solid var(--profileInputBorderColor);
   background-color: transparent;
-  color: var(--profileInputTextFocus);
+  color: var(--profileInputTextColor);
   font-size: 14px;
   font-weight: 400;
   padding: 14px 0px 14px 18px;
   outline: none;
   &:focus {
     border-color: var(--profileInputBorderFocus);
+    color: var(--profileInputTextFocus);
   }
   &::placeholder {
     color: var(--profileInputTextColor);
