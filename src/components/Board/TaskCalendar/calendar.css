@@ -38,6 +38,14 @@
     top: 18px;
 }
 
+.react-datepicker__navigation {  
+    &:hover {
+    *::before {
+      border-color: var(--calendarNumberAccentBgColor);
+    }
+  }
+}
+
 .react-datepicker__day-names {
     margin-top: 14px;
     padding-top: 14px;

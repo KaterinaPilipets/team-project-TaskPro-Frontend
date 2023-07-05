@@ -48,7 +48,7 @@ export const LabelTitle = styled.p`
 
 export const Labels = styled.div`
   display: flex;
-  gap: 14px;
+  gap: 8px;
 `;
 
 export const LabelRadiobutton = styled(Field)``;
