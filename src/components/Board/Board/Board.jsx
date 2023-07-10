@@ -38,8 +38,10 @@ export const Board = () => {
     <>
       {board && (
         <BoardContainer backgroundImg={bkgImg()}>
+
           <HeaderDashboard boardId={boardId} />
           <MainDashboard />
+
         </BoardContainer>
       )}
     </>

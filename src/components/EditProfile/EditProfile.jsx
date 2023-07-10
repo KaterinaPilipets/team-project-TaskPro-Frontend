@@ -21,9 +21,13 @@ import {
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export const EditProfile = ({ stockAvatar, onClose }) => {
+  const userData = useSelector(state => state.auth.user);
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [profileName, setProfileName] = useState(userData.name);
+  const [profileEmail, setProfileEmail] = useState(userData.email);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,8 +41,6 @@ export const EditProfile = ({ stockAvatar, onClose }) => {
       reader.readAsDataURL(selectedFile);
     }
   }, [selectedFile]);
-
-  const userData = useSelector(state => state.auth.user);
 
   const handleFileChange = event => {
     setSelectedFile(event.target.files[0]);
@@ -91,13 +93,15 @@ export const EditProfile = ({ stockAvatar, onClose }) => {
         <ProfileInput
           type="text"
           name="name"
-          placeholder={userData.name}
+          value={profileName}
+          onChange={e => setProfileName(e.target.value)}
           required
         />
         <ProfileInput
           type="text"
           name="email"
-          placeholder={userData.email}
+          value={profileEmail}
+          onChange={e => setProfileEmail(e.target.value)}
           required
         />
         <label style={{ position: 'relative' }}>

@@ -85,7 +85,7 @@ const EditBoardModal = ({ id, onClose }) => {
         {({ isSubmitting }) => (
           <StyledForm onChange={() => setErrorMessage(null)}>
             <FormField>
-              <StyledField name="title" placeholder="Title" />
+              <StyledField autoFocus name="title" placeholder="Title" />
               <ErrorText name="title" component="div" />
             </FormField>
             <BoardText>Icons</BoardText>

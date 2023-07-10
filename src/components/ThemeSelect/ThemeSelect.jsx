@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { setTheme } from '../../redux/theme/theme-slice';
+// import { setTheme } from '../../redux/theme/theme-slice';
 import {
   StyledSelectWrapper,
   StyledList,
@@ -10,6 +10,7 @@ import {
 } from './ThemeSelect.styled';
 
 import { updateTheme } from 'redux/auth/authOperations';
+import { getTheme } from 'redux/auth/authSelectors';
 
 const themes = [
   { name: 'Light', value: 'light' },
@@ -18,7 +19,8 @@ const themes = [
 ];
 
 const ThemeSelect = () => {
-  const [selectedTheme, setSelectedTheme] = useState('dark');
+  const currentTeme = useSelector(getTheme);
+  const [selectedTheme, setSelectedTheme] = useState(currentTeme);
   const [isThemeOpen, setIsThemeOpen] = useState(false);
 
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ const ThemeSelect = () => {
   const toggleTheme = theme => {
     setSelectedTheme(theme);
     setIsThemeOpen(false);
-    dispatch(setTheme(theme));
+    // dispatch(setTheme(theme));
     dispatch(updateTheme(theme));
   };
 

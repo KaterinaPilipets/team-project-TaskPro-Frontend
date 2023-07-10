@@ -51,6 +51,7 @@ const HelpModal = ({ onClose }) => {
         {({ isSubmitting }) => (
           <StyledForm onChange={() => setErrorMessage(null)}>
             <StyledField
+              autoFocus
               name="email"
               type="email"
               placeholder="Email address"

@@ -23,7 +23,9 @@ import {
 } from './ModalBoardFilters.styled';
 import { setFilter } from 'redux/board/filterSlice';
 
+
 export const ModalBoardFilters = () => {
+
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
@@ -85,7 +87,9 @@ export const ModalBoardFilters = () => {
                 name="labelColor"
                 type="radio"
                 value=""
+
                 onChange={changeFilter}
+
               />
               Show all
             </RadioLabelShowAll>
@@ -97,7 +101,9 @@ export const ModalBoardFilters = () => {
                   name="labelColor"
                   type="radio"
                   value="without"
+
                   onChange={changeFilter}
+
                 />
                 <Checkmark value="without"></Checkmark>
                 Without priority
@@ -109,7 +115,9 @@ export const ModalBoardFilters = () => {
                   name="labelColor"
                   type="radio"
                   value="low"
+
                   onChange={changeFilter}
+
                 />
                 <Checkmark value="low"></Checkmark>
                 Low
@@ -121,7 +129,9 @@ export const ModalBoardFilters = () => {
                   name="labelColor"
                   type="radio"
                   value="medium"
+
                   onChange={changeFilter}
+
                 />
                 <Checkmark value="medium"></Checkmark>
                 Medium
@@ -133,7 +143,9 @@ export const ModalBoardFilters = () => {
                   name="labelColor"
                   type="radio"
                   value="high"
+
                   onChange={changeFilter}
+
                 />
                 <Checkmark value="high"></Checkmark>
                 Hight

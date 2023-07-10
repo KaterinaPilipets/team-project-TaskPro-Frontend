@@ -1,15 +1,9 @@
 import styled from '@emotion/styled';
 export const Container = styled.div`
   width: 100vw;
-  heigth: 100vh;
+  height: 100vh;
   display: flex;
   overflow: hidden;
-  @media (min-width: 375px) {
-  }
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 1440px) {
-  }
 `;
 export const Wrap = styled.div`
   width: '100%';

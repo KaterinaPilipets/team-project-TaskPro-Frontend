@@ -32,10 +32,11 @@ export const StyledField = styled(Field)`
 
 export const Textarea = styled(StyledField)`
   height: 120px;
+  resize: none;
 `;
 
 export const LabelTitle = styled.p`
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--addCardTextColor);
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 12px;
   font-family: Poppins;
@@ -47,17 +48,16 @@ export const LabelTitle = styled.p`
 
 export const Labels = styled.div`
   display: flex;
-  gap: 14px;
+  gap: 8px;
 `;
 
 export const LabelRadiobutton = styled(Field)``;
 
 export const RadioLabel = styled.label`
-
   width: 14px;
   height: 14px;
   margin-right: 8px;
-  border: 2px solid ${props => props.buttoncolor};
+  border: 2px solid ${props => props.buttoncolor.color};
 
   border-radius: 50%;
   display: flex;
@@ -75,18 +75,17 @@ export const RadioLabel = styled.label`
 `;
 
 export const Checkmark = styled.span`
-
   width: calc(100%);
   height: calc(100%);
   border-radius: 50%;
-  background-color: ${props => props.buttoncolor};
+  background-color: ${props => props.buttoncolor.color};
   display: inline-block;
   opacity: 1;
   transition: opacity 0.25s ease;
 `;
 
 export const DedlineTitle = styled.p`
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--addCardTextColor);
   font-size: 12px;
   font-family: Poppins;
   font-style: normal;

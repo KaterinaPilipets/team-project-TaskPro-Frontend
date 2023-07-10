@@ -4,7 +4,9 @@ import icon from 'sourse/sprite.svg';
 import { BoardModal } from '../BoardModal/BoardModal.jsx';
 import { Button, SvgIcon } from './FIlterButton.styled.js';
 
+
 export const FIlterButton = () => {
+
   const { open, close, isOpen } = useToggleModal();
 
   return (
