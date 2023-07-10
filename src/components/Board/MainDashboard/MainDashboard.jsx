@@ -1,10 +1,9 @@
 import { ColumnTask } from 'components/Board/ColumnTask/ColumnTask';
-// import { ButtonPrimary } from 'components/ButtonPrimary';
 import { useToggleModal } from 'hooks';
 import { AddColumnModal } from '../AddColumnModal';
 import { Modal } from 'components/Modal';
 import { useSelector } from 'react-redux';
-import { board } from 'redux/board/boardSelector';
+import { board, filter } from 'redux/board/boardSelector';
 import {
   List,
   BoardContainer,
@@ -13,22 +12,22 @@ import {
   StyledIconAddColumn,
   StyledSvgAddColumn,
 } from './MainDashboard.styled';
-import icon from '../../../sourse/sprite.svg';
+import icon from 'sourse/sprite.svg';
 
-export const MainDashboard = ({ filter }) => {
+export const MainDashboard = () => {
   const { isOpen, close, open } = useToggleModal();
   let result = useSelector(board);
+  let labelFilter = useSelector(filter);
 
   const filteredCards = result.cards.filter(card => {
-    if (filter === '') {
+    if (labelFilter === '') {
       return result.cards;
     }
-    return card.label === filter;
+    return card.label === labelFilter;
   });
 
   return (
     <BoardContainer>
-      {/* render if have board: */}
       {result && (
         <BoardContent>
           <List>

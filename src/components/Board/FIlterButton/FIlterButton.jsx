@@ -4,7 +4,9 @@ import icon from 'sourse/sprite.svg';
 import { BoardModal } from '../BoardModal/BoardModal.jsx';
 import { Button, SvgIcon } from './FIlterButton.styled.js';
 
-export const FIlterButton = ({ handleFilterChange, filter }) => {
+
+export const FIlterButton = () => {
+
   const { open, close, isOpen } = useToggleModal();
 
   return (
@@ -20,13 +22,9 @@ export const FIlterButton = ({ handleFilterChange, filter }) => {
           <ModalBoardFilters
             title={'111'}
             boardId={'64a152c1d874b931a608b6fe'}
-            handleFilterChange={handleFilterChange}
-            filter={filter}
           />
         </BoardModal>
       )}
     </>
   );
 };
-
-// ButtonBoardFilters

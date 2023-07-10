@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editBoard } from 'services/boardslist-services';
 import { bgs } from 'sourse/bgs';
 import icon from 'sourse/sprite.svg';
-
 import {
   FiltersTitle,
   BackgroundTitle,
@@ -22,8 +21,11 @@ import {
   Line,
   LabelCont,
 } from './ModalBoardFilters.styled';
+import { setFilter } from 'redux/board/filterSlice';
 
-export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
+
+export const ModalBoardFilters = () => {
+
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
@@ -31,9 +33,13 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
     state.boardsList.items.find(item => item._id === boardId)
   );
 
-  const handleSubmit = async background => {
-    const value = { title: board.title, background };
+  const handleSubmit = async e => {
+    const value = { title: board.title, background: e.target.value };
     await dispatch(editBoard({ id: board._id, value }));
+  };
+
+  const changeFilter = e => {
+    dispatch(setFilter(e.target.value));
   };
 
   return (
@@ -49,7 +55,7 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                 name="background"
                 type="radio"
                 value="empty"
-                onChange={e => handleSubmit(e.target.value)}
+                onChange={handleSubmit}
               />
               <NoImgCont>
                 <SvgIcon width="16" height="16">
@@ -63,7 +69,7 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                   name="background"
                   type="radio"
                   value={id}
-                  onChange={e => handleSubmit(e.target.value)}
+                  onChange={handleSubmit}
                 />
                 <BackgroundImgCont>
                   <BackgroundImg alt={bgname} src={URL.icon} />
@@ -81,8 +87,9 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                 name="labelColor"
                 type="radio"
                 value=""
-                onChange={e => handleFilterChange(e.target.value)}
-                checked={filter === ''}
+
+                onChange={changeFilter}
+
               />
               Show all
             </RadioLabelShowAll>
@@ -94,8 +101,9 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                   name="labelColor"
                   type="radio"
                   value="without"
-                  onChange={e => handleFilterChange(e.target.value)}
-                  checked={filter === 'without'}
+
+                  onChange={changeFilter}
+
                 />
                 <Checkmark value="without"></Checkmark>
                 Without priority
@@ -107,8 +115,9 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                   name="labelColor"
                   type="radio"
                   value="low"
-                  onChange={e => handleFilterChange(e.target.value)}
-                  checked={filter === 'low'}
+
+                  onChange={changeFilter}
+
                 />
                 <Checkmark value="low"></Checkmark>
                 Low
@@ -120,8 +129,9 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                   name="labelColor"
                   type="radio"
                   value="medium"
-                  onChange={e => handleFilterChange(e.target.value)}
-                  checked={filter === 'medium'}
+
+                  onChange={changeFilter}
+
                 />
                 <Checkmark value="medium"></Checkmark>
                 Medium
@@ -133,8 +143,9 @@ export const ModalBoardFilters = ({ handleFilterChange, filter }) => {
                   name="labelColor"
                   type="radio"
                   value="high"
-                  onChange={e => handleFilterChange(e.target.value)}
-                  checked={filter === 'high'}
+
+                  onChange={changeFilter}
+
                 />
                 <Checkmark value="high"></Checkmark>
                 Hight
